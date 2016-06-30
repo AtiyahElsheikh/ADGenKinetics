@@ -673,7 +673,7 @@ printing and shipping costs may be recovered.</p>
    type AffinityConst = Real (unit = "mol/m3");
     annotation (Documentation(info="<html>
 <p>This subpackage contains basic physical units describing main entitites of a biochemical reaction network model. </p>
-<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
   end Units;
@@ -755,7 +755,7 @@ printing and shipping costs may be recovered.</p>
       end TwoWay;
       annotation (Documentation(info="<html>
 <p>This subpackage contains basic interfaces describing the reversibility of a reaction</p>
-<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end Reversible;
@@ -895,8 +895,8 @@ printing and shipping costs may be recovered.</p>
         annotation (Icon(graphics));
       end Reaction1I;
       annotation (Documentation(info="<html>
-<p>This subpackage contains basic icons for nodes and reactions. The nodes and the reactions are declared with a &QUOT;static&QUOT; fixed number of connectors.  </p>
-<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p>This subpackage contains basic icons for nodes and reactions. The nodes and the reactions are declared with a &quot;static&quot; fixed number of connectors.  </p>
+<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end static;
@@ -925,7 +925,7 @@ printing and shipping costs may be recovered.</p>
         annotation (Documentation(info="<html>
 <p>This subpackage contains basic interface for specifying the dimension of the reaction, see <a href=\"GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension</a> . Out of this interface, specialized reaction types can be created as a syntactic sugar, e.g. <a href=\"GenKinetics.Interfaces.dynamic.Dimension.UniUni\">GenKinetics.Interfaces.dynamic.Dimension.UniUni</a> . </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 <p><h4>Package Content</h4></p>
 </html>"));
@@ -958,7 +958,7 @@ printing and shipping costs may be recovered.</p>
         annotation (Documentation(info="<html>
 <p>This subpackage contains basic interface for specifying the structure of a reaction, i.e. its dimension and reversibility see <a href=\"GenKinetics.Interfaces.dynamic.Dimension.ReactionStructure\">GenKinetics.Interfaces.dynamic.Dimension.ReactionStructure</a> . Out of this interface, specialized reaction types can be created as a syntactic sugar, e.g. <a href=\"GenKinetics.Interfaces.dynamic.Dimension.StrOneWay\">GenKinetics.Interfaces.dynamic.Dimension.StrOneWay</a> . </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
       end Structure;
@@ -977,9 +977,9 @@ printing and shipping costs may be recovered.</p>
         annotation (Icon(graphics));
       end NodeConnections;
       annotation (Documentation(info="<html>
-<p>This subpackage contains basic interfaces for nodes and reactions. The nodes and the reactions are declared with a &QUOT;dynamic&QUOT; parameterized number of connectors. </p>
+<p>This subpackage contains basic interfaces for nodes and reactions. The nodes and the reactions are declared with a &quot;dynamic&quot; parameterized number of connectors. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 <p><b><font style=\"font-size: 19pt; \">Package Content</b></p>
 </html>"));
@@ -987,7 +987,7 @@ printing and shipping costs may be recovered.</p>
 
     annotation (Documentation(info="<html>
 <p>This subpackage contains all interfaces, abstract models, connectors etc. utilized by the components of the library. </p>
-<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>", revisions="<html>
 </html>"));
@@ -1049,7 +1049,7 @@ printing and shipping costs may be recovered.</p>
       annotation (Documentation(info="<html>
 <p>This subpackage contains implmentation for nodes, chemical substances, which can be connected to arbitrary number of reactions. Typically the component <a href=\"GenKinetics.NodeElements.dynamic.Node\">GenKinetics.NodeElements.dynamic.Node</a> is the one which will be used at most. The component <a href=\"GenKinetics.NodeElements.dynamic.ModifierNode\">GenKinetics.NodeElements.dynamic.ModifierNode</a> is exactly the same and does not really provide additional functionalities (it is here only for backword compatibility reasons with older versions of this implementation). This component will mostly get removed in later versions. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end dynamic;
@@ -1114,14 +1114,14 @@ printing and shipping costs may be recovered.</p>
       annotation (Documentation(info="<html>
 <p>This subpackage contains implmentation for nodes, chemical substances, which provides a fixed number of connections to reactions. Typically the component <a href=\"GenKinetics.NodeElements.static.Node\">GenKinetics.NodeElements.static.Node</a> is the one which will be used at most. The component <a href=\"GenKinetics.NodeElements.static.ModifierNode\">GenKinetics.NodeElements.static.ModifierNode</a> is exactly the same and does not really provide additional functionalities (it is here only for backword compatibility reasons with older versions of this implementation). This component will mostly get removed in later versions. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end static;
     annotation (Documentation(info="<html>
 <p>This subpackage contains components for chemical substances. Additional substances are also provided in other implementations of the Biochem library.</p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
   end NodeElements;
@@ -1326,7 +1326,7 @@ printing and shipping costs may be recovered.</p>
         annotation (Documentation(info="<html>
 <p>This subpackage contains components for reactions with arbitrary number of substrates, products and effectors. It is suitable for textual implementation and automatic model generation. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
       end dynamic;
@@ -1521,7 +1521,7 @@ printing and shipping costs may be recovered.</p>
           annotation (Documentation(info="<html>
 <p>This subpackage contains components for reactions with fixed specified number of substrates, products and effectors.</p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
         end basics;
@@ -1620,7 +1620,7 @@ printing and shipping costs may be recovered.</p>
         annotation (Documentation(info="<html>
 <p>This subpackage contains components for reactions with fixed specified number of substrates, products and effectors.</p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
       end static;
@@ -1628,7 +1628,7 @@ printing and shipping costs may be recovered.</p>
       annotation (Documentation(info="<html>
 <p>This subpackage contains implementations for convenience kinetics. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end convenience;
@@ -1637,14 +1637,14 @@ printing and shipping costs may be recovered.</p>
       annotation (Documentation(info="<html>
 <p>This subpackage should contains implementation for linlog kinetics.  This is left to the user. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end linlog;
     annotation (Documentation(info="<html>
 <p>This subpackage contains implementations for reactions using generalized simplified kinetic formats. Currently only convenience kinetics are implemented. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
   end Reactions;
@@ -1926,7 +1926,7 @@ printing and shipping costs may be recovered.</p>
     annotation (Documentation(info="<html>
 <p>This subpackage contains examples of typical metablic pathway models.</p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
   end Examples;
@@ -2030,7 +2030,7 @@ printing and shipping costs may be recovered.</p>
         annotation (Documentation(info="<html>
 <p>This subpackage contains basic interfaces describing the reversibility of a reaction</p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
       end Reversible;
@@ -2055,7 +2055,7 @@ printing and shipping costs may be recovered.</p>
           annotation (Documentation(info="<html>
 <p>This subpackage contains basic interface for specifying the dimension of the reaction, see <a href=\"GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension</a> . Out of this interface, specialized reaction types can be created as a syntactic sugar, e.g. <a href=\"GenKinetics.Interfaces.dynamic.Dimension.UniUni\">GenKinetics.Interfaces.dynamic.Dimension.UniUni</a> . </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
         end Dimension;
@@ -2074,9 +2074,9 @@ printing and shipping costs may be recovered.</p>
           annotation (Icon(graphics));
         end NodeConnections;
         annotation (Documentation(info="<html>
-<p>This subpackage contains basic interfaces for nodes and reactions. The nodes and the reactions are declared with a &QUOT;dynamic&QUOT; parameterized number of connectors. </p>
+<p>This subpackage contains basic interfaces for nodes and reactions. The nodes and the reactions are declared with a &quot;dynamic&quot; parameterized number of connectors. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
       end dynamic;
@@ -2084,7 +2084,7 @@ printing and shipping costs may be recovered.</p>
       annotation (Documentation(info="<html>
 <p>This subpackage contains all interfaces, abstract models, connectors etc. utilized by the components of the library. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end Interfaces;
@@ -2141,7 +2141,7 @@ printing and shipping costs may be recovered.</p>
         annotation (Documentation(info="<html>
 <p>This subpackage contains implmentation for nodes, chemical substances, which can be connected to arbitrary number of reactions. Typically the component <a href=\"GenKinetics.Derivatives.NodeElements.dynamic.Node\">GenKinetics.Derivatives.NodeElements.dynamic.Node</a> is the one which will be used at most. The component <a href=\"GenKinetics.Derivatives.NodeElements.dynamic.ModifierNode\">GenKinetics.Derivatives.NodeElements.dynamic.ModifierNode</a> is exactly the same and does not really provide additional functionalities (it is here only for backword compatibility reasons with older versions of this implementation). This component will mostly get removed in later versions. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
       end dynamic;
@@ -2149,7 +2149,7 @@ printing and shipping costs may be recovered.</p>
       annotation (Documentation(info="<html>
 <p>This subpackage contains components for chemical substances. Additional substances are also provided in other implementations of the Biochem library.</p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end NodeElements;
@@ -2424,7 +2424,7 @@ printing and shipping costs may be recovered.</p>
             annotation (Documentation(info="<html>
 <p>This subpackage is exactly like the parent subpackage <a href=\"GenKinetics.Derivatives.Reaction.convenience.dynamic\">GenKinetics.Derivatives.Reaction.convenience.dynamic</a> . The components are simplified, processed in away to make algorithmic differentiation techniques easily applicables. It is useful for testing purposes, to ensure that the deriviated intermidiate formats are correct. </p>
 <p><br/>Equations for parameter senstivities are computed by applying algorithmic differentiation techniques on the simplified version of the original part <a href=\"GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate \">GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate </a></p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
           end intermidiate;
@@ -2712,9 +2712,9 @@ printing and shipping costs may be recovered.</p>
           annotation (Documentation(info="<html>
 <p>This subpackage contains components for reactions with arbitrary number of substrates, products and effectors. It is suitable for textual implementation and automatic model generation. Equations for parameter senstivities are computed by applying algorithmic differentiation techniques on the simplified version of the original part <a href=\"GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate \">GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate </a></p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p><p>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
         end dynamic;
@@ -2985,7 +2985,7 @@ printing and shipping costs may be recovered.</p>
             annotation (Documentation(info="<html>
 <p>This subpackage is exactly like the parent subpackage <a href=\"GenKinetics.Derivatives.Reaction.convenience.dynamic\">GenKinetics.Derivatives.Reaction.convenience.dynamic</a> . The components are simplified, processed in away to make algorithmic differentiation techniques easily applicables. It is useful for testing purposes, to ensure that the deriviated intermidiate formats are correct. </p>
 <p><br/>Equations for parameter senstivities are computed by applying algorithmic differentiation techniques on the simplified version of the original part <a href=\"GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate \">GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate </a></p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
           end intermidiate;
@@ -3266,14 +3266,14 @@ printing and shipping costs may be recovered.</p>
           annotation (Documentation(info="<html>
 <p>This subpackage contains components for reactions with arbitrary number of substrates, products and effectors. It is suitable for textual implementation and automatic model generation. Equations for parameter senstivities are computed by applying algorithmic differentiation techniques on the simplified version of the original part <a href=\"GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate \">GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate </a>. The main difference between this subpackage and the subpackage GenKinetics.Derivatives.Reactions.convenience.dynamic is that the derivatives of intermidiate variables, carrying out intermidiate computations, are not subject to elemenation.</p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
         end dynamic_adtemp;
         annotation (Documentation(info="<html>
 <p>This subpackage contains implementations for convenience kinetics. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
       end convenience;
@@ -3281,7 +3281,7 @@ printing and shipping costs may be recovered.</p>
       annotation (Documentation(info="<html>
 <p>This subpackage contains implementations for reactions using generalized simplified kinetic formats. Currently only convenience kinetics are implemented. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end Reactions;
@@ -3540,7 +3540,7 @@ printing and shipping costs may be recovered.</p>
       annotation (Documentation(info="<html>
 <p>This subpackage contains examples of typical metablic pathway models.</p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end Examples;
@@ -3563,7 +3563,7 @@ printing and shipping costs may be recovered.</p>
     annotation (Documentation(info="<html>
 <p>This subpackage contains of a copy of the whole library. Components describe the original behavior together with parameter sensitivities. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
   end Derivatives;
@@ -3571,7 +3571,7 @@ printing and shipping costs may be recovered.</p>
   annotation (uses(Modelica(version="3.2")), Documentation(info="<html>
 <p>This package contains an implementation of generalized simplified kinetic formats following the guidelines recommended by the <a href=\"https://modelica.org/publications/papers/2005-05-LarsdotterNilsson-Fritzson-BioMedSim2005-MetabolicModeling.pdf\">Biochem library</a>. Matabolic reaction networks can be easily assembled using a few number of reaction kinetics. Constructed models can also be used for computing parameter sensitivities with little modifications to the used interfaces and by initializing the input Jacobian, i.e. the parameters w.r.t. derivatives are sought. </p>
 <p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &LT;2011&GT;-&LT;2012&GT;, &LT;Atiyah Elsheikh&GT;. </p>
+<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>", revisions="<html>
 <p>r12: a package for parameter sensitivities inserted</p>
