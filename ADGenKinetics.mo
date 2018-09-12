@@ -663,20 +663,21 @@ printing and shipping costs may be recovered.</p>
   end UsersGuide;
 
   package Units "Physical units"
-   type Concentration = Real (unit = "mol/m3");
-   type MolarFlowRate = Real (unit = "mol/s");
-   type ReactionCoef = Real (unit = "1/s");
-   type StoichiometricCoef = Real (unit = "1");
+   type Concentration = Real (final unit = "mol/m3",min = 0);
+   type MolarFlowRate = Real (final unit = "mol/s");
+   type ReactionCoef = Real (final unit = "1/s");
+   type StoichiometricCoef = Real (final unit = "1");
    type ReactionCoef1st = Units.ReactionCoef;
-   type ReactionCoef2nd = Real (unit = "m3/(mol.s)");
-   type VolumetricReactionRate = Real (unit = "mol/(m3.s)");
-   type AffinityConst = Real (unit = "mol/m3");
+   type ReactionCoef2nd = Real (final unit = "m3/(mol.s)");
+   type VolumetricReactionRate = Real (final unit = "mol/(m3.s)");
+   type AffinityConst = Real (final unit = "mol/m3");
     annotation (Documentation(info="<html>
 <p>This subpackage contains basic physical units describing main entitites of a biochemical reaction network model. </p>
 <p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
   end Units;
+
 
   package Interfaces "Typical interfaces"
     connector ChemicalPort
