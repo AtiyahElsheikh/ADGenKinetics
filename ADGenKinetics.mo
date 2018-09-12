@@ -9,7 +9,7 @@ package ADGenKinetics
       extends Modelica.Icons.Information;
       annotation(
         Documentation(info = "<html>
-<p><img src=\"modelica://ADGenKinetics/icons/logo.jpg\"/></p>
+<p><img src=\"icons/logo.jpg\"/></p>
 <p><br/><h4><font color=\"#008000\">About</font></h4></p>
 <p><br/><i>ADGenKinetics</i> contains an implementation of a specific set of reaction kinetics, namely, generalized simplified kinetic formats. It follows many of the guidelines recommended by the <a href=\"https://modelica.org/publications/papers/2005-05-LarsdotterNilsson-Fritzson-BioMedSim2005-MetabolicModeling.pdf\">Biochem library</a>. The underlying simplified kinetics formats are represented by generalized structured kinetics formulas suitable for arbitrary biochemical reactions with arbitrary number of substrates, products, inhibitors and activators. In this way, matabolic reaction networks can be easily assembled using a few number of reaction kinetics.</p>
 <p><i>ADGenKinetics</i> is the first algorithmically differentiated Modelica library. Constructed models can also be used for computing parameter sensitivities with little modifications to the used interfaces and by initializing the input Jacobian, i.e. the parameters w.r.t. derivatives are sought. </p>
@@ -78,6 +78,7 @@ ADGenKinetics.Derivatives.Reactions.convenience\">ADGenKinetics.Derivatives.Reac
 </html>"));
     end Overview;
 
+
     model Contributors
       extends Modelica.Icons.Information;
       annotation(
@@ -90,14 +91,8 @@ ADGenKinetics.Derivatives.Reactions.convenience\">ADGenKinetics.Derivatives.Reac
     model Contact
       extends Modelica.Icons.Contact;
       annotation(
-        Documentation(info = "<html>
-<p>Atiyah Elsheikh </p>
-<p>Austrian Institute of Technology GmbH</p>
-<p>Giefinggasse 2</p>
-<p>1210 Vienna</p>
-<p>Austria</p>
-<p>email: <a href=\"Atiyah.Elsheikh@ait.ac.at\">Atiyah.Elsheikh@ait.ac.at</a> / <a href=\"a.m.g.elsheikh@gmail.com\">a.m.g.elsheikh@gmail.com</a></p>
-</html>"));
+        Documentation(info = "<html><head></head><body><p>Atiyah Elsheikh :&nbsp;<a href=\"a.m.g.elsheikh@gmail.com\">a.m.g.elsheikh-at-gmail.com</a></p>
+</body></html>"));
     end Contact;
 
     class ModelicaLicense2 "Modelica License 2"
@@ -3509,7 +3504,6 @@ printing and shipping costs may be recovered.</p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
   end Derivatives;
-
   annotation (uses(Modelica(version="3.2")), Documentation(info="<html>
 <p>This package contains an implementation of generalized simplified kinetic formats following the guidelines recommended by the <a href=\"https://modelica.org/publications/papers/2005-05-LarsdotterNilsson-Fritzson-BioMedSim2005-MetabolicModeling.pdf\">Biochem library</a>. Matabolic reaction networks can be easily assembled using a few number of reaction kinetics. Constructed models can also be used for computing parameter sensitivities with little modifications to the used interfaces and by initializing the input Jacobian, i.e. the parameters w.r.t. derivatives are sought. </p>
 <p><br/>Licensed under the Modelica License 2</p>
