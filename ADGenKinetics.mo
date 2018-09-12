@@ -2,6 +2,672 @@ within ;
 package ADGenKinetics
   "Implementation of generalized kinetics for modeling biochemical reaction networks"
 
+  package UsersGuide "User Guide"
+    extends Modelica.Icons.Information;
+
+    model Overview
+      extends Modelica.Icons.Information;
+      annotation(
+        Documentation(info = "<html>
+<p><img src=\"modelica://ADGenKinetics/icons/logo.jpg\"/></p>
+<p><br/><h4><font color=\"#008000\">About</font></h4></p>
+<p><br/><i>ADGenKinetics</i> contains an implementation of a specific set of reaction kinetics, namely, generalized simplified kinetic formats. It follows many of the guidelines recommended by the <a href=\"https://modelica.org/publications/papers/2005-05-LarsdotterNilsson-Fritzson-BioMedSim2005-MetabolicModeling.pdf\">Biochem library</a>. The underlying simplified kinetics formats are represented by generalized structured kinetics formulas suitable for arbitrary biochemical reactions with arbitrary number of substrates, products, inhibitors and activators. In this way, matabolic reaction networks can be easily assembled using a few number of reaction kinetics.</p>
+<p><i>ADGenKinetics</i> is the first algorithmically differentiated Modelica library. Constructed models can also be used for computing parameter sensitivities with little modifications to the used interfaces and by initializing the input Jacobian, i.e. the parameters w.r.t. derivatives are sought. </p>
+<p><br/><b><font style=\"color: #008000; \">Structure of the Library</font></b></p>
+<p><br/>The following packages are available: </p>
+<p><ul>
+<li><i>Interfaces</i>: connectors and icons </li>
+<li><i>NodeElements</i>: interfaces and components for nodes </li>
+<li><i>Reactions</i>: interfaces and components for reactions </li>
+<li><i>Derivatives</i>: for computing parameter sensitivities</li>
+<li><i>Examples</i>: biochemical network models</li>
+</ul></p>
+<p>Further two subpackages within <i>NodeElements</i> and <i>Reactions</i> exist corresponding to two ways of declaration of connectors within components: </p>
+<p><ul>
+<li><i>dynamic</i>: dynamic parameterized number of connections </li>
+<li><i>static</i>: static fixed number of connections </li>
+</ul></p>
+<p><br/>The main differences of both ways and their advantages and disadvantages are emphasized in this section along with the given examples. </p>
+<p>Common interfaces and abstract classes are located above these packages. </p>
+<p><h4><font color=\"#008000\">Connections</font></h4></p>
+<p><br/>That is concentration of a substance is the potential variable while the flow rate of materials (i.e. the chemical transformation process) represents the flow variables when connecting nodes and reactions together, cf. <i><a href=\"GenKinetics.Interfaces.ChemicalPort\">ADGenKinetics.Interfaces.ChemicalPort</a></i>. Further subtypes of connectors exist: </p>
+<p><ul>
+<li><i><a href=\"
+GenKinetics.Intefaces.ChemicalPort_S\">ADGenKinetics.Intefaces.ChemicalPort_S</a></i>: for reactions from the substrate side</li>
+<li><i><a href=\"
+GenKinetics.Interfaces.ChemicalPort_P\">ADGenKinetics.Interfaces.ChemicalPort_P</a></i>: for reactions from the product side</li>
+<li><i><a href=\"
+GenKinetics.Interfaces.ModifierChemicalPort\">ADGenKinetics.Interfaces.ModifierChemicalPort</a></i>: connecting reactions and effector nodes</li>
+<li><i><a href=\"
+GenKinetics.Interfaces.MModifierChemicalPort_I\">ADGenKinetics.Interfaces.ModifierChemicalPort_I</a></i>: for inhibiting reactions</li>
+<li><i><a href=\"
+GenKinetics.Interfaces.MModifierChemicalPort_A\">ADGenKinetics.Interfaces.MModifierChemicalPort_A</a></i>: for activating reactions<br/></li>
+</ul></p>
+<p><h4><font color=\"#008000\">Interfaces and abstract classes</font></h4></p>
+<p><br/>Further interfaces and abstract classes are used within implemented reactions for simplifying their implementations and emphasizing their classification. The most important of which are: </p>
+<p><i><a href=\"ADGenKinetics.Interfaces.Reversible.ReactionReversibility\">ADGenKinetics.Interfaces.Reversible.ReactionReversibility</a></i>: for determining the reversibility of reactions. The extended interfaces OneWay, TwoWay are used for irreversible, reversible reactions, respectively:</p>
+<p><ul>
+<li><i><a href=\"
+GenKinetics.Interfaces.static.NodeConnections\">ADGenKinetics.Interfaces.static.NodeConnections</a></i>: fixed number of connections for nodes</li>
+<li><i><a href=\"
+GenKinetics.Interfaces.dynamic.NodeConnections\">ADGenKinetics.Interfaces.dynamic.NodeConnections</a></i>: parameterized number of connections for nodes.</li>
+<li><i><a href=\"
+GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension</a></i>: parameterized number of connections for nodes. This interface can be used for specializing further classes of specific dimension, e.g. <i><a href=\"
+GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">ADGenKinetics.Interfaces.dynamic.Dimension.UniUni</a> .</i> </li>
+<li><i><a href=\"
+GenKinetics.Interfaces.static\">ADGenKinetics.Interfaces.static</a></i>.{<i><a href=\"GenKinetics.Interfaces.static.Reaction1S\">ReactionXS</a>, <a href=\"
+GenKinetics.Interfaces.static.Reaction2P\">ReactionXP</a></i>, <i><a href=\"
+GenKinetics.Interfaces.static.Reaction1I\">ReactionXI</a>,</i> <i><a href=\"Reaction1A\">ReactionXA</a></i>}: icons and connections for reactions with X number of connections.</li>
+</ul></p>
+<p><h4><font color=\"#008000\">Nodes</font></h4></p>
+<p><br/>Typically, the component <i><a href=\"GenKinetics.NodeElements.dynamic.Node\">ADGenKinetics.NodeElements.dynamic.Node</a></i> or <i><a href=\"GenKinetics.NodeElements.static.Node\">ADGenKinetics.NodeElements.static.Node</a> </i>is the basic one needed for constructing biochemical reaction networks. Further types can be also imported from available implementation of the Biochem library. </p>
+<p><h4><font color=\"#008000\">Reactions </font></h4></p>
+<p><br/>Reaction kinetics are available in the packages<i><a href=\" ADGenKinetics.Reactions.convenience.\"> </a><a href=\" ADGenKinetics.Reactions.convenience\">ADGenKinetics.Reactions.convenience</a><a href=\" ADGenKinetics.Reactions.convenience.\">.</a>{<a href=\"ADGenKinetics.Reactions.convenience.dynamic\">dynamic</a></i>.<i><a href=\"ADGenKinetics.Reactions.convenience.static\">static</a></i>}. </p>
+<p><br/>For instance,<i><a href=\" ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic\"> ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic</a></i> is used for irreversible reactions with arbitrary number of substrates and products, while <i><a href=\"ADGenKinetics.Reactions.convenience.dynamic.InhRevKinetic\">ADGenKinetics.Reactions.convenience.dynamic.InhRevKinetic</a></i> for reversible inhibited reactions with arbitrary number of substrates, products and inhibitors. </p>
+<p><br/>Static packages provide reaction kinetics with fixed reaction structure. For instance <i><a href=\"ADGenKinetics.Reactions.convenience.static.IrrKinetic2S1P1I\">ADGenKinetics.Reactions.convenience.static.IrrKinetic2S1P1I</a></i>. </p>
+<p><br/>Examples of constructing biochemical networks are given in <i><a href=\"GenKinetics.Examples.Spirallusdyn\">ADGenKinetics.Examples.Spirallusdyn</a> and <a href=\"GenKinetics.Examples.Spirallustatic\">ADGenKinetics.Examples.Spirallustatic</a>. </i></p>
+<p><h4><font color=\"#008000\">Computation of parameter sensitivities</font></h4></p>
+<p><br/>Given a biochemical reaction network model, the same model can be used for computing parameter sensitivities by additional slight modification in the declaration part: </p>
+<p><ol>
+<li>Importing <i><a href=\"
+ADGenKinetics.Derivatives.NodeElements.*\">ADGenKinetics.Derivatives.NodeElements.*</a></i> and <i><a href=\"
+ADGenKinetics.Derivatives.Reactions.convenience\">ADGenKinetics.Derivatives.Reactions.convenience.*</a></i> types for nodes and reaction kinetics.</li>
+<li>Initializing the input Jacobian specifying active parameter with respect to which derivatives are sought. </li>
+</ol></p>
+<p>For instance compare the model given in <i><a href=\"GenKinetics.Examples.Spirallusdyn\">ADGenKinetics.Examples.Spirallusdyn</a> with <a href=\"GenKinetics.Derivatives.Examples.SpirallusdynAll \">ADGenKinetics.Derivatives.Examples.SpirallusdynAll </a></i></p>
+</html>"));
+    end Overview;
+
+    model Contributors
+      extends Modelica.Icons.Information;
+      annotation(
+        Documentation(info = "<html>
+<p>Author: Atiyah Elsheikh </p>
+<p>Contact details: <i><a href=\"ADGenKinetics.UsersGuide.Contact\">ADGenKinetics.UsersGuide.Contact</a></i></p>
+</html>"));
+    end Contributors;
+
+    model Contact
+      extends Modelica.Icons.Contact;
+      annotation(
+        Documentation(info = "<html>
+<p>Atiyah Elsheikh </p>
+<p>Austrian Institute of Technology GmbH</p>
+<p>Giefinggasse 2</p>
+<p>1210 Vienna</p>
+<p>Austria</p>
+<p>email: <a href=\"Atiyah.Elsheikh@ait.ac.at\">Atiyah.Elsheikh@ait.ac.at</a> / <a href=\"a.m.g.elsheikh@gmail.com\">a.m.g.elsheikh@gmail.com</a></p>
+</html>"));
+    end Contact;
+
+    class ModelicaLicense2 "Modelica License 2"
+      extends Modelica.Icons.Information;
+      annotation(
+        Documentation(info = "<html>
+<head>
+	<title>The Modelica License 2</title>
+<style type=\"text/css\">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+code    { font-size:  9pt; font-family: Courier,monospace;}
+h6      { font-size: 10pt; font-weight: bold; color: green; }
+h5      { font-size: 11pt; font-weight: bold; color: green; }
+h4      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</head>
+<body lang=\"en-US\">
+
+<p>All files in this directory (Modelica) and in all
+subdirectories, especially all files that build package \"Modelica\" and all
+files in \"Modelica/Resources/*\" and \"Modelica/help\" are licensed by the <b><u>Modelica Association</u></b> under the <b><u>Modelica License 2</u></b> (with exception of files
+\"Modelica/Resources/C-Sources/win32_dirent.*\").</p>
+
+<p style=\"margin-left: 40px;\"><b>Licensor:</b><br>
+Modelica Association<br>
+(Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping) <br>
+c/o PELAB, IDA, Link&ouml;pings Universitet <br>
+S-58183 Link&ouml;ping <br>
+Sweden<br>
+email: Board@Modelica.org<br>
+web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
+
+<p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
+Copyright &copy; 1998-2010,
+ABB, Austrian Institue of Technology, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, Modelon,
+TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
+</p>
+
+<p>
+<a href=\"#The_Modelica_License_2-outline\">The Modelica License 2</a><br>
+<a href=\"#Frequently_Asked_Questions-outline\">Frequently Asked Questions</a><br>
+</p>
+
+<hr>
+
+<h4><a name=\"The_Modelica_License_2-outline\"></a>The Modelica License 2</h4>
+
+<p>
+<b>Preamble.</b> The goal of this license is that Modelica related
+model libraries, software, images, documents, data files etc. can be
+used freely in the original or a modified form, in open source and in
+commercial environments (as long as the license conditions below are
+fulfilled, in particular sections 2c) and 2d). The Original Work is
+provided free of charge and the use is completely at your own risk.
+Developers of free Modelica packages are encouraged to utilize this
+license for their work.</p>
+
+<p>
+The Modelica License applies to any Original Work that contains the
+following licensing notice adjacent to the copyright notice(s) for
+this Original Work:</p>
+
+<p><b>Licensed by the Modelica Association under the Modelica License 2</b></p>
+
+<p><b>1. Definitions.</b></p>
+<ol type=\"a\">
+	<li>&ldquo;License&rdquo; is this Modelica License.</li>
+
+	<li>&ldquo;Original Work&rdquo; is any work of authorship, including
+	software, images, documents, data files, that contains the above
+	licensing notice or that is packed together with a licensing notice
+	referencing it.</li>
+
+	<li>&ldquo;Licensor&rdquo; is the provider of the Original Work who has
+	placed this licensing notice adjacent to the copyright notice(s) for
+	the Original Work. The Original Work is either directly provided by
+	the owner of the Original Work, or by a licensee of the owner.</li>
+
+	<li>&ldquo;Derivative Work&rdquo; is any modification of the Original
+	Work which represents, as a whole, an original work of authorship.
+	For the matter of clarity and as examples:
+
+	<ol  type=\"A\">
+		<li>Derivative Work shall not include work that remains separable from
+		the Original Work, as well as merely extracting a part of the
+		Original Work without modifying it.</li>
+
+		<li>Derivative Work shall not include (a) fixing of errors and/or (b)
+		adding vendor specific Modelica annotations and/or (c) using a
+		subset of the classes of a Modelica package, and/or (d) using a
+		different representation, e.g., a binary representation.</li>
+
+		<li>Derivative Work shall include classes that are copied from the
+		Original Work where declarations, equations or the documentation
+		are modified.</li>
+
+		<li>Derivative Work shall include executables to simulate the models
+		that are generated by a Modelica translator based on the Original
+		Work (of a Modelica package).</li>
+	</ol>
+
+	<li>&ldquo;Modified Work&rdquo; is any modification of the Original Work
+	with the following exceptions: (a) fixing of errors and/or (b)
+	adding vendor specific Modelica annotations and/or (c) using a
+	subset of the classes of a Modelica package, and/or (d) using a
+	different representation, e.g., a binary representation.</li>
+
+	<li>&quot;Source Code&quot; means the preferred form of the Original
+	Work for making modifications to it and all available documentation
+	describing how to modify the Original Work.</li>
+
+	<li>&ldquo;You&rdquo; means an individual or a legal entity exercising
+	rights under, and complying with all of the terms of, this License.</li>
+
+	<li>&ldquo;Modelica package&rdquo; means any Modelica library that is
+	defined with the &ldquo;<code><b>package</b>&nbsp;&lt;Name&gt;&nbsp;...&nbsp;<b>end</b>&nbsp;&lt;Name&gt;;</code>&rdquo; Modelica language element.</li>
+
+</ol>
+
+<p>
+<b>2. Grant of Copyright License.</b> Licensor grants You a
+worldwide, royalty-free, non-exclusive, sublicensable license, for
+the duration of the copyright, to do the following:</p>
+
+<ol type=\"a\">
+	<li><p>
+	To reproduce the Original Work in copies, either alone or as part of
+	a collection.</p></li>
+	<li><p>
+	To create Derivative Works according to Section 1d) of this License.</p></li>
+	<li><p>
+	To distribute or communicate to the public copies of the <u>Original
+	Work</u> or a <u>Derivative Work</u> under <u>this License</u>. No
+	fee, neither as a copyright-license fee, nor as a selling fee for
+	the copy as such may be charged under this License. Furthermore, a
+	verbatim copy of this License must be included in any copy of the
+	Original Work or a Derivative Work under this License.<br>
+	For the matter of clarity, it is permitted A) to distribute or
+	communicate such copies as part of a (possible commercial)
+	collection where other parts are provided under different licenses
+	and a license fee is charged for the other parts only and B) to
+	charge for mere printing and shipping costs.</p></li>
+	<li><p>
+	To distribute or communicate to the public copies of a <u>Derivative
+	Work</u>, alternatively to Section 2c), under <u>any other license</u>
+	of your choice, especially also under a license for
+	commercial/proprietary software, as long as You comply with Sections
+	3, 4 and 8 below. <br>      For the matter of clarity, no
+	restrictions regarding fees, either as to a copyright-license fee or
+	as to a selling fee for the copy as such apply.</p></li>
+	<li><p>
+	To perform the Original Work publicly.</p></li>
+	<li><p>
+	To display the Original Work publicly.</p></li>
+</ol>
+
+<p>
+<b>3. Acceptance.</b> Any use of the Original Work or a
+Derivative Work, or any action according to either Section 2a) to 2f)
+above constitutes Your acceptance of this License.</p>
+
+<p>
+<b>4. Designation of Derivative Works and of Modified Works.
+</b>The identifying designation of Derivative Work and of Modified
+Work must be different to the corresponding identifying designation
+of the Original Work. This means especially that the (root-level)
+name of a Modelica package under this license must be changed if the
+package is modified (besides fixing of errors, adding vendor specific
+Modelica annotations, using a subset of the classes of a Modelica
+package, or using another representation, e.g. a binary
+representation).</p>
+
+<p>
+<b>5. Grant of Patent License.</b>
+Licensor grants You a worldwide, royalty-free, non-exclusive, sublicensable license,
+under patent claims owned by the Licensor or licensed to the Licensor by
+the owners of the Original Work that are embodied in the Original Work
+as furnished by the Licensor, for the duration of the patents,
+to make, use, sell, offer for sale, have made, and import the Original Work
+and Derivative Works under the conditions as given in Section 2.
+For the matter of clarity, the license regarding Derivative Works covers
+patent claims to the extent as they are embodied in the Original Work only.</p>
+
+<p>
+<b>6. Provision of Source Code.</b> Licensor agrees to provide
+You with a copy of the Source Code of the Original Work but reserves
+the right to decide freely on the manner of how the Original Work is
+provided.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the matter of clarity, Licensor might provide only a binary
+representation of the Original Work. In that case, You may (a) either
+reproduce the Source Code from the binary representation if this is
+possible (e.g., by performing a copy of an encrypted Modelica
+package, if encryption allows the copy operation) or (b) request the
+Source Code from the Licensor who will provide it to You.</p>
+
+<p>
+<b>7. Exclusions from License Grant.</b> Neither the names of
+Licensor, nor the names of any contributors to the Original Work, nor
+any of their trademarks or service marks, may be used to endorse or
+promote products derived from this Original Work without express
+prior permission of the Licensor. Except as otherwise expressly
+stated in this License and in particular in Sections 2 and 5, nothing
+in this License grants any license to Licensor&rsquo;s trademarks,
+copyrights, patents, trade secrets or any other intellectual
+property, and no patent license is granted to make, use, sell, offer
+for sale, have made, or import embodiments of any patent claims.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No license is granted to the trademarks of
+Licensor even if such trademarks are included in the Original Work,
+except as expressly stated in this License. Nothing in this License
+shall be interpreted to prohibit Licensor from licensing under terms
+different from this License any Original Work that Licensor otherwise
+would have a right to license.</p>
+
+<p>
+<b>8. Attribution Rights.</b> You must retain in the Source
+Code of the Original Work and of any Derivative Works that You
+create, all author, copyright, patent, or trademark notices, as well
+as any descriptive text identified therein as an &quot;Attribution
+Notice&quot;. The same applies to the licensing notice of this
+License in the Original Work. For the matter of clarity, &ldquo;author
+notice&rdquo; means the notice that identifies the original
+author(s). <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You must cause the Source Code for any Derivative
+Works that You create to carry a prominent Attribution Notice
+reasonably calculated to inform recipients that You have modified the
+Original Work. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In case the Original Work or Derivative Work is not provided in
+Source Code, the Attribution Notices shall be appropriately
+displayed, e.g., in the documentation of the Derivative Work.</p>
+
+<p><b>9. Disclaimer
+of Warranty. <br></b><u><b>The Original Work is provided under this
+License on an &quot;as is&quot; basis and without warranty, either
+express or implied, including, without limitation, the warranties of
+non-infringement, merchantability or fitness for a particular
+purpose. The entire risk as to the quality of the Original Work is
+with You.</b></u> This disclaimer of warranty constitutes an
+essential part of this License. No license to the Original Work is
+granted by this License except under this disclaimer.</p>
+
+<p>
+<b>10. Limitation of Liability.</b> Under no circumstances and
+under no legal theory, whether in tort (including negligence),
+contract, or otherwise, shall the Licensor, the owner or a licensee
+of the Original Work be liable to anyone for any direct, indirect,
+general, special, incidental, or consequential damages of any
+character arising as a result of this License or the use of the
+Original Work including, without limitation, damages for loss of
+goodwill, work stoppage, computer failure or malfunction, or any and
+all other commercial damages or losses. This limitation of liability
+shall not apply to the extent applicable law prohibits such
+limitation.</p>
+
+<p>
+<b>11. Termination.</b> This License conditions your rights to
+undertake the activities listed in Section 2 and 5, including your
+right to create Derivative Works based upon the Original Work, and
+doing so without observing these terms and conditions is prohibited
+by copyright law and international treaty. Nothing in this License is
+intended to affect copyright exceptions and limitations. This License
+shall terminate immediately and You may no longer exercise any of the
+rights granted to You by this License upon your failure to observe
+the conditions of this license.</p>
+
+<p>
+<b>12. Termination for Patent Action.</b> This License shall
+terminate automatically and You may no longer exercise any of the
+rights granted to You by this License as of the date You commence an
+action, including a cross-claim or counterclaim, against Licensor,
+any owners of the Original Work or any licensee alleging that the
+Original Work infringes a patent. This termination provision shall
+not apply for an action alleging patent infringement through
+combinations of the Original Work under combination with other
+software or hardware.</p>
+
+<p>
+<b>13. Jurisdiction.</b> Any action or suit relating to this
+License may be brought only in the courts of a jurisdiction wherein
+the Licensor resides and under the laws of that jurisdiction
+excluding its conflict-of-law provisions. The application of the
+United Nations Convention on Contracts for the International Sale of
+Goods is expressly excluded. Any use of the Original Work outside the
+scope of this License or after its termination shall be subject to
+the requirements and penalties of copyright or patent law in the
+appropriate jurisdiction. This section shall survive the termination
+of this License.</p>
+
+<p>
+<b>14. Attorneys&rsquo; Fees.</b> In any action to enforce the
+terms of this License or seeking damages relating thereto, the
+prevailing party shall be entitled to recover its costs and expenses,
+including, without limitation, reasonable attorneys' fees and costs
+incurred in connection with such action, including any appeal of such
+action. This section shall survive the termination of this License.</p>
+
+<p>
+<b>15. Miscellaneous.</b>
+</p>
+<ol type=\"a\">
+	<li>If any
+	provision of this License is held to be unenforceable, such
+	provision shall be reformed only to the extent necessary to make it
+	enforceable.</li>
+
+	<li>No verbal
+	ancillary agreements have been made. Changes and additions to this
+	License must appear in writing to be valid. This also applies to
+	changing the clause pertaining to written form.</li>
+
+	<li>You may use the
+	Original Work in all ways not otherwise restricted or conditioned by
+	this License or by law, and Licensor promises not to interfere with
+	or be responsible for such uses by You.</li>
+</ol>
+
+<hr>
+
+<h5><a name=\"Frequently_Asked_Questions-outline\"></a>
+Frequently Asked Questions</h5>
+<p>This
+section contains questions/answer to users and/or distributors of
+Modelica packages and/or documents under Modelica License 2. Note,
+the answers to the questions below are not a legal interpretation of
+the Modelica License 2. In case of a conflict, the language of the
+license shall prevail.</p>
+
+<h6>Using or Distributing a Modelica <u>Package</u> under the Modelica License 2</h6>
+
+<p><b>What are the main
+differences to the previous version of the Modelica License?</b></p>
+<ol>
+	<li><p>
+	Modelica License 1 is unclear whether the licensed Modelica package
+	can be distributed under a different license. Version 2 explicitly
+	allows that &ldquo;Derivative Work&rdquo; can be distributed under
+	any license of Your choice, see examples in Section 1d) as to what
+	qualifies as Derivative Work (so, version 2 is clearer).</p>
+	<li><p>
+	If You modify a Modelica package under Modelica License 2 (besides
+	fixing of errors, adding vendor specific Modelica annotations, using
+	a subset of the classes of a Modelica package, or using another
+	representation, e.g., a binary representation), you must rename the
+	root-level name of the package for your distribution. In version 1
+	you could keep the name (so, version 2 is more restrictive). The
+	reason of this restriction is to reduce the risk that Modelica
+	packages are available that have identical names, but different
+	functionality.</p>
+	<li><p>
+	Modelica License 1 states that &ldquo;It is not allowed to charge a
+	fee for the original version or a modified version of the software,
+	besides a reasonable fee for distribution and support&rdquo;.
+	Version 2 has a similar intention for all Original Work under
+	<u>Modelica License 2</u> (to remain free of charge and open source)
+	but states this more clearly as &ldquo;No fee, neither as a
+	copyright-license fee, nor as a selling fee for the copy as such may
+	be charged&rdquo;. Contrary to version 1, Modelica License 2 has no
+	restrictions on fees for Derivative Work that is provided under a
+	different license (so, version 2 is clearer and has fewer
+	restrictions).</p>
+	<li><p>
+	Modelica License 2 introduces several useful provisions for the
+	licensee (articles 5, 6, 12), and for the licensor (articles 7, 12,
+	13, 14) that have no counter part in version 1.</p>
+	<li><p>
+	Modelica License 2 can be applied to all type of work, including
+	documents, images and data files, contrary to version 1 that was
+	dedicated for software only (so, version 2 is more general).</p>
+</ol>
+
+<p><b>Can I distribute a
+Modelica package (under Modelica License 2) as part of my commercial
+Modelica modeling and simulation environment?</b></p>
+<p>Yes,
+according to Section 2c). However, you are not allowed to charge a
+fee for this part of your environment. Of course, you can charge for
+your part of the environment.
+</p>
+
+<p><b>Can I distribute a
+Modelica package (under Modelica License 2) under a different
+license?</b></p>
+<p>No.
+The license of an unmodified Modelica package cannot be changed
+according to Sections 2c) and 2d). This means that you cannot <u>sell</u>
+copies of it, any distribution has to be free of charge.</p>
+
+<p><b>Can I distribute a
+Modelica package (under Modelica License 2) under a different license
+when I first encrypt the package?</b></p>
+<p>No.
+Merely encrypting a package does not qualify for Derivative Work and
+therefore the encrypted package has to stay under Modelica License 2.</p>
+
+<p><b>Can I distribute a
+Modelica package (under Modelica License 2) under a different license
+when I first add classes to the package?</b></p>
+<p>No.
+The package itself remains unmodified, i.e., it is Original Work, and
+therefore the license for this part must remain under Modelica
+License 2. The newly added classes can be, however, under a different
+license.
+</p>
+
+<p><b>Can
+I copy a class out of a Modelica package (under Modelica License 2)
+and include it </b><u><b>unmodified</b></u><b> in a Modelica package
+under a </b><u><b>commercial/proprietary license</b></u><b>?</b></p>
+<p>No,
+according to article 2c). However, you can include model, block,
+function, package, record and connector classes in your Modelica
+package under <u>Modelica License 2</u>. This means that your
+Modelica package could be under a commercial/proprietary license, but
+one or more classes of it are under Modelica License 2.<br>Note, a
+&ldquo;type&rdquo; class (e.g., type Angle = Real(unit=&rdquo;rad&rdquo;))
+can be copied and included unmodified under a commercial/proprietary
+license (for details, see the next question).</p>
+
+<p><b>Can
+I copy a type class or </b><u><b>part</b></u><b> of a model, block,
+function, record, connector class, out of a Modelica package (under
+Modelica License 2) and include it modified or unmodified in a
+Modelica package under a </b><u><b>commercial/proprietary</b></u><b>
+license</b></p>
+<p>Yes,
+according to article 2d), since this will in the end usually qualify
+as Derivative Work. The reasoning is the following: A type class or
+part of another class (e.g., an equation, a declaration, part of a
+class description) cannot be utilized &ldquo;by its own&rdquo;. In
+order to make this &ldquo;usable&rdquo;, you have to add additional
+code in order that the class can be utilized. This is therefore
+usually Derivative Work and Derivative Work can be provided under a
+different license. Note, this only holds, if the additional code
+introduced is sufficient to qualify for Derivative Work. Merely, just
+copying a class and changing, say, one character in the documentation
+of this class would be no Derivative Work and therefore the copied
+code would have to stay under Modelica License 2.</p>
+
+<p><b>Can
+I copy a class out of a Modelica package (under Modelica License 2)
+and include it in </b><u><b>modified </b></u><b>form in a
+</b><u><b>commercial/proprietary</b></u><b> Modelica package?</b></p>
+<p>Yes.
+If the modification can be seen as a &ldquo;Derivative Work&rdquo;,
+you can place it under your commercial/proprietary license. If the
+modification does not qualify as &ldquo;Derivative Work&rdquo; (e.g.,
+bug fixes, vendor specific annotations), it must remain under
+Modelica License 2. This means that your Modelica package could be
+under a commercial/proprietary license, but one or more parts of it
+are under Modelica License 2.</p>
+
+<p><b>Can I distribute a
+&ldquo;save total model&rdquo; under my commercial/proprietary
+license, even if classes under Modelica License 2 are included?</b></p>
+<p>Your
+classes of the &ldquo;save total model&rdquo; can be distributed
+under your commercial/proprietary license, but the classes under
+Modelica License 2 must remain under Modelica License 2. This means
+you can distribute a &ldquo;save total model&rdquo;, but some parts
+might be under Modelica License 2.</p>
+
+<p><b>Can I distribute a
+Modelica package (under Modelica License 2) in encrypted form?</b></p>
+<p>Yes.
+Note, if the encryption does not allow &ldquo;copying&rdquo; of
+classes (in to unencrypted Modelica source code), you have to send
+the Modelica source code of this package to your customer, if he/she
+wishes it, according to article&nbsp;6.</p>
+
+<p><b>Can I distribute an
+executable under my commercial/proprietary license, if the model from
+which the executable is generated uses models from a Modelica package
+under Modelica License 2?</b></p>
+<p>Yes,
+according to article 2d), since this is seen as Derivative Work. The
+reasoning is the following: An executable allows the simulation of a
+concrete model, whereas models from a Modelica package (without
+pre-processing, translation, tool run-time library) are not able to
+be simulated without tool support. By the processing of the tool and
+by its run-time libraries, significant new functionality is added (a
+model can be simulated whereas previously it could not be simulated)
+and functionality available in the package is removed (e.g., to build
+up a new model by dragging components of the package is no longer
+possible with the executable).</p>
+
+<p><b>Is my modification to
+a Modelica package (under Modelica License 2) a Derivative Work?</b></p>
+<p>It
+is not possible to give a general answer to it. To be regarded as &quot;an
+original work of authorship&quot;, a derivative work must be
+different enough from the original or must contain a substantial
+amount of new material. Making minor changes or additions of little
+substance to a preexisting work will not qualify the work as a new
+version for such purposes.
+</p>
+
+<h6>Using or Distributing a Modelica <u>Document</u> under the Modelica License 2</h6>
+
+<p>This
+section is devoted especially for the following applications:</p>
+<ol type=\"a\">
+	<li><p>
+	A Modelica tool extracts information out of a Modelica package and
+	presents the result in form of a &ldquo;manual&rdquo; for this
+	package in, e.g., html, doc, or pdf format.</p>
+	<li><p>
+	The Modelica language specification is a document defining the
+	Modelica language. It will be licensed under Modelica License 2.</p>
+	<li><p>
+	Someone writes a book about the Modelica language and/or Modelica
+	packages and uses information which is available in the Modelica
+	language specification and/or the corresponding Modelica package.</p>
+</ol>
+
+<p><b>Can I sell a manual
+that was basically derived by extracting information automatically
+from a Modelica package under Modelica License 2 (e.g., a &ldquo;reference
+guide&rdquo; of the Modelica Standard Library):</b></p>
+<p>Yes.
+Extracting information from a Modelica package, and providing it in a
+human readable, suitable format, like html, doc or pdf format, where
+the content is significantly modified (e.g. tables with interface
+information are constructed from the declarations of the public
+variables) qualifies as Derivative Work and there are no restrictions
+to charge a fee for Derivative Work under alternative 2d).</p>
+
+<p><b>Can
+I copy a text passage out of a Modelica document (under Modelica
+License 2) and use it </b><u><b>unmodified</b></u><b> in my document
+(e.g. the Modelica syntax description in the Modelica Specification)?</b></p>
+<p>Yes.
+In case you distribute your document, the copied parts are still
+under Modelica License 2 and you are not allowed to charge a license
+fee for this part. You can, of course, charge a fee for the rest of
+your document.</p>
+
+<p><b>Can
+I copy a text passage out of a Modelica document (under Modelica
+License 2) and use it in </b><u><b>modified</b></u><b> form in my
+document?</b></p>
+<p>Yes,
+the creation of Derivative Works is allowed. In case the content is
+significantly modified this qualifies as Derivative Work and there
+are no restrictions to charge a fee for Derivative Work under
+alternative 2d).</p>
+
+<p><b>Can I sell a printed
+version of a Modelica document (under Modelica License 2), e.g., the
+Modelica Language Specification?</b></p>
+<p>No,
+if you are not the copyright-holder, since article 2c) does not allow
+a selling fee for a (in this case physical) copy. However, mere
+printing and shipping costs may be recovered.</p>
+</body>
+</html>"));
+    end ModelicaLicense2;
+
+    model ReleaseNotes
+      extends Modelica.Icons.Information;
+      annotation(
+        Documentation(info = "<html>
+<p><b><font style=\"color: #008000; \">R23 </font></b>27th August 2012 </p>
+<p>first published release of the library with Basic phyiscial units, basic components for nodes and reactions both with parameterized and static number of connections. Examples and algorithmically differentiated components available. </p>
+</html>"));
+    end ReleaseNotes;
+  end UsersGuide;
+
   package Units "Physical units"
    type Concentration = Real (final unit = "mol/m3",min = 0);
    type MolarFlowRate = Real (final unit = "mol/s");
@@ -23,40 +689,49 @@ package ADGenKinetics
       Units.Concentration c "concentration";
       flow Units.VolumetricReactionRate r "reaction rate";
       annotation(
-        Icon(graphics = {Bitmap(extent = {{-75, 75}, {75, -75}}, fileName = "modelica://GenKinetics/icons/reactionconnection.gif")}),
+        Icon(graphics = {Bitmap(extent = {{-75, 75}, {75, -75}}, fileName = "icons/reactionconnection.gif")}),
         Diagram(graphics));
     end ChemicalPort;
+
+
 
     connector ModifierChemicalPort "connector that connects a node to a reaction. The node is supposed to effects (activate or inhibit) the reaction"
       Units.Concentration c "concentration";
       annotation(
-        Icon(graphics = {Bitmap(extent = {{-80, 84}, {100, -98}}, fileName = "modelica://GenKinetics/icons/modifierconnection.gif")}));
+        Icon(graphics = {Bitmap(extent = {{-80, 84}, {100, -98}}, fileName = "icons/modifierconnection.gif")}));
     end ModifierChemicalPort;
+
+
+
 
     connector ChemicalPort_S "connector from a reactant substrate node to a reaction, declared within the reaction side"
       extends ADGenKinetics.Interfaces.ChemicalPort;
       annotation(
-        Icon(graphics = {Bitmap(extent = {{-80, 80}, {82, -82}}, fileName = "modelica://GenKinetics/icons/reactionconnection_S.gif")}),
+        Icon(graphics = {Bitmap(extent = {{-80, 80}, {82, -82}}, fileName = "icons/reactionconnection_S.gif")}),
         Diagram(graphics));
     end ChemicalPort_S;
+
 
     connector ChemicalPort_P "connector from a reactant substrate node to a reaction, declared within the reaction side"
       extends ADGenKinetics.Interfaces.ChemicalPort;
       annotation(
-        Icon(graphics = {Bitmap(extent = {{-88, 106}, {94, -104}}, fileName = "modelica://GenKinetics/icons/reactionconnection_P2.gif")}));
+        Icon(graphics = {Bitmap(extent = {{-88, 106}, {94, -104}}, fileName = "icons/reactionconnection_P2.gif")}));
     end ChemicalPort_P;
+
 
     connector ModifierChemicalPort_I "connection from a reaction to an inhibition node"
       extends ADGenKinetics.Interfaces.ModifierChemicalPort;
       annotation(
-        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}), graphics = {Bitmap(extent = {{-80, 80}, {84, -80}}, fileName = "modelica://GenKinetics/icons/modifierconnection_I2.gif")}));
+        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}), graphics = {Bitmap(extent = {{-80, 80}, {84, -80}}, fileName = "icons/modifierconnection_I2.gif")}));
     end ModifierChemicalPort_I;
+
 
     connector ModifierChemicalPort_A "connection from a reaction to an activation node"
       extends ADGenKinetics.Interfaces.ModifierChemicalPort;
       annotation(
-        Icon(graphics = {Bitmap(extent = {{-96, 100}, {124, -120}}, fileName = "modelica://GenKinetics/icons/modifierconnection_A2.gif")}));
+        Icon(graphics = {Bitmap(extent = {{-96, 100}, {124, -120}}, fileName = "icons/modifierconnection_A2.gif")}));
     end ModifierChemicalPort_A;
+
 
     package Reversible "Interfaces describing reversibility of a reaction"
       partial model ReactionReversibility "Base Type for describing Reversability of a reaction"
@@ -66,14 +741,15 @@ package ADGenKinetics
       class OneWay "Irreversible Reaction"
         extends ReactionReversibility;
         annotation(
-          Icon(graphics = {Bitmap(extent = {{-78, 80}, {86, -80}}, fileName = "modelica://GenKinetics/icons/OneWay.gif")}));
+          Icon(graphics = {Bitmap(extent = {{-78, 80}, {86, -80}}, fileName = "icons/OneWay.gif")}));
       end OneWay;
+
 
       class TwoWay "Reversible Reaction"
         extends ReactionReversibility;
         parameter Units.ReactionCoef Vbwdmax = 1 "backward maximal reaction rate";
         annotation(
-          Icon(graphics = {Bitmap(extent = {{-110, 100}, {90, -100}}, fileName = "modelica://GenKinetics/icons/TwoWay.gif")}));
+          Icon(graphics = {Bitmap(extent = {{-110, 100}, {90, -100}}, fileName = "icons/TwoWay.gif")}));
       end TwoWay;
       annotation(
         Documentation(info = "<html>
@@ -82,6 +758,7 @@ package ADGenKinetics
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end Reversible;
+
 
     package static "Interfaces for components consisting of a fixed number of connections"
       partial model NodeConnections "Metabolite connections to reactions"
@@ -125,7 +802,7 @@ package ADGenKinetics
 
       model Reaction "icon for a reaction"
         annotation(
-          Icon(graphics = {Bitmap(extent = {{-106, 110}, {134, -130}}, fileName = "modelica://GenKinetics/icons/reaction.gif")}));
+          Icon(graphics = {Bitmap(extent = {{-106, 110}, {134, -130}}, fileName = "icons/reaction.gif")}));
       end Reaction;
 
       partial model Reaction1S "basic declaration of a reaction with one substrate"
@@ -184,6 +861,7 @@ package ADGenKinetics
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
     end static;
+
 
     package dynamic "Interfaces with parameterized number of connections for textual implementation and automatic model generation"
       package Dimension "Reaction Dimension and Molecularity"
@@ -1209,7 +1887,7 @@ package ADGenKinetics
         flow Real g_r[NG] "gradients of r";
 
         annotation (Icon(graphics={Bitmap(extent={{-75,75},{75,-75}}, fileName=
-                    "modelica://GenKinetics/icons/reactionconnection.gif")}),
+                    "icons/reactionconnection.gif")}),
             Diagram(graphics));
       end ChemicalPort;
 
@@ -1222,7 +1900,7 @@ package ADGenKinetics
         //Units.Concentration c "Concentration";
         Real g_c[NG] "graidents of c";
         annotation (Icon(graphics={Bitmap(extent={{-70,72},{90,-90}}, fileName=
-                    "modelica://GenKinetics/icons/modifierconnection.gif")}));
+                    "icons/modifierconnection.gif")}));
       end ModifierChemicalPort;
 
       connector ChemicalPort_S
@@ -1230,7 +1908,7 @@ package ADGenKinetics
         extends ADGenKinetics.Derivatives.Interfaces.ChemicalPort;
 
         annotation (Icon(graphics={Bitmap(extent={{-80,80},{82,-82}}, fileName=
-                    "modelica://GenKinetics/icons/reactionconnection_S.gif")}),
+                    "icons/reactionconnection_S.gif")}),
             Diagram(graphics));
       end ChemicalPort_S;
 
@@ -1239,7 +1917,7 @@ package ADGenKinetics
         extends ADGenKinetics.Derivatives.Interfaces.ChemicalPort;
 
         annotation (Icon(graphics={Bitmap(extent={{-88,106},{94,-104}}, fileName=
-                    "modelica://GenKinetics/icons/reactionconnection_P2.gif")}));
+                    "icons/reactionconnection_P2.gif")}));
       end ChemicalPort_P;
 
       connector ModifierChemicalPort_I
@@ -1250,7 +1928,7 @@ package ADGenKinetics
             coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}),
             graphics={Bitmap(extent={{-80,80},{84,-80}}, fileName=
-                    "modelica://GenKinetics/icons/modifierconnection_I2.gif")}));
+                    "icons/modifierconnection_I2.gif")}));
       end ModifierChemicalPort_I;
 
       connector ModifierChemicalPort_A
@@ -1259,7 +1937,7 @@ package ADGenKinetics
 
         annotation (Icon(                     graphics={Bitmap(extent={{-96,100},
                     {124,-120}}, fileName=
-                    "modelica://GenKinetics/icons/modifierconnection_A2.gif")}));
+                    "icons/modifierconnection_A2.gif")}));
       end ModifierChemicalPort_A;
 
       package Reversible "Interfaces describing reversibility of a reaction"
@@ -1278,7 +1956,7 @@ package ADGenKinetics
           extends ReactionReversibility;
 
           annotation (Icon(graphics={Bitmap(extent={{-80,80},{84,-80}}, fileName=
-                      "modelica://GenKinetics/icons/OneWay.gif")}));
+                      "icons/OneWay.gif")}));
         end OneWay;
 
         class TwoWay "Reversible Reaction"
@@ -1289,7 +1967,7 @@ package ADGenKinetics
           parameter Real g_Vbwdmax[NG]=zeros(NG) "gradients of Vbdwmax";
 
           annotation (Icon(graphics={Bitmap(extent={{-80,80},{78,-82}}, fileName=
-                      "modelica://GenKinetics/icons/TwoWay.gif")}));
+                      "icons/TwoWay.gif")}));
         end TwoWay;
         annotation (Documentation(info="<html>
 <p>This subpackage contains basic interfaces describing the reversibility of a reaction</p>
@@ -2832,671 +3510,6 @@ package ADGenKinetics
 </html>"));
   end Derivatives;
 
-  package UsersGuide "User Guide"
-    extends Modelica.Icons.Information;
-
-    model Overview
-      extends Modelica.Icons.Information;
-      annotation(
-        Documentation(info = "<html>
-<p><img src=\"modelica://ADGenKinetics/icons/logo.jpg\"/></p>
-<p><br/><h4><font color=\"#008000\">About</font></h4></p>
-<p><br/><i>ADGenKinetics</i> contains an implementation of a specific set of reaction kinetics, namely, generalized simplified kinetic formats. It follows many of the guidelines recommended by the <a href=\"https://modelica.org/publications/papers/2005-05-LarsdotterNilsson-Fritzson-BioMedSim2005-MetabolicModeling.pdf\">Biochem library</a>. The underlying simplified kinetics formats are represented by generalized structured kinetics formulas suitable for arbitrary biochemical reactions with arbitrary number of substrates, products, inhibitors and activators. In this way, matabolic reaction networks can be easily assembled using a few number of reaction kinetics.</p>
-<p><i>ADGenKinetics</i> is the first algorithmically differentiated Modelica library. Constructed models can also be used for computing parameter sensitivities with little modifications to the used interfaces and by initializing the input Jacobian, i.e. the parameters w.r.t. derivatives are sought. </p>
-<p><br/><b><font style=\"color: #008000; \">Structure of the Library</font></b></p>
-<p><br/>The following packages are available: </p>
-<p><ul>
-<li><i>Interfaces</i>: connectors and icons </li>
-<li><i>NodeElements</i>: interfaces and components for nodes </li>
-<li><i>Reactions</i>: interfaces and components for reactions </li>
-<li><i>Derivatives</i>: for computing parameter sensitivities</li>
-<li><i>Examples</i>: biochemical network models</li>
-</ul></p>
-<p>Further two subpackages within <i>NodeElements</i> and <i>Reactions</i> exist corresponding to two ways of declaration of connectors within components: </p>
-<p><ul>
-<li><i>dynamic</i>: dynamic parameterized number of connections </li>
-<li><i>static</i>: static fixed number of connections </li>
-</ul></p>
-<p><br/>The main differences of both ways and their advantages and disadvantages are emphasized in this section along with the given examples. </p>
-<p>Common interfaces and abstract classes are located above these packages. </p>
-<p><h4><font color=\"#008000\">Connections</font></h4></p>
-<p><br/>That is concentration of a substance is the potential variable while the flow rate of materials (i.e. the chemical transformation process) represents the flow variables when connecting nodes and reactions together, cf. <i><a href=\"GenKinetics.Interfaces.ChemicalPort\">ADGenKinetics.Interfaces.ChemicalPort</a></i>. Further subtypes of connectors exist: </p>
-<p><ul>
-<li><i><a href=\"
-GenKinetics.Intefaces.ChemicalPort_S\">ADGenKinetics.Intefaces.ChemicalPort_S</a></i>: for reactions from the substrate side</li>
-<li><i><a href=\"
-GenKinetics.Interfaces.ChemicalPort_P\">ADGenKinetics.Interfaces.ChemicalPort_P</a></i>: for reactions from the product side</li>
-<li><i><a href=\"
-GenKinetics.Interfaces.ModifierChemicalPort\">ADGenKinetics.Interfaces.ModifierChemicalPort</a></i>: connecting reactions and effector nodes</li>
-<li><i><a href=\"
-GenKinetics.Interfaces.MModifierChemicalPort_I\">ADGenKinetics.Interfaces.ModifierChemicalPort_I</a></i>: for inhibiting reactions</li>
-<li><i><a href=\"
-GenKinetics.Interfaces.MModifierChemicalPort_A\">ADGenKinetics.Interfaces.MModifierChemicalPort_A</a></i>: for activating reactions<br/></li>
-</ul></p>
-<p><h4><font color=\"#008000\">Interfaces and abstract classes</font></h4></p>
-<p><br/>Further interfaces and abstract classes are used within implemented reactions for simplifying their implementations and emphasizing their classification. The most important of which are: </p>
-<p><i><a href=\"ADGenKinetics.Interfaces.Reversible.ReactionReversibility\">ADGenKinetics.Interfaces.Reversible.ReactionReversibility</a></i>: for determining the reversibility of reactions. The extended interfaces OneWay, TwoWay are used for irreversible, reversible reactions, respectively:</p>
-<p><ul>
-<li><i><a href=\"
-GenKinetics.Interfaces.static.NodeConnections\">ADGenKinetics.Interfaces.static.NodeConnections</a></i>: fixed number of connections for nodes</li>
-<li><i><a href=\"
-GenKinetics.Interfaces.dynamic.NodeConnections\">ADGenKinetics.Interfaces.dynamic.NodeConnections</a></i>: parameterized number of connections for nodes.</li>
-<li><i><a href=\"
-GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension</a></i>: parameterized number of connections for nodes. This interface can be used for specializing further classes of specific dimension, e.g. <i><a href=\"
-GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">ADGenKinetics.Interfaces.dynamic.Dimension.UniUni</a> .</i> </li>
-<li><i><a href=\"
-GenKinetics.Interfaces.static\">ADGenKinetics.Interfaces.static</a></i>.{<i><a href=\"GenKinetics.Interfaces.static.Reaction1S\">ReactionXS</a>, <a href=\"
-GenKinetics.Interfaces.static.Reaction2P\">ReactionXP</a></i>, <i><a href=\"
-GenKinetics.Interfaces.static.Reaction1I\">ReactionXI</a>,</i> <i><a href=\"Reaction1A\">ReactionXA</a></i>}: icons and connections for reactions with X number of connections.</li>
-</ul></p>
-<p><h4><font color=\"#008000\">Nodes</font></h4></p>
-<p><br/>Typically, the component <i><a href=\"GenKinetics.NodeElements.dynamic.Node\">ADGenKinetics.NodeElements.dynamic.Node</a></i> or <i><a href=\"GenKinetics.NodeElements.static.Node\">ADGenKinetics.NodeElements.static.Node</a> </i>is the basic one needed for constructing biochemical reaction networks. Further types can be also imported from available implementation of the Biochem library. </p>
-<p><h4><font color=\"#008000\">Reactions </font></h4></p>
-<p><br/>Reaction kinetics are available in the packages<i><a href=\" ADGenKinetics.Reactions.convenience.\"> </a><a href=\" ADGenKinetics.Reactions.convenience\">ADGenKinetics.Reactions.convenience</a><a href=\" ADGenKinetics.Reactions.convenience.\">.</a>{<a href=\"ADGenKinetics.Reactions.convenience.dynamic\">dynamic</a></i>.<i><a href=\"ADGenKinetics.Reactions.convenience.static\">static</a></i>}. </p>
-<p><br/>For instance,<i><a href=\" ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic\"> ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic</a></i> is used for irreversible reactions with arbitrary number of substrates and products, while <i><a href=\"ADGenKinetics.Reactions.convenience.dynamic.InhRevKinetic\">ADGenKinetics.Reactions.convenience.dynamic.InhRevKinetic</a></i> for reversible inhibited reactions with arbitrary number of substrates, products and inhibitors. </p>
-<p><br/>Static packages provide reaction kinetics with fixed reaction structure. For instance <i><a href=\"ADGenKinetics.Reactions.convenience.static.IrrKinetic2S1P1I\">ADGenKinetics.Reactions.convenience.static.IrrKinetic2S1P1I</a></i>. </p>
-<p><br/>Examples of constructing biochemical networks are given in <i><a href=\"GenKinetics.Examples.Spirallusdyn\">ADGenKinetics.Examples.Spirallusdyn</a> and <a href=\"GenKinetics.Examples.Spirallustatic\">ADGenKinetics.Examples.Spirallustatic</a>. </i></p>
-<p><h4><font color=\"#008000\">Computation of parameter sensitivities</font></h4></p>
-<p><br/>Given a biochemical reaction network model, the same model can be used for computing parameter sensitivities by additional slight modification in the declaration part: </p>
-<p><ol>
-<li>Importing <i><a href=\"
-ADGenKinetics.Derivatives.NodeElements.*\">ADGenKinetics.Derivatives.NodeElements.*</a></i> and <i><a href=\"
-ADGenKinetics.Derivatives.Reactions.convenience\">ADGenKinetics.Derivatives.Reactions.convenience.*</a></i> types for nodes and reaction kinetics.</li>
-<li>Initializing the input Jacobian specifying active parameter with respect to which derivatives are sought. </li>
-</ol></p>
-<p>For instance compare the model given in <i><a href=\"GenKinetics.Examples.Spirallusdyn\">ADGenKinetics.Examples.Spirallusdyn</a> with <a href=\"GenKinetics.Derivatives.Examples.SpirallusdynAll \">ADGenKinetics.Derivatives.Examples.SpirallusdynAll </a></i></p>
-</html>"));
-    end Overview;
-
-    model Contributors
-      extends Modelica.Icons.Information;
-      annotation(
-        Documentation(info = "<html>
-<p>Author: Atiyah Elsheikh </p>
-<p>Contact details: <i><a href=\"ADGenKinetics.UsersGuide.Contact\">ADGenKinetics.UsersGuide.Contact</a></i></p>
-</html>"));
-    end Contributors;
-
-    model Contact
-      extends Modelica.Icons.Contact;
-      annotation(
-        Documentation(info = "<html>
-<p>Atiyah Elsheikh </p>
-<p>Austrian Institute of Technology GmbH</p>
-<p>Giefinggasse 2</p>
-<p>1210 Vienna</p>
-<p>Austria</p>
-<p>email: <a href=\"Atiyah.Elsheikh@ait.ac.at\">Atiyah.Elsheikh@ait.ac.at</a> / <a href=\"a.m.g.elsheikh@gmail.com\">a.m.g.elsheikh@gmail.com</a></p>
-</html>"));
-    end Contact;
-
-    class ModelicaLicense2 "Modelica License 2"
-      extends Modelica.Icons.Information;
-      annotation(
-        Documentation(info = "<html>
-<head>
-	<title>The Modelica License 2</title>
-<style type=\"text/css\">
-*       { font-size: 10pt; font-family: Arial,sans-serif; }
-code    { font-size:  9pt; font-family: Courier,monospace;}
-h6      { font-size: 10pt; font-weight: bold; color: green; }
-h5      { font-size: 11pt; font-weight: bold; color: green; }
-h4      { font-size: 13pt; font-weight: bold; color: green; }
-address {                  font-weight: normal}
-td      { solid #000; vertical-align:top; }
-th      { solid #000; vertical-align:top; font-weight: bold; }
-table   { solid #000; border-collapse: collapse;}
-</style>
-</head>
-<body lang=\"en-US\">
-
-<p>All files in this directory (Modelica) and in all
-subdirectories, especially all files that build package \"Modelica\" and all
-files in \"Modelica/Resources/*\" and \"Modelica/help\" are licensed by the <b><u>Modelica Association</u></b> under the <b><u>Modelica License 2</u></b> (with exception of files
-\"Modelica/Resources/C-Sources/win32_dirent.*\").</p>
-
-<p style=\"margin-left: 40px;\"><b>Licensor:</b><br>
-Modelica Association<br>
-(Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping) <br>
-c/o PELAB, IDA, Link&ouml;pings Universitet <br>
-S-58183 Link&ouml;ping <br>
-Sweden<br>
-email: Board@Modelica.org<br>
-web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
-
-<p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
-Copyright &copy; 1998-2010,
-ABB, Austrian Institue of Technology, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, Modelon,
-TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
-</p>
-
-<p>
-<a href=\"#The_Modelica_License_2-outline\">The Modelica License 2</a><br>
-<a href=\"#Frequently_Asked_Questions-outline\">Frequently Asked Questions</a><br>
-</p>
-
-<hr>
-
-<h4><a name=\"The_Modelica_License_2-outline\"></a>The Modelica License 2</h4>
-
-<p>
-<b>Preamble.</b> The goal of this license is that Modelica related
-model libraries, software, images, documents, data files etc. can be
-used freely in the original or a modified form, in open source and in
-commercial environments (as long as the license conditions below are
-fulfilled, in particular sections 2c) and 2d). The Original Work is
-provided free of charge and the use is completely at your own risk.
-Developers of free Modelica packages are encouraged to utilize this
-license for their work.</p>
-
-<p>
-The Modelica License applies to any Original Work that contains the
-following licensing notice adjacent to the copyright notice(s) for
-this Original Work:</p>
-
-<p><b>Licensed by the Modelica Association under the Modelica License 2</b></p>
-
-<p><b>1. Definitions.</b></p>
-<ol type=\"a\">
-	<li>&ldquo;License&rdquo; is this Modelica License.</li>
-
-	<li>&ldquo;Original Work&rdquo; is any work of authorship, including
-	software, images, documents, data files, that contains the above
-	licensing notice or that is packed together with a licensing notice
-	referencing it.</li>
-
-	<li>&ldquo;Licensor&rdquo; is the provider of the Original Work who has
-	placed this licensing notice adjacent to the copyright notice(s) for
-	the Original Work. The Original Work is either directly provided by
-	the owner of the Original Work, or by a licensee of the owner.</li>
-
-	<li>&ldquo;Derivative Work&rdquo; is any modification of the Original
-	Work which represents, as a whole, an original work of authorship.
-	For the matter of clarity and as examples:
-
-	<ol  type=\"A\">
-		<li>Derivative Work shall not include work that remains separable from
-		the Original Work, as well as merely extracting a part of the
-		Original Work without modifying it.</li>
-
-		<li>Derivative Work shall not include (a) fixing of errors and/or (b)
-		adding vendor specific Modelica annotations and/or (c) using a
-		subset of the classes of a Modelica package, and/or (d) using a
-		different representation, e.g., a binary representation.</li>
-
-		<li>Derivative Work shall include classes that are copied from the
-		Original Work where declarations, equations or the documentation
-		are modified.</li>
-
-		<li>Derivative Work shall include executables to simulate the models
-		that are generated by a Modelica translator based on the Original
-		Work (of a Modelica package).</li>
-	</ol>
-
-	<li>&ldquo;Modified Work&rdquo; is any modification of the Original Work
-	with the following exceptions: (a) fixing of errors and/or (b)
-	adding vendor specific Modelica annotations and/or (c) using a
-	subset of the classes of a Modelica package, and/or (d) using a
-	different representation, e.g., a binary representation.</li>
-
-	<li>&quot;Source Code&quot; means the preferred form of the Original
-	Work for making modifications to it and all available documentation
-	describing how to modify the Original Work.</li>
-
-	<li>&ldquo;You&rdquo; means an individual or a legal entity exercising
-	rights under, and complying with all of the terms of, this License.</li>
-
-	<li>&ldquo;Modelica package&rdquo; means any Modelica library that is
-	defined with the &ldquo;<code><b>package</b>&nbsp;&lt;Name&gt;&nbsp;...&nbsp;<b>end</b>&nbsp;&lt;Name&gt;;</code>&rdquo; Modelica language element.</li>
-
-</ol>
-
-<p>
-<b>2. Grant of Copyright License.</b> Licensor grants You a
-worldwide, royalty-free, non-exclusive, sublicensable license, for
-the duration of the copyright, to do the following:</p>
-
-<ol type=\"a\">
-	<li><p>
-	To reproduce the Original Work in copies, either alone or as part of
-	a collection.</p></li>
-	<li><p>
-	To create Derivative Works according to Section 1d) of this License.</p></li>
-	<li><p>
-	To distribute or communicate to the public copies of the <u>Original
-	Work</u> or a <u>Derivative Work</u> under <u>this License</u>. No
-	fee, neither as a copyright-license fee, nor as a selling fee for
-	the copy as such may be charged under this License. Furthermore, a
-	verbatim copy of this License must be included in any copy of the
-	Original Work or a Derivative Work under this License.<br>
-	For the matter of clarity, it is permitted A) to distribute or
-	communicate such copies as part of a (possible commercial)
-	collection where other parts are provided under different licenses
-	and a license fee is charged for the other parts only and B) to
-	charge for mere printing and shipping costs.</p></li>
-	<li><p>
-	To distribute or communicate to the public copies of a <u>Derivative
-	Work</u>, alternatively to Section 2c), under <u>any other license</u>
-	of your choice, especially also under a license for
-	commercial/proprietary software, as long as You comply with Sections
-	3, 4 and 8 below. <br>      For the matter of clarity, no
-	restrictions regarding fees, either as to a copyright-license fee or
-	as to a selling fee for the copy as such apply.</p></li>
-	<li><p>
-	To perform the Original Work publicly.</p></li>
-	<li><p>
-	To display the Original Work publicly.</p></li>
-</ol>
-
-<p>
-<b>3. Acceptance.</b> Any use of the Original Work or a
-Derivative Work, or any action according to either Section 2a) to 2f)
-above constitutes Your acceptance of this License.</p>
-
-<p>
-<b>4. Designation of Derivative Works and of Modified Works.
-</b>The identifying designation of Derivative Work and of Modified
-Work must be different to the corresponding identifying designation
-of the Original Work. This means especially that the (root-level)
-name of a Modelica package under this license must be changed if the
-package is modified (besides fixing of errors, adding vendor specific
-Modelica annotations, using a subset of the classes of a Modelica
-package, or using another representation, e.g. a binary
-representation).</p>
-
-<p>
-<b>5. Grant of Patent License.</b>
-Licensor grants You a worldwide, royalty-free, non-exclusive, sublicensable license,
-under patent claims owned by the Licensor or licensed to the Licensor by
-the owners of the Original Work that are embodied in the Original Work
-as furnished by the Licensor, for the duration of the patents,
-to make, use, sell, offer for sale, have made, and import the Original Work
-and Derivative Works under the conditions as given in Section 2.
-For the matter of clarity, the license regarding Derivative Works covers
-patent claims to the extent as they are embodied in the Original Work only.</p>
-
-<p>
-<b>6. Provision of Source Code.</b> Licensor agrees to provide
-You with a copy of the Source Code of the Original Work but reserves
-the right to decide freely on the manner of how the Original Work is
-provided.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For the matter of clarity, Licensor might provide only a binary
-representation of the Original Work. In that case, You may (a) either
-reproduce the Source Code from the binary representation if this is
-possible (e.g., by performing a copy of an encrypted Modelica
-package, if encryption allows the copy operation) or (b) request the
-Source Code from the Licensor who will provide it to You.</p>
-
-<p>
-<b>7. Exclusions from License Grant.</b> Neither the names of
-Licensor, nor the names of any contributors to the Original Work, nor
-any of their trademarks or service marks, may be used to endorse or
-promote products derived from this Original Work without express
-prior permission of the Licensor. Except as otherwise expressly
-stated in this License and in particular in Sections 2 and 5, nothing
-in this License grants any license to Licensor&rsquo;s trademarks,
-copyrights, patents, trade secrets or any other intellectual
-property, and no patent license is granted to make, use, sell, offer
-for sale, have made, or import embodiments of any patent claims.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No license is granted to the trademarks of
-Licensor even if such trademarks are included in the Original Work,
-except as expressly stated in this License. Nothing in this License
-shall be interpreted to prohibit Licensor from licensing under terms
-different from this License any Original Work that Licensor otherwise
-would have a right to license.</p>
-
-<p>
-<b>8. Attribution Rights.</b> You must retain in the Source
-Code of the Original Work and of any Derivative Works that You
-create, all author, copyright, patent, or trademark notices, as well
-as any descriptive text identified therein as an &quot;Attribution
-Notice&quot;. The same applies to the licensing notice of this
-License in the Original Work. For the matter of clarity, &ldquo;author
-notice&rdquo; means the notice that identifies the original
-author(s). <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You must cause the Source Code for any Derivative
-Works that You create to carry a prominent Attribution Notice
-reasonably calculated to inform recipients that You have modified the
-Original Work. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In case the Original Work or Derivative Work is not provided in
-Source Code, the Attribution Notices shall be appropriately
-displayed, e.g., in the documentation of the Derivative Work.</p>
-
-<p><b>9. Disclaimer
-of Warranty. <br></b><u><b>The Original Work is provided under this
-License on an &quot;as is&quot; basis and without warranty, either
-express or implied, including, without limitation, the warranties of
-non-infringement, merchantability or fitness for a particular
-purpose. The entire risk as to the quality of the Original Work is
-with You.</b></u> This disclaimer of warranty constitutes an
-essential part of this License. No license to the Original Work is
-granted by this License except under this disclaimer.</p>
-
-<p>
-<b>10. Limitation of Liability.</b> Under no circumstances and
-under no legal theory, whether in tort (including negligence),
-contract, or otherwise, shall the Licensor, the owner or a licensee
-of the Original Work be liable to anyone for any direct, indirect,
-general, special, incidental, or consequential damages of any
-character arising as a result of this License or the use of the
-Original Work including, without limitation, damages for loss of
-goodwill, work stoppage, computer failure or malfunction, or any and
-all other commercial damages or losses. This limitation of liability
-shall not apply to the extent applicable law prohibits such
-limitation.</p>
-
-<p>
-<b>11. Termination.</b> This License conditions your rights to
-undertake the activities listed in Section 2 and 5, including your
-right to create Derivative Works based upon the Original Work, and
-doing so without observing these terms and conditions is prohibited
-by copyright law and international treaty. Nothing in this License is
-intended to affect copyright exceptions and limitations. This License
-shall terminate immediately and You may no longer exercise any of the
-rights granted to You by this License upon your failure to observe
-the conditions of this license.</p>
-
-<p>
-<b>12. Termination for Patent Action.</b> This License shall
-terminate automatically and You may no longer exercise any of the
-rights granted to You by this License as of the date You commence an
-action, including a cross-claim or counterclaim, against Licensor,
-any owners of the Original Work or any licensee alleging that the
-Original Work infringes a patent. This termination provision shall
-not apply for an action alleging patent infringement through
-combinations of the Original Work under combination with other
-software or hardware.</p>
-
-<p>
-<b>13. Jurisdiction.</b> Any action or suit relating to this
-License may be brought only in the courts of a jurisdiction wherein
-the Licensor resides and under the laws of that jurisdiction
-excluding its conflict-of-law provisions. The application of the
-United Nations Convention on Contracts for the International Sale of
-Goods is expressly excluded. Any use of the Original Work outside the
-scope of this License or after its termination shall be subject to
-the requirements and penalties of copyright or patent law in the
-appropriate jurisdiction. This section shall survive the termination
-of this License.</p>
-
-<p>
-<b>14. Attorneys&rsquo; Fees.</b> In any action to enforce the
-terms of this License or seeking damages relating thereto, the
-prevailing party shall be entitled to recover its costs and expenses,
-including, without limitation, reasonable attorneys' fees and costs
-incurred in connection with such action, including any appeal of such
-action. This section shall survive the termination of this License.</p>
-
-<p>
-<b>15. Miscellaneous.</b>
-</p>
-<ol type=\"a\">
-	<li>If any
-	provision of this License is held to be unenforceable, such
-	provision shall be reformed only to the extent necessary to make it
-	enforceable.</li>
-
-	<li>No verbal
-	ancillary agreements have been made. Changes and additions to this
-	License must appear in writing to be valid. This also applies to
-	changing the clause pertaining to written form.</li>
-
-	<li>You may use the
-	Original Work in all ways not otherwise restricted or conditioned by
-	this License or by law, and Licensor promises not to interfere with
-	or be responsible for such uses by You.</li>
-</ol>
-
-<hr>
-
-<h5><a name=\"Frequently_Asked_Questions-outline\"></a>
-Frequently Asked Questions</h5>
-<p>This
-section contains questions/answer to users and/or distributors of
-Modelica packages and/or documents under Modelica License 2. Note,
-the answers to the questions below are not a legal interpretation of
-the Modelica License 2. In case of a conflict, the language of the
-license shall prevail.</p>
-
-<h6>Using or Distributing a Modelica <u>Package</u> under the Modelica License 2</h6>
-
-<p><b>What are the main
-differences to the previous version of the Modelica License?</b></p>
-<ol>
-	<li><p>
-	Modelica License 1 is unclear whether the licensed Modelica package
-	can be distributed under a different license. Version 2 explicitly
-	allows that &ldquo;Derivative Work&rdquo; can be distributed under
-	any license of Your choice, see examples in Section 1d) as to what
-	qualifies as Derivative Work (so, version 2 is clearer).</p>
-	<li><p>
-	If You modify a Modelica package under Modelica License 2 (besides
-	fixing of errors, adding vendor specific Modelica annotations, using
-	a subset of the classes of a Modelica package, or using another
-	representation, e.g., a binary representation), you must rename the
-	root-level name of the package for your distribution. In version 1
-	you could keep the name (so, version 2 is more restrictive). The
-	reason of this restriction is to reduce the risk that Modelica
-	packages are available that have identical names, but different
-	functionality.</p>
-	<li><p>
-	Modelica License 1 states that &ldquo;It is not allowed to charge a
-	fee for the original version or a modified version of the software,
-	besides a reasonable fee for distribution and support&rdquo;.
-	Version 2 has a similar intention for all Original Work under
-	<u>Modelica License 2</u> (to remain free of charge and open source)
-	but states this more clearly as &ldquo;No fee, neither as a
-	copyright-license fee, nor as a selling fee for the copy as such may
-	be charged&rdquo;. Contrary to version 1, Modelica License 2 has no
-	restrictions on fees for Derivative Work that is provided under a
-	different license (so, version 2 is clearer and has fewer
-	restrictions).</p>
-	<li><p>
-	Modelica License 2 introduces several useful provisions for the
-	licensee (articles 5, 6, 12), and for the licensor (articles 7, 12,
-	13, 14) that have no counter part in version 1.</p>
-	<li><p>
-	Modelica License 2 can be applied to all type of work, including
-	documents, images and data files, contrary to version 1 that was
-	dedicated for software only (so, version 2 is more general).</p>
-</ol>
-
-<p><b>Can I distribute a
-Modelica package (under Modelica License 2) as part of my commercial
-Modelica modeling and simulation environment?</b></p>
-<p>Yes,
-according to Section 2c). However, you are not allowed to charge a
-fee for this part of your environment. Of course, you can charge for
-your part of the environment.
-</p>
-
-<p><b>Can I distribute a
-Modelica package (under Modelica License 2) under a different
-license?</b></p>
-<p>No.
-The license of an unmodified Modelica package cannot be changed
-according to Sections 2c) and 2d). This means that you cannot <u>sell</u>
-copies of it, any distribution has to be free of charge.</p>
-
-<p><b>Can I distribute a
-Modelica package (under Modelica License 2) under a different license
-when I first encrypt the package?</b></p>
-<p>No.
-Merely encrypting a package does not qualify for Derivative Work and
-therefore the encrypted package has to stay under Modelica License 2.</p>
-
-<p><b>Can I distribute a
-Modelica package (under Modelica License 2) under a different license
-when I first add classes to the package?</b></p>
-<p>No.
-The package itself remains unmodified, i.e., it is Original Work, and
-therefore the license for this part must remain under Modelica
-License 2. The newly added classes can be, however, under a different
-license.
-</p>
-
-<p><b>Can
-I copy a class out of a Modelica package (under Modelica License 2)
-and include it </b><u><b>unmodified</b></u><b> in a Modelica package
-under a </b><u><b>commercial/proprietary license</b></u><b>?</b></p>
-<p>No,
-according to article 2c). However, you can include model, block,
-function, package, record and connector classes in your Modelica
-package under <u>Modelica License 2</u>. This means that your
-Modelica package could be under a commercial/proprietary license, but
-one or more classes of it are under Modelica License 2.<br>Note, a
-&ldquo;type&rdquo; class (e.g., type Angle = Real(unit=&rdquo;rad&rdquo;))
-can be copied and included unmodified under a commercial/proprietary
-license (for details, see the next question).</p>
-
-<p><b>Can
-I copy a type class or </b><u><b>part</b></u><b> of a model, block,
-function, record, connector class, out of a Modelica package (under
-Modelica License 2) and include it modified or unmodified in a
-Modelica package under a </b><u><b>commercial/proprietary</b></u><b>
-license</b></p>
-<p>Yes,
-according to article 2d), since this will in the end usually qualify
-as Derivative Work. The reasoning is the following: A type class or
-part of another class (e.g., an equation, a declaration, part of a
-class description) cannot be utilized &ldquo;by its own&rdquo;. In
-order to make this &ldquo;usable&rdquo;, you have to add additional
-code in order that the class can be utilized. This is therefore
-usually Derivative Work and Derivative Work can be provided under a
-different license. Note, this only holds, if the additional code
-introduced is sufficient to qualify for Derivative Work. Merely, just
-copying a class and changing, say, one character in the documentation
-of this class would be no Derivative Work and therefore the copied
-code would have to stay under Modelica License 2.</p>
-
-<p><b>Can
-I copy a class out of a Modelica package (under Modelica License 2)
-and include it in </b><u><b>modified </b></u><b>form in a
-</b><u><b>commercial/proprietary</b></u><b> Modelica package?</b></p>
-<p>Yes.
-If the modification can be seen as a &ldquo;Derivative Work&rdquo;,
-you can place it under your commercial/proprietary license. If the
-modification does not qualify as &ldquo;Derivative Work&rdquo; (e.g.,
-bug fixes, vendor specific annotations), it must remain under
-Modelica License 2. This means that your Modelica package could be
-under a commercial/proprietary license, but one or more parts of it
-are under Modelica License 2.</p>
-
-<p><b>Can I distribute a
-&ldquo;save total model&rdquo; under my commercial/proprietary
-license, even if classes under Modelica License 2 are included?</b></p>
-<p>Your
-classes of the &ldquo;save total model&rdquo; can be distributed
-under your commercial/proprietary license, but the classes under
-Modelica License 2 must remain under Modelica License 2. This means
-you can distribute a &ldquo;save total model&rdquo;, but some parts
-might be under Modelica License 2.</p>
-
-<p><b>Can I distribute a
-Modelica package (under Modelica License 2) in encrypted form?</b></p>
-<p>Yes.
-Note, if the encryption does not allow &ldquo;copying&rdquo; of
-classes (in to unencrypted Modelica source code), you have to send
-the Modelica source code of this package to your customer, if he/she
-wishes it, according to article&nbsp;6.</p>
-
-<p><b>Can I distribute an
-executable under my commercial/proprietary license, if the model from
-which the executable is generated uses models from a Modelica package
-under Modelica License 2?</b></p>
-<p>Yes,
-according to article 2d), since this is seen as Derivative Work. The
-reasoning is the following: An executable allows the simulation of a
-concrete model, whereas models from a Modelica package (without
-pre-processing, translation, tool run-time library) are not able to
-be simulated without tool support. By the processing of the tool and
-by its run-time libraries, significant new functionality is added (a
-model can be simulated whereas previously it could not be simulated)
-and functionality available in the package is removed (e.g., to build
-up a new model by dragging components of the package is no longer
-possible with the executable).</p>
-
-<p><b>Is my modification to
-a Modelica package (under Modelica License 2) a Derivative Work?</b></p>
-<p>It
-is not possible to give a general answer to it. To be regarded as &quot;an
-original work of authorship&quot;, a derivative work must be
-different enough from the original or must contain a substantial
-amount of new material. Making minor changes or additions of little
-substance to a preexisting work will not qualify the work as a new
-version for such purposes.
-</p>
-
-<h6>Using or Distributing a Modelica <u>Document</u> under the Modelica License 2</h6>
-
-<p>This
-section is devoted especially for the following applications:</p>
-<ol type=\"a\">
-	<li><p>
-	A Modelica tool extracts information out of a Modelica package and
-	presents the result in form of a &ldquo;manual&rdquo; for this
-	package in, e.g., html, doc, or pdf format.</p>
-	<li><p>
-	The Modelica language specification is a document defining the
-	Modelica language. It will be licensed under Modelica License 2.</p>
-	<li><p>
-	Someone writes a book about the Modelica language and/or Modelica
-	packages and uses information which is available in the Modelica
-	language specification and/or the corresponding Modelica package.</p>
-</ol>
-
-<p><b>Can I sell a manual
-that was basically derived by extracting information automatically
-from a Modelica package under Modelica License 2 (e.g., a &ldquo;reference
-guide&rdquo; of the Modelica Standard Library):</b></p>
-<p>Yes.
-Extracting information from a Modelica package, and providing it in a
-human readable, suitable format, like html, doc or pdf format, where
-the content is significantly modified (e.g. tables with interface
-information are constructed from the declarations of the public
-variables) qualifies as Derivative Work and there are no restrictions
-to charge a fee for Derivative Work under alternative 2d).</p>
-
-<p><b>Can
-I copy a text passage out of a Modelica document (under Modelica
-License 2) and use it </b><u><b>unmodified</b></u><b> in my document
-(e.g. the Modelica syntax description in the Modelica Specification)?</b></p>
-<p>Yes.
-In case you distribute your document, the copied parts are still
-under Modelica License 2 and you are not allowed to charge a license
-fee for this part. You can, of course, charge a fee for the rest of
-your document.</p>
-
-<p><b>Can
-I copy a text passage out of a Modelica document (under Modelica
-License 2) and use it in </b><u><b>modified</b></u><b> form in my
-document?</b></p>
-<p>Yes,
-the creation of Derivative Works is allowed. In case the content is
-significantly modified this qualifies as Derivative Work and there
-are no restrictions to charge a fee for Derivative Work under
-alternative 2d).</p>
-
-<p><b>Can I sell a printed
-version of a Modelica document (under Modelica License 2), e.g., the
-Modelica Language Specification?</b></p>
-<p>No,
-if you are not the copyright-holder, since article 2c) does not allow
-a selling fee for a (in this case physical) copy. However, mere
-printing and shipping costs may be recovered.</p>
-</body>
-</html>"));
-    end ModelicaLicense2;
-
-    model ReleaseNotes
-      extends Modelica.Icons.Information;
-      annotation(
-        Documentation(info = "<html>
-<p><b><font style=\"color: #008000; \">R23 </font></b>27th August 2012 </p>
-<p>first published release of the library with Basic phyiscial units, basic components for nodes and reactions both with parameterized and static number of connections. Examples and algorithmically differentiated components available. </p>
-</html>"));
-    end ReleaseNotes;
-  end UsersGuide;
   annotation (uses(Modelica(version="3.2")), Documentation(info="<html>
 <p>This package contains an implementation of generalized simplified kinetic formats following the guidelines recommended by the <a href=\"https://modelica.org/publications/papers/2005-05-LarsdotterNilsson-Fritzson-BioMedSim2005-MetabolicModeling.pdf\">Biochem library</a>. Matabolic reaction networks can be easily assembled using a few number of reaction kinetics. Constructed models can also be used for computing parameter sensitivities with little modifications to the used interfaces and by initializing the input Jacobian, i.e. the parameters w.r.t. derivatives are sought. </p>
 <p><br/>Licensed under the Modelica License 2</p>
