@@ -691,10 +691,11 @@ printing and shipping costs may be recovered.</p>
 
 
     connector ModifierChemicalPort "connector that connects a node to a reaction. The node is supposed to effects (activate or inhibit) the reaction"
-      Units.Concentration c "concentration";
+      input Units.Concentration c "concentration";
       annotation(
         Icon(graphics = {Bitmap(extent = {{-80, 84}, {100, -98}}, fileName = "icons/modifierconnection.gif")}));
     end ModifierChemicalPort;
+
 
 
 
@@ -721,11 +722,15 @@ printing and shipping costs may be recovered.</p>
     end ModifierChemicalPort_I;
 
 
+
+
     connector ModifierChemicalPort_A "connection from a reaction to an activation node"
       extends ADGenKinetics.Interfaces.ModifierChemicalPort;
       annotation(
         Icon(graphics = {Bitmap(extent = {{-96, 100}, {124, -120}}, fileName = "icons/modifierconnection_A2.gif")}));
     end ModifierChemicalPort_A;
+
+
 
 
     package Reversible "Interfaces describing reversibility of a reaction"
