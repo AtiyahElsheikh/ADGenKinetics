@@ -654,13 +654,18 @@ printing and shipping costs may be recovered.</p>
     end ModelicaLicense2;
 
     model ReleaseNotes
-      extends Modelica.Icons.Information;
+      extends Modelica.Icons.ReleaseNotes;
       annotation(
         Documentation(info = "<html>
 <p><b><font style=\"color: #008000; \">R23 </font></b>27th August 2012 </p>
 <p>first published release of the library with Basic phyiscial units, basic components for nodes and reactions both with parameterized and static number of connections. Examples and algorithmically differentiated components available. </p>
 </html>"));
     end ReleaseNotes;
+
+    model References
+      extends Modelica.Icons.References;
+    end References;
+
   end UsersGuide;
 
   package Units "Physical units"
@@ -724,11 +729,13 @@ printing and shipping costs may be recovered.</p>
 
 
 
+
     connector ModifierChemicalPort_A "connection from a reaction to an activation node"
       extends ADGenKinetics.Interfaces.ModifierChemicalPort;
       annotation(
         Icon(graphics = {Bitmap(extent = {{-96, 100}, {124, -120}}, fileName = "icons/modifierconnection_A2.gif")}));
     end ModifierChemicalPort_A;
+
 
 
 
@@ -934,6 +941,7 @@ printing and shipping costs may be recovered.</p>
 </html>", revisions = "<html>
 </html>"));
   end Interfaces;
+
 
   package NodeElements "Metabolites"
 
