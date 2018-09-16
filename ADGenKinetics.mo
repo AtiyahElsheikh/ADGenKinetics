@@ -1616,7 +1616,7 @@ printing and shipping costs may be recovered.</p>
         NS=1,
         NP=1,
         Vfwdmax=2.0,
-        Vbwdmax=.5,
+        Vbwdmax=0.5,
         KmS={1.0},
         KmP={1.0});
       Node E;
@@ -3241,7 +3241,7 @@ printing and shipping costs may be recovered.</p>
         RevKinetic      v1(NS=1,NP=1,Vfwdmax=3.0,Vbwdmax=1.0,KmS={0.1},KmP={3.0});
         Node B;
 
-        RevKinetic      v5(NS=1,NP=1,Vfwdmax=2.0,Vbwdmax=.5,KmS={1.0},KmP={1.0});
+        RevKinetic      v5(NS=1,NP=1,Vfwdmax=2.0,Vbwdmax=0.5,KmS={1.0},KmP={1.0});
         Node E;
 
         IrrKinetic     v2(NS=2,NP=1,Vfwdmax=2.5,KmS={0.25,2.0}); // B,E -v2-> C
@@ -3317,7 +3317,7 @@ printing and shipping costs may be recovered.</p>
         RevKinetic      v1(NS=1,NP=1,Vfwdmax=3.0,Vbwdmax=1.0,KmS={0.1},KmP={3.0});
         Node B;
 
-        RevKinetic      v5(NS=1,NP=1,Vfwdmax=2.0,Vbwdmax=.5,KmS={1.0},KmP={1.0});
+        RevKinetic      v5(NS=1,NP=1,Vfwdmax=2.0,Vbwdmax=0.5,KmS={1.0},KmP={1.0});
         Node E;
 
         IrrKinetic     v2(NS=2,NP=1,Vfwdmax=2.5,KmS={0.25,2.0},g_KmS={{0,0,0,1,0},{0,0,0,0,1}}); // B,E -v2-> C
@@ -3402,7 +3402,7 @@ printing and shipping costs may be recovered.</p>
 
         RevKinetic      v5(NS=1,NP=1,
                            Vfwdmax=2.0,    g_Vfwdmax=unitVector(8,NG),
-                           Vbwdmax=.5,     g_Vbwdmax=unitVector(9,NG),
+                           Vbwdmax=0.5,     g_Vbwdmax=unitVector(9,NG),
                            KmS={1.0},      g_KmS={unitVector(10,NG)},
                            KmP={1.0},      g_KmP={unitVector(11,NG)});
         Node E;
