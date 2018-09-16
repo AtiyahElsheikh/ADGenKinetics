@@ -669,14 +669,14 @@ printing and shipping costs may be recovered.</p>
   end UsersGuide;
 
   package Units "Physical units"
-   type Concentration = Real (final unit = "mol/m3",min = 0);
-   type MolarFlowRate = Real (final unit = "mol/s");
-   type ReactionCoef = Real (final unit = "1/s");
-   type StoichiometricCoef = Real (final unit = "1");
+   type Concentration = Modelica.Icons.TypeReal (final unit = "mol/m3",min = 0);
+   type MolarFlowRate = Modelica.Icons.TypeReal (final unit = "mol/s");
+   type ReactionCoef = Modelica.Icons.TypeReal (final unit = "1/s");
+   type StoichiometricCoef = Modelica.Icons.TypeReal (final unit = "1");
    type ReactionCoef1st = Units.ReactionCoef;
-   type ReactionCoef2nd = Real (final unit = "m3/(mol.s)");
-   type VolumetricReactionRate = Real (final unit = "mol/(m3.s)");
-   type AffinityConst = Real (final unit = "mol/m3");
+   type ReactionCoef2nd = Modelica.Icons.TypeReal (final unit = "m3/(mol.s)");
+   type VolumetricReactionRate = Modelica.Icons.TypeReal (final unit = "mol/(m3.s)");
+   type AffinityConst = Modelica.Icons.TypeReal (final unit = "mol/m3");
     annotation (Documentation(info="<html>
 <p>This subpackage contains basic physical units describing main entitites of a biochemical reaction network model. </p>
 <p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
