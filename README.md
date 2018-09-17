@@ -16,8 +16,11 @@ Download [ADGenKinetics v1.0+r23 (2012-08-27)](../../archive/v1.0+r23.zip)
 
 #### Release notes
 
-* [Version v1.0+r23 (2012-08-27)](../../archive/v1.0+r23.zip)
- * Initial version.
+* [Version v1.0+r23 (2012-08-27)](../../archive/v1.0+r23.zip) 
+ * Initial version
+ * Old version 
+* V1.1
+ * Icons included 
 
 ## License
 
@@ -25,7 +28,7 @@ This Modelica package is free software and the use is completely at your own ris
 it can be redistributed and/or modified under the terms of the [Modelica License 2](https://modelica.org/licenses/ModelicaLicense2).
 
 ## Development and contribution
-Main developer: [Atiyah Elsheikh](mailto:Atiyah.Elsheikh@ait.ac.at)
+Main developer: [Atiyah Elsheikh](mailto:a.m.g.elsheikh@gmail.com)
 
 You may report any issues with using the [Issues](../../issues) button.
 
