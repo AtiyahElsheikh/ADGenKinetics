@@ -1,7 +1,4 @@
-within ;
-package ADGenKinetics
-  "Implementation of generalized kinetics for modeling biochemical reaction networks"
-
+package ADGenKinetics "Implementation of generalized kinetics for modeling biochemical reaction networks"
   package UsersGuide "User Guide"
     extends Modelica.Icons.Information;
 
@@ -30,42 +27,42 @@ package ADGenKinetics
 <p><br/>The main differences of both ways and their advantages and disadvantages are emphasized in this section along with the given examples. </p>
 <p>Common interfaces and abstract classes are located above these packages. </p>
 <p><h4><font color=\"#008000\">Connections</font></h4></p>
-<p><br/>That is concentration of a substance is the potential variable while the flow rate of materials (i.e. the chemical transformation process) represents the flow variables when connecting nodes and reactions together, cf. <i><a href=\"GenKinetics.Interfaces.ChemicalPort\">ADGenKinetics.Interfaces.ChemicalPort</a></i>. Further subtypes of connectors exist: </p>
+<p><br/>That is concentration of a substance is the potential variable while the flow rate of materials (i.e. the chemical transformation process) represents the flow variables when connecting nodes and reactions together, cf. <i><a href=\"ADGenKinetics.Interfaces.ChemicalPort\">ADGenKinetics.Interfaces.ChemicalPort</a></i>. Further subtypes of connectors exist: </p>
 <p><ul>
 <li><i><a href=\"
-GenKinetics.Intefaces.ChemicalPort_S\">ADGenKinetics.Intefaces.ChemicalPort_S</a></i>: for reactions from the substrate side</li>
+ADGenKinetics.Intefaces.ChemicalPort_S\">ADGenKinetics.Intefaces.ChemicalPort_S</a></i>: for reactions from the substrate side</li>
 <li><i><a href=\"
-GenKinetics.Interfaces.ChemicalPort_P\">ADGenKinetics.Interfaces.ChemicalPort_P</a></i>: for reactions from the product side</li>
+ADGenKinetics.Interfaces.ChemicalPort_P\">ADGenKinetics.Interfaces.ChemicalPort_P</a></i>: for reactions from the product side</li>
 <li><i><a href=\"
-GenKinetics.Interfaces.ModifierChemicalPort\">ADGenKinetics.Interfaces.ModifierChemicalPort</a></i>: connecting reactions and effector nodes</li>
+ADGenKinetics.Interfaces.ModifierChemicalPort\">ADGenKinetics.Interfaces.ModifierChemicalPort</a></i>: connecting reactions and effector nodes</li>
 <li><i><a href=\"
-GenKinetics.Interfaces.MModifierChemicalPort_I\">ADGenKinetics.Interfaces.ModifierChemicalPort_I</a></i>: for inhibiting reactions</li>
+ADGenKinetics.Interfaces.MModifierChemicalPort_I\">ADGenKinetics.Interfaces.ModifierChemicalPort_I</a></i>: for inhibiting reactions</li>
 <li><i><a href=\"
-GenKinetics.Interfaces.MModifierChemicalPort_A\">ADGenKinetics.Interfaces.MModifierChemicalPort_A</a></i>: for activating reactions<br/></li>
+ADGenKinetics.Interfaces.MModifierChemicalPort_A\">ADGenKinetics.Interfaces.MModifierChemicalPort_A</a></i>: for activating reactions<br/></li>
 </ul></p>
 <p><h4><font color=\"#008000\">Interfaces and abstract classes</font></h4></p>
 <p><br/>Further interfaces and abstract classes are used within implemented reactions for simplifying their implementations and emphasizing their classification. The most important of which are: </p>
 <p><i><a href=\"ADGenKinetics.Interfaces.Reversible.ReactionReversibility\">ADGenKinetics.Interfaces.Reversible.ReactionReversibility</a></i>: for determining the reversibility of reactions. The extended interfaces OneWay, TwoWay are used for irreversible, reversible reactions, respectively:</p>
 <p><ul>
 <li><i><a href=\"
-GenKinetics.Interfaces.static.NodeConnections\">ADGenKinetics.Interfaces.static.NodeConnections</a></i>: fixed number of connections for nodes</li>
+ADGenKinetics.Interfaces.static.NodeConnections\">ADGenKinetics.Interfaces.static.NodeConnections</a></i>: fixed number of connections for nodes</li>
 <li><i><a href=\"
-GenKinetics.Interfaces.dynamic.NodeConnections\">ADGenKinetics.Interfaces.dynamic.NodeConnections</a></i>: parameterized number of connections for nodes.</li>
+ADGenKinetics.Interfaces.dynamic.NodeConnections\">ADGenKinetics.Interfaces.dynamic.NodeConnections</a></i>: parameterized number of connections for nodes.</li>
 <li><i><a href=\"
-GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension</a></i>: parameterized number of connections for nodes. This interface can be used for specializing further classes of specific dimension, e.g. <i><a href=\"
-GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">ADGenKinetics.Interfaces.dynamic.Dimension.UniUni</a> .</i> </li>
+ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension</a></i>: parameterized number of connections for nodes. This interface can be used for specializing further classes of specific dimension, e.g. <i><a href=\"
+ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">ADGenKinetics.Interfaces.dynamic.Dimension.UniUni</a> .</i> </li>
 <li><i><a href=\"
-GenKinetics.Interfaces.static\">ADGenKinetics.Interfaces.static</a></i>.{<i><a href=\"GenKinetics.Interfaces.static.Reaction1S\">ReactionXS</a>, <a href=\"
-GenKinetics.Interfaces.static.Reaction2P\">ReactionXP</a></i>, <i><a href=\"
-GenKinetics.Interfaces.static.Reaction1I\">ReactionXI</a>,</i> <i><a href=\"Reaction1A\">ReactionXA</a></i>}: icons and connections for reactions with X number of connections.</li>
+ADGenKinetics.Interfaces.static\">ADGenKinetics.Interfaces.static</a></i>.{<i><a href=\"ADGenKinetics.Interfaces.static.Reaction1S\">ReactionXS</a>, <a href=\"
+ADGenKinetics.Interfaces.static.Reaction2P\">ReactionXP</a></i>, <i><a href=\"
+ADGenKinetics.Interfaces.static.Reaction1I\">ReactionXI</a>,</i> <i><a href=\"Reaction1A\">ReactionXA</a></i>}: icons and connections for reactions with X number of connections.</li>
 </ul></p>
 <p><h4><font color=\"#008000\">Nodes</font></h4></p>
-<p><br/>Typically, the component <i><a href=\"GenKinetics.NodeElements.dynamic.Node\">ADGenKinetics.NodeElements.dynamic.Node</a></i> or <i><a href=\"GenKinetics.NodeElements.static.Node\">ADGenKinetics.NodeElements.static.Node</a> </i>is the basic one needed for constructing biochemical reaction networks. Further types can be also imported from available implementation of the Biochem library. </p>
+<p><br/>Typically, the component <i><a href=\"ADGenKinetics.NodeElements.dynamic.Node\">ADGenKinetics.NodeElements.dynamic.Node</a></i> or <i><a href=\"ADGenKinetics.NodeElements.static.Node\">ADGenKinetics.NodeElements.static.Node</a> </i>is the basic one needed for constructing biochemical reaction networks. Further types can be also imported from available implementation of the Biochem library. </p>
 <p><h4><font color=\"#008000\">Reactions </font></h4></p>
 <p><br/>Reaction kinetics are available in the packages<i><a href=\" ADGenKinetics.Reactions.convenience.\"> </a><a href=\" ADGenKinetics.Reactions.convenience\">ADGenKinetics.Reactions.convenience</a><a href=\" ADGenKinetics.Reactions.convenience.\">.</a>{<a href=\"ADGenKinetics.Reactions.convenience.dynamic\">dynamic</a></i>.<i><a href=\"ADGenKinetics.Reactions.convenience.static\">static</a></i>}. </p>
 <p><br/>For instance,<i><a href=\" ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic\"> ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic</a></i> is used for irreversible reactions with arbitrary number of substrates and products, while <i><a href=\"ADGenKinetics.Reactions.convenience.dynamic.InhRevKinetic\">ADGenKinetics.Reactions.convenience.dynamic.InhRevKinetic</a></i> for reversible inhibited reactions with arbitrary number of substrates, products and inhibitors. </p>
 <p><br/>Static packages provide reaction kinetics with fixed reaction structure. For instance <i><a href=\"ADGenKinetics.Reactions.convenience.static.IrrKinetic2S1P1I\">ADGenKinetics.Reactions.convenience.static.IrrKinetic2S1P1I</a></i>. </p>
-<p><br/>Examples of constructing biochemical networks are given in <i><a href=\"GenKinetics.Examples.Spirallusdyn\">ADGenKinetics.Examples.Spirallusdyn</a> and <a href=\"GenKinetics.Examples.Spirallustatic\">ADGenKinetics.Examples.Spirallustatic</a>. </i></p>
+<p><br/>Examples of constructing biochemical networks are given in <i><a href=\"ADGenKinetics.Examples.Spirallusdyn\">ADGenKinetics.Examples.Spirallusdyn</a> and <a href=\"ADGenKinetics.Examples.Spirallustatic\">ADGenKinetics.Examples.Spirallustatic</a>. </i></p>
 <p><h4><font color=\"#008000\">Computation of parameter sensitivities</font></h4></p>
 <p><br/>Given a biochemical reaction network model, the same model can be used for computing parameter sensitivities by additional slight modification in the declaration part: </p>
 <p><ol>
@@ -74,10 +71,9 @@ ADGenKinetics.Derivatives.NodeElements.*\">ADGenKinetics.Derivatives.NodeElement
 ADGenKinetics.Derivatives.Reactions.convenience\">ADGenKinetics.Derivatives.Reactions.convenience.*</a></i> types for nodes and reaction kinetics.</li>
 <li>Initializing the input Jacobian specifying active parameter with respect to which derivatives are sought. </li>
 </ol></p>
-<p>For instance compare the model given in <i><a href=\"GenKinetics.Examples.Spirallusdyn\">ADGenKinetics.Examples.Spirallusdyn</a> with <a href=\"GenKinetics.Derivatives.Examples.SpirallusdynAll \">ADGenKinetics.Derivatives.Examples.SpirallusdynAll </a></i></p>
+<p>For instance compare the model given in <i><a href=\"ADGenKinetics.Examples.Spirallusdyn\">ADGenKinetics.Examples.Spirallusdyn</a> with <a href=\"ADGenKinetics.Derivatives.Examples.SpirallusdynAll \">ADGenKinetics.Derivatives.Examples.SpirallusdynAll </a></i></p>
 </html>"));
     end Overview;
-
 
     model Contributors
       extends Modelica.Icons.Information;
@@ -666,23 +662,28 @@ printing and shipping costs may be recovered.</p>
       extends Modelica.Icons.References;
     end References;
 
+    model CopyRight
+      extends Modelica.Icons.Information;
+      annotation(
+        Documentation(info = "<html><head></head><body><p><span style=\"font-size: 12px;\">Licensed under the Modelica License 2</span></p><p><b style=\"color: rgb(170, 0, 0); font-size: x-large;\">Copyright © &lt;2011&gt;-&lt;2018&gt;, &lt;Atiyah Elsheikh&gt;.</b></p><p><i>This Modelica package is&nbsp;<u>free</u>&nbsp;software and the use is completely at&nbsp;<u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see&nbsp;<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a>&nbsp;or visit<a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p></body></html>"));
+    end CopyRight;
   end UsersGuide;
 
-  package Units "Physical units"
-   type Concentration = Modelica.Icons.TypeReal (final unit = "mol/m3",min = 0);
-   type MolarFlowRate = Modelica.Icons.TypeReal (final unit = "mol/s");
-   type ReactionCoef = Modelica.Icons.TypeReal (final unit = "1/s");
-   type StoichiometricCoef = Modelica.Icons.TypeReal (final unit = "1");
-   type ReactionCoef1st = Units.ReactionCoef;
-   type ReactionCoef2nd = Modelica.Icons.TypeReal (final unit = "m3/(mol.s)");
-   type VolumetricReactionRate = Modelica.Icons.TypeReal (final unit = "mol/(m3.s)");
-   type AffinityConst = Modelica.Icons.TypeReal (final unit = "mol/m3");
-    annotation (Documentation(info="<html>
-<p>This subpackage contains basic physical units describing main entitites of a biochemical reaction network model. </p>
-<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+package Units "Physical units"
+ type Concentration = Modelica.Icons.TypeReal (final unit = "mol/m3",min = 0);
+ type MolarFlowRate = Modelica.Icons.TypeReal (final unit = "mol/s");
+ type ReactionCoef = Modelica.Icons.TypeReal (final unit = "1/s");
+ type StoichiometricCoef = Modelica.Icons.TypeReal (final unit = "1");
+ type ReactionCoef1st = Units.ReactionCoef;
+ type ReactionCoef2nd = Modelica.Icons.TypeReal (final unit = "m3/(mol.s)");
+ type VolumetricReactionRate = Modelica.Icons.TypeReal (final unit = "mol/(m3.s)");
+ type AffinityConst = Modelica.Icons.TypeReal (final unit = "mol/m3");
+  annotation (Documentation(info= "<html><head></head><body><p>This subpackage contains basic physical units describing main entitites of a biochemical reaction network model. </p>
+<p><br>Licensed under the Modelica License 2</p><p><br>Copyright © <a href=\"ADGenKinetics.UserGuide.CopyRight\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
-  end Units;
+</body></html>"));
+end Units;
+
 
   package Interfaces "Typical interfaces"
     connector ChemicalPort "reaction connector from a node to a reaction, declared within the node side"
@@ -693,17 +694,11 @@ printing and shipping costs may be recovered.</p>
         Diagram(graphics));
     end ChemicalPort;
 
-
-
     connector ModifierChemicalPort "connector that connects a node to a reaction. The node is supposed to effects (activate or inhibit) the reaction"
       input Units.Concentration c "concentration";
       annotation(
         Icon(graphics = {Bitmap(extent = {{-80, 84}, {100, -98}}, fileName = "icons/modifierconnection.gif")}));
     end ModifierChemicalPort;
-
-
-
-
 
     connector ChemicalPort_S "connector from a reactant substrate node to a reaction, declared within the reaction side"
       extends ADGenKinetics.Interfaces.ChemicalPort;
@@ -712,13 +707,11 @@ printing and shipping costs may be recovered.</p>
         Diagram(graphics));
     end ChemicalPort_S;
 
-
     connector ChemicalPort_P "connector from a reactant substrate node to a reaction, declared within the reaction side"
       extends ADGenKinetics.Interfaces.ChemicalPort;
       annotation(
         Icon(graphics = {Bitmap(extent = {{-88, 106}, {94, -104}}, fileName = "icons/reactionconnection_P2.gif")}));
     end ChemicalPort_P;
-
 
     connector ModifierChemicalPort_I "connection from a reaction to an inhibition node"
       extends ADGenKinetics.Interfaces.ModifierChemicalPort;
@@ -726,19 +719,11 @@ printing and shipping costs may be recovered.</p>
         Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}), graphics = {Bitmap(extent = {{-80, 80}, {84, -80}}, fileName = "icons/modifierconnection_I2.gif")}));
     end ModifierChemicalPort_I;
 
-
-
-
-
     connector ModifierChemicalPort_A "connection from a reaction to an activation node"
       extends ADGenKinetics.Interfaces.ModifierChemicalPort;
       annotation(
         Icon(graphics = {Bitmap(extent = {{-96, 100}, {124, -120}}, fileName = "icons/modifierconnection_A2.gif")}));
     end ModifierChemicalPort_A;
-
-
-
-
 
     package Reversible "Interfaces describing reversibility of a reaction"
       partial model ReactionReversibility "Base Type for describing Reversability of a reaction"
@@ -751,7 +736,6 @@ printing and shipping costs may be recovered.</p>
           Icon(graphics = {Bitmap(extent = {{-78, 80}, {86, -80}}, fileName = "icons/OneWay.gif")}));
       end OneWay;
 
-
       class TwoWay "Reversible Reaction"
         extends ReactionReversibility;
         parameter Units.ReactionCoef Vbwdmax = 1 "backward maximal reaction rate";
@@ -759,13 +743,11 @@ printing and shipping costs may be recovered.</p>
           Icon(graphics = {Bitmap(extent = {{-110, 100}, {90, -100}}, fileName = "icons/TwoWay.gif")}));
       end TwoWay;
       annotation(
-        Documentation(info = "<html>
-<p>This subpackage contains basic interfaces describing the reversibility of a reaction</p>
-<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+        Documentation(info = "<html><head></head><body><p>This subpackage contains basic interfaces describing the reversibility of a reaction</p>
+<p><br>Licensed under the Modelica License 2</p><p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
     end Reversible;
-
 
     package static "Interfaces for components consisting of a fixed number of connections"
       partial model NodeConnections "Metabolite connections to reactions"
@@ -862,13 +844,11 @@ printing and shipping costs may be recovered.</p>
           Icon(graphics));
       end Reaction1I;
       annotation(
-        Documentation(info = "<html>
-<p>This subpackage contains basic icons for nodes and reactions. The nodes and the reactions are declared with a &quot;static&quot; fixed number of connectors.  </p>
-<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+        Documentation(info = "<html><head></head><body><p>This subpackage contains basic icons for nodes and reactions. The nodes and the reactions are declared with a \"static\" fixed number of connectors.  </p>
+<p><br>Licensed under the Modelica License 2</p><p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
     end static;
-
 
     package dynamic "Interfaces with parameterized number of connections for textual implementation and automatic model generation"
       package Dimension "Reaction Dimension and Molecularity"
@@ -883,13 +863,12 @@ printing and shipping costs may be recovered.</p>
           extends ReactionDimension(redeclare final parameter Integer NS = 1, redeclare final parameter Integer NP = 1);
         end UniUni;
         annotation(
-          Documentation(info = "<html>
-<p>This subpackage contains basic interface for specifying the dimension of the reaction, see <a href=\"GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension</a> . Out of this interface, specialized reaction types can be created as a syntactic sugar, e.g. <a href=\"GenKinetics.Interfaces.dynamic.Dimension.UniUni\">GenKinetics.Interfaces.dynamic.Dimension.UniUni</a> . </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+          Documentation(info = "<html><head></head><body><p>This subpackage contains basic interface for specifying the dimension of the reaction, see <a href=\"GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension</a> . Out of this interface, specialized reaction types can be created as a syntactic sugar, e.g. <a href=\"GenKinetics.Interfaces.dynamic.Dimension.UniUni\">GenKinetics.Interfaces.dynamic.Dimension.UniUni</a> . </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-<p><h4>Package Content</h4></p>
-</html>"));
+<p></p><h4>Package Content</h4><p></p>
+</body></html>"));
       end Dimension;
 
       package Structure "Reaction Structure reversibility and dimension"
@@ -908,12 +887,11 @@ printing and shipping costs may be recovered.</p>
           extends ReactionStructure(redeclare final class Reversibility = Reversible.OneWay);
         end StrOneWay;
         annotation(
-          Documentation(info = "<html>
-<p>This subpackage contains basic interface for specifying the structure of a reaction, i.e. its dimension and reversibility see <a href=\"GenKinetics.Interfaces.dynamic.Dimension.ReactionStructure\">GenKinetics.Interfaces.dynamic.Dimension.ReactionStructure</a> . Out of this interface, specialized reaction types can be created as a syntactic sugar, e.g. <a href=\"GenKinetics.Interfaces.dynamic.Dimension.StrOneWay\">GenKinetics.Interfaces.dynamic.Dimension.StrOneWay</a> . </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+          Documentation(info = "<html><head></head><body><p>This subpackage contains basic interface for specifying the structure of a reaction, i.e. its dimension and reversibility see <a href=\"GenKinetics.Interfaces.dynamic.Dimension.ReactionStructure\">GenKinetics.Interfaces.dynamic.Dimension.ReactionStructure</a> . Out of this interface, specialized reaction types can be created as a syntactic sugar, e.g. <a href=\"GenKinetics.Interfaces.dynamic.Dimension.StrOneWay\">GenKinetics.Interfaces.dynamic.Dimension.StrOneWay</a> . </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
       end Structure;
 
       partial model NodeConnections "Metabolite connections to reactions wuth one connector only"
@@ -925,121 +903,96 @@ printing and shipping costs may be recovered.</p>
           Icon(graphics));
       end NodeConnections;
       annotation(
-        Documentation(info = "<html>
-<p>This subpackage contains basic interfaces for nodes and reactions. The nodes and the reactions are declared with a &quot;dynamic&quot; parameterized number of connectors. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+        Documentation(info = "<html><head></head><body><p>This subpackage contains basic interfaces for nodes and reactions. The nodes and the reactions are declared with a \"dynamic\" parameterized number of connectors. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-<p><b><font style=\"font-size: 19pt; \">Package Content</b></p>
-</html>"));
+<p><b><font style=\"font-size: 19pt; \">Package Content</font></b></p><font style=\"font-size: 19pt; \">
+</font></body></html>"));
     end dynamic;
     annotation(
-      Documentation(info = "<html>
-<p>This subpackage contains all interfaces, abstract models, connectors etc. utilized by the components of the library. </p>
-<p><br/>Licensed under the Modelica License 2</p><p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+      Documentation(info = "<html><head></head><body><p>This subpackage contains all interfaces, abstract models, connectors etc. utilized by the components of the library. </p>
+<p><br>Licensed under the Modelica License 2</p><p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>", revisions = "<html>
+</body></html>", revisions = "<html>
 </html>"));
   end Interfaces;
 
-
   package NodeElements "Metabolites"
-
     package dynamic "Nodes with parameterized interfaces and connections"
       partial model BasicNode "Basic declarations of any Metabolite"
         extends ADGenKinetics.Interfaces.dynamic.NodeConnections;
-
-        parameter Units.Concentration c_0=0 "initial concentration";
-        Units.Concentration c(start=c_0) "substance concentration";
+        parameter Units.Concentration c_0 = 0 "initial concentration";
+        Units.Concentration c(start = c_0) "substance concentration";
         Units.VolumetricReactionRate r_net "net reaction rate";
-
       equation
         r_net = rc.r;
-        rc.c  = c;
+        rc.c = c;
         mc.c = c;
-
       end BasicNode;
 
-      partial model BasicModifierNode
-        "Deprecated: Basic declarations of any Metabolite, which effects at least one reaction"
+      partial model BasicModifierNode "Deprecated: Basic declarations of any Metabolite, which effects at least one reaction"
         extends BasicNode;
-
       end BasicModifierNode;
 
       model Node "Metabolite with dynamic rate"
         extends ADGenKinetics.NodeElements.dynamic.BasicNode;
-
         //parameter Units.Concentration tolerance=1e-6;
-
       equation
-        //der(c) = if(c < tolerance) then 0 else r_net;
+//der(c) = if(c < tolerance) then 0 else r_net;
         der(c) = r_net;
       end Node;
 
-      model ModifierNode
-        "Deprecated: Metabolite with dynamic rate, that effects at least one reaction"
+      model ModifierNode "Deprecated: Metabolite with dynamic rate, that effects at least one reaction"
         extends ADGenKinetics.NodeElements.dynamic.BasicModifierNode;
-
         //parameter Units.Concentration tolerance=1e-6;
-
       equation
-        //der(c) = if (c < tolerance) then 0 else r_net;
+//der(c) = if (c < tolerance) then 0 else r_net;
         der(c) = r_net;
-
       end ModifierNode;
 
       model FixedConcentrationNode "Metabolite with fixed concentration"
         extends ADGenKinetics.NodeElements.dynamic.BasicNode;
-        parameter Units.Concentration c_fixed=1.0;
-
+        parameter Units.Concentration c_fixed = 1.0;
       equation
         c = c_fixed;
-
       end FixedConcentrationNode;
-      annotation (Documentation(info="<html>
-<p>This subpackage contains implmentation for nodes, chemical substances, which can be connected to arbitrary number of reactions. Typically the component <a href=\"GenKinetics.NodeElements.dynamic.Node\">GenKinetics.NodeElements.dynamic.Node</a> is the one which will be used at most. The component <a href=\"GenKinetics.NodeElements.dynamic.ModifierNode\">GenKinetics.NodeElements.dynamic.ModifierNode</a> is exactly the same and does not really provide additional functionalities (it is here only for backword compatibility reasons with older versions of this implementation). This component will mostly get removed in later versions. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+      annotation(
+        Documentation(info = "<html><head></head><body><p>This subpackage contains implmentation for nodes, chemical substances, which can be connected to arbitrary number of reactions. Typically the component <a href=\"GenKinetics.NodeElements.dynamic.Node\">GenKinetics.NodeElements.dynamic.Node</a> is the one which will be used at most. The component <a href=\"GenKinetics.NodeElements.dynamic.ModifierNode\">GenKinetics.NodeElements.dynamic.ModifierNode</a> is exactly the same and does not really provide additional functionalities (it is here only for backword compatibility reasons with older versions of this implementation). This component will mostly get removed in later versions. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
     end dynamic;
 
     package static "Node elements with a static number of interfaces and icons"
       partial model BasicNode "Basic declarations of any Metabolite"
         extends ADGenKinetics.Interfaces.static.NodeConnections;
-
-        parameter ADGenKinetics.Units.Concentration c_0=0
-          "initial reaction rate";
-        ADGenKinetics.Units.Concentration c(start=c_0) "dynamic concentration";
+        parameter ADGenKinetics.Units.Concentration c_0 = 0 "initial reaction rate";
+        ADGenKinetics.Units.Concentration c(start = c_0) "dynamic concentration";
         ADGenKinetics.Units.VolumetricReactionRate r_net "net reaction rate";
-
       equation
         r_net = rc1.r + rc2.r + rc3.r + rc4.r + rc5.r + rc6.r + rc7.r + rc8.r;
         rc1.c = c;
-                   rc2.c = c;
-                              rc3.c = c;
-                                         rc4.c = c;
-                                                    rc5.c = c;
-                                                               rc6.c = c;
-                                                                          rc7.c = c;
-                                                                                     rc8.c = c;
+        rc2.c = c;
+        rc3.c = c;
+        rc4.c = c;
+        rc5.c = c;
+        rc6.c = c;
+        rc7.c = c;
+        rc8.c = c;
         mc1.c = c;
-                   mc2.c = c;
-                              mc3.c = c;
-                                         mc4.c = c;
-
-                                          annotation (Line(
-            points={{50,90},{50,90}},
-            color={0,0,255},
-            smooth=Smooth.None),
-                    Icon(graphics={Rectangle(extent={{-100,100},{100,-100}},
-                  lineColor={0,0,255})}), Diagram(graphics));
+        mc2.c = c;
+        mc3.c = c;
+        mc4.c = c;
+        annotation(
+          Line(points = {{50, 90}, {50, 90}}, color = {0, 0, 255}, smooth = Smooth.None),
+          Icon(graphics = {Rectangle(extent = {{-100, 100}, {100, -100}}, lineColor = {0, 0, 255})}),
+          Diagram(graphics));
       end BasicNode;
 
-      partial model BasicModifierNode
-        "Deprecated: Basic declarations of any Metabolite / exactly like BasicNode for declaration symmetry reasons"
+      partial model BasicModifierNode "Deprecated: Basic declarations of any Metabolite / exactly like BasicNode for declaration symmetry reasons"
         extends BasicNode;
-
       end BasicModifierNode;
 
       model Node "Metabolite with dynamic rate"
@@ -1050,934 +1003,621 @@ printing and shipping costs may be recovered.</p>
 
       model ModifierNode "Metabolite with dynamic rate"
         extends static.Node;
-
       end ModifierNode;
 
       model FixedConcentrationNode "Metabolite with fixed concentration"
         extends static.BasicNode;
-        parameter ADGenKinetics.Units.Concentration c_fixed=1.0;
-
+        parameter ADGenKinetics.Units.Concentration c_fixed = 1.0;
       equation
         c = c_fixed;
-
       end FixedConcentrationNode;
-      annotation (Documentation(info="<html>
-<p>This subpackage contains implmentation for nodes, chemical substances, which provides a fixed number of connections to reactions. Typically the component <a href=\"GenKinetics.NodeElements.static.Node\">GenKinetics.NodeElements.static.Node</a> is the one which will be used at most. The component <a href=\"GenKinetics.NodeElements.static.ModifierNode\">GenKinetics.NodeElements.static.ModifierNode</a> is exactly the same and does not really provide additional functionalities (it is here only for backword compatibility reasons with older versions of this implementation). This component will mostly get removed in later versions. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+      annotation(
+        Documentation(info = "<html><head></head><body><p>This subpackage contains implmentation for nodes, chemical substances, which provides a fixed number of connections to reactions. Typically the component <a href=\"GenKinetics.NodeElements.static.Node\">GenKinetics.NodeElements.static.Node</a> is the one which will be used at most. The component <a href=\"GenKinetics.NodeElements.static.ModifierNode\">GenKinetics.NodeElements.static.ModifierNode</a> is exactly the same and does not really provide additional functionalities (it is here only for backword compatibility reasons with older versions of this implementation). This component will mostly get removed in later versions. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
     end static;
-    annotation (Documentation(info="<html>
-<p>This subpackage contains components for chemical substances. Additional substances are also provided in other implementations of the Biochem library.</p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+    annotation(
+      Documentation(info = "<html><head></head><body><p>This subpackage contains components for chemical substances. Additional substances are also provided in other implementations of the Biochem library.</p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
   end NodeElements;
 
   package Reactions "Reaction kinetics"
-
     package convenience "Implementation of convenience kinetics"
-      package dynamic
-        "Reactions with parameterized number of connections suitable for model generation and textual implementation"
+      package dynamic "Reactions with parameterized number of connections suitable for model generation and textual implementation"
         partial model BasicReaction "basic declaration of a reaction "
           extends Interfaces.dynamic.Dimension.ReactionDimension;
-
           // Reaction Rate
           Units.VolumetricReactionRate v;
-
           // Connections to Substrates and Products
-          ADGenKinetics.Interfaces.ChemicalPort_S rc_S[NS]
-            "connection to substrates";
-          ADGenKinetics.Interfaces.ChemicalPort_P rc_P[NP]
-            "connection to product";
-
+          ADGenKinetics.Interfaces.ChemicalPort_S rc_S[NS] "connection to substrates";
+          ADGenKinetics.Interfaces.ChemicalPort_P rc_P[NP] "connection to product";
         equation
           rc_S[:].r = n_S[:] * v;
           rc_P[:].r = -n_P[:] * v;
-
-          //rc_S[:].r = rc_S[:].n_S * v;
-          //rc_P[:].r = -rc_P[:].n_P * v;
-
+//rc_S[:].r = rc_S[:].n_S * v;
+//rc_P[:].r = -rc_P[:].n_P * v;
         end BasicReaction;
 
         partial model ReactionActivation "Interface for activating a reaction"
-
-          parameter Integer NA = 1
-            "number of Metabolites activating the reaction";
-          ADGenKinetics.Interfaces.ModifierChemicalPort_A mc_A[NA]
-            "connectors to the activating node";
-          parameter Units.AffinityConst KA[NA] = ones(NA)
-            "activation constants";
-
+          parameter Integer NA = 1 "number of Metabolites activating the reaction";
+          ADGenKinetics.Interfaces.ModifierChemicalPort_A mc_A[NA] "connectors to the activating node";
+          parameter Units.AffinityConst KA[NA] = ones(NA) "activation constants";
           Real A "activation term";
-
         equation
-          A = product({ KA[i] / (KA[i] + mc_A[i].c) for i in 1:NA});
-
-          //A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].mc.c) for i in 1:NA});
-          //A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].c) for i in 1:NA});
-
+          A = product({KA[i] / (KA[i] + mc_A[i].c) for i in 1:NA});
+//A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].mc.c) for i in 1:NA});
+//A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].c) for i in 1:NA});
         end ReactionActivation;
 
         partial model ReactionInhibition "Interface for inhibiting a reaction"
-
-          parameter Integer NI = 1
-            "number of Metabolites inhibiting the reaction";
-          ADGenKinetics.Interfaces.ModifierChemicalPort_I mc_I[NI]
-            "connection to inhibitors";
-
-          parameter Units.AffinityConst KI[NI] = ones(NI)
-            "affinity constant of the Inhibitors";
-
+          parameter Integer NI = 1 "number of Metabolites inhibiting the reaction";
+          ADGenKinetics.Interfaces.ModifierChemicalPort_I mc_I[NI] "connection to inhibitors";
+          parameter Units.AffinityConst KI[NI] = ones(NI) "affinity constant of the Inhibitors";
           Real I "inhibition term in the corresponding kinetics";
-
         equation
-          I = product({ KI[i] / (KI[i] + mc_I[i].c) for i in 1:NI});
-
-          //I = product({ mc_I[i].KI / (mc_I[i].KI + mc_I[i].mc.c) for i in 1:NI});
-          //I = product({ mc_I[i].KI / (mc_I[i].KI + mc_I[i].c) for i in 1:NI});
+          I = product({KI[i] / (KI[i] + mc_I[i].c) for i in 1:NI});
+//I = product({ mc_I[i].KI / (mc_I[i].KI + mc_I[i].mc.c) for i in 1:NI});
+//I = product({ mc_I[i].KI / (mc_I[i].KI + mc_I[i].c) for i in 1:NI});
         end ReactionInhibition;
 
-        partial model BasicIrrReaction
-          "basic declaration of an irreversible reaction "
+        partial model BasicIrrReaction "basic declaration of an irreversible reaction "
           extends Reactions.convenience.dynamic.BasicReaction;
           extends Interfaces.Reversible.OneWay;
-
           //parameter Real KmS[NS] = ones(NS);
-
           Real S1;
           Real S2;
-
-          parameter Units.AffinityConst KmS[NS] = ones(NS)
-            "affinity constants of the substrate nodes";
-
+          parameter Units.AffinityConst KmS[NS] = ones(NS) "affinity constants of the substrate nodes";
         equation
-          S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
-          S2 = product({rc_S[i].c/KmS[i] + 1 for i in 1:NS});
-
-          //S1 = Vfwdmax * product({rc_S[i].rc.c/rc_S[i].KmS for i in 1:NS});
-          //S2 = Vfwdmax * product({rc_S[i].rc.c/rc_S[i].KmS + 1 for i in 1:NS});
-
-          // if NS = 0 is possible, use this formulation
-          // S2 = if (NS > 0) then Vfwdmax * product({rc_S[i].rc.c/rc_S[i].KmS + 1 for i in 1:NS}) else 1;
-
-          //S1 = Vfwdmax * product({rc_S[i].c/rc_S[i].KmS for i in 1:NS});
-          //S2 = Vfwdmax * product({rc_S[i].c/rc_S[i].KmS + 1 for i in 1:NS});
-
+          S1 = Vfwdmax * product({rc_S[i].c / KmS[i] for i in 1:NS});
+          S2 = product({rc_S[i].c / KmS[i] + 1 for i in 1:NS});
+//S1 = Vfwdmax * product({rc_S[i].rc.c/rc_S[i].KmS for i in 1:NS});
+//S2 = Vfwdmax * product({rc_S[i].rc.c/rc_S[i].KmS + 1 for i in 1:NS});
+// if NS = 0 is possible, use this formulation
+// S2 = if (NS > 0) then Vfwdmax * product({rc_S[i].rc.c/rc_S[i].KmS + 1 for i in 1:NS}) else 1;
+//S1 = Vfwdmax * product({rc_S[i].c/rc_S[i].KmS for i in 1:NS});
+//S2 = Vfwdmax * product({rc_S[i].c/rc_S[i].KmS + 1 for i in 1:NS});
         end BasicIrrReaction;
 
-        partial model BasicRevReaction
-          "basic declaration of a reversible reaction "
+        partial model BasicRevReaction "basic declaration of a reversible reaction "
           extends Reactions.convenience.dynamic.BasicIrrReaction;
           extends Interfaces.Reversible.TwoWay;
-
           //parameter Real KmP[NP] = ones(NP);
-
           Real P1;
           Real P2;
-
-          parameter Units.AffinityConst KmP[NP] = ones(NP)
-            "affinity constants of the product node";
-
+          parameter Units.AffinityConst KmP[NP] = ones(NP) "affinity constants of the product node";
         equation
-          P1 = Vbwdmax * product({rc_P[i].c/KmP[i] for i in 1:NP});
-          P2 = product({rc_P[i].c/KmP[i] + 1 for i in 1:NP});
-
-          //P1 = Vbwdmax * product({rc_P[i].rc.c/rc_P[i].KmP for i in 1:NP});
-          //P2 = Vbwdmax * product({rc_P[i].rc.c/rc_P[i].KmP + 1 for i in 1:NP});
-
-          //P1 = Vbwdmax * product({rc_P[i].c/rc_P[i].KmP for i in 1:NP});
-          //P2 = Vbwdmax * product({rc_P[i].c/rc_P[i].KmP + 1 for i in 1:NP});
-
+          P1 = Vbwdmax * product({rc_P[i].c / KmP[i] for i in 1:NP});
+          P2 = product({rc_P[i].c / KmP[i] + 1 for i in 1:NP});
+//P1 = Vbwdmax * product({rc_P[i].rc.c/rc_P[i].KmP for i in 1:NP});
+//P2 = Vbwdmax * product({rc_P[i].rc.c/rc_P[i].KmP + 1 for i in 1:NP});
+//P1 = Vbwdmax * product({rc_P[i].c/rc_P[i].KmP for i in 1:NP});
+//P2 = Vbwdmax * product({rc_P[i].c/rc_P[i].KmP + 1 for i in 1:NP});
         end BasicRevReaction;
 
         class IrrKinetic "S1 + S2 + ... => P1 + P2 + ... "
           extends ADGenKinetics.Reactions.convenience.dynamic.BasicIrrReaction;
-
         equation
           v = S1 / S2;
-
         end IrrKinetic;
 
         class InhIrrKinetic "S1 + S2 + ... ==I1,I2,...==> P1 + P2 + ... "
           extends ADGenKinetics.Reactions.convenience.dynamic.BasicIrrReaction;
-          extends
-            ADGenKinetics.Reactions.convenience.dynamic.ReactionInhibition;
-
+          extends ADGenKinetics.Reactions.convenience.dynamic.ReactionInhibition;
         equation
           v = I * S1 / S2;
-
         end InhIrrKinetic;
 
         class ActIrrKinetic "S1 + S2 + ... ==A1,A2,...==> P1 + P2 + ... "
           extends ADGenKinetics.Reactions.convenience.dynamic.BasicIrrReaction;
-          extends
-            ADGenKinetics.Reactions.convenience.dynamic.ReactionActivation;
-
+          extends ADGenKinetics.Reactions.convenience.dynamic.ReactionActivation;
         equation
           v = A * S1 / S2;
-
         end ActIrrKinetic;
 
         class ActInhIrrKinetic "S1 + S2 + ...  ==I1,I2,...==> P1 + P2 + ... "
           extends ADGenKinetics.Reactions.convenience.dynamic.BasicIrrReaction;
-          extends
-            ADGenKinetics.Reactions.convenience.dynamic.ReactionActivation;
-          extends
-            ADGenKinetics.Reactions.convenience.dynamic.ReactionInhibition;
-
+          extends ADGenKinetics.Reactions.convenience.dynamic.ReactionActivation;
+          extends ADGenKinetics.Reactions.convenience.dynamic.ReactionInhibition;
         equation
           v = A * I * S1 / S2;
-
         end ActInhIrrKinetic;
 
         class RevKinetic "S1 + S2 + ... <===> P1 + P2 + ... "
           extends ADGenKinetics.Reactions.convenience.dynamic.BasicRevReaction;
-
         equation
           v = (S1 - P1) / (S2 + P2 - 1);
-
         end RevKinetic;
 
         class InhRevKinetic "S1 + S2 + ... <==I1,I2,...=> P1 + P2 + ... "
           extends ADGenKinetics.Reactions.convenience.dynamic.BasicRevReaction;
-          extends
-            ADGenKinetics.Reactions.convenience.dynamic.ReactionInhibition;
-
+          extends ADGenKinetics.Reactions.convenience.dynamic.ReactionInhibition;
         equation
           v = I * (S1 - P1) / (S2 + P2 - 1);
-
         end InhRevKinetic;
 
         class ActRevKinetic "S1 + S2 + ...  <==A1,A2,...==> P1 + P2 + ... "
           extends ADGenKinetics.Reactions.convenience.dynamic.BasicRevReaction;
-          extends
-            ADGenKinetics.Reactions.convenience.dynamic.ReactionActivation;
-
+          extends ADGenKinetics.Reactions.convenience.dynamic.ReactionActivation;
         equation
           v = A * (S1 - P1) / (S2 + P2 - 1);
-
         end ActRevKinetic;
 
         class ActInhRevKinetic "S1 + S2 + ...  <==I1,I2,...==> P1 + P2 + ... "
           extends ADGenKinetics.Reactions.convenience.dynamic.BasicRevReaction;
-          extends
-            ADGenKinetics.Reactions.convenience.dynamic.ReactionActivation;
-          extends
-            ADGenKinetics.Reactions.convenience.dynamic.ReactionInhibition;
-
+          extends ADGenKinetics.Reactions.convenience.dynamic.ReactionActivation;
+          extends ADGenKinetics.Reactions.convenience.dynamic.ReactionInhibition;
         equation
           v = A * I * (S1 - P1) / (S2 + P2 - 1);
-
         end ActInhRevKinetic;
-
-        annotation (Documentation(info="<html>
-<p>This subpackage contains components for reactions with arbitrary number of substrates, products and effectors. It is suitable for textual implementation and automatic model generation. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+        annotation(
+          Documentation(info = "<html><head></head><body><p>This subpackage contains components for reactions with arbitrary number of substrates, products and effectors. It is suitable for textual implementation and automatic model generation. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
       end dynamic;
 
       package static "Reactions with static fixed number of connections"
-        package basics
-          "Interfaces for reactions with specific number of connectors"
+        package basics "Interfaces for reactions with specific number of connectors"
           partial model BasicReaction1S1P "Basic declaration of a reaction"
             extends Interfaces.static.Reaction;
             extends Interfaces.static.Reaction1S;
             extends Interfaces.static.Reaction1P;
             extends Interfaces.Reversible.OneWay;
-
-           // Reaction Rate
+            // Reaction Rate
             Units.VolumetricReactionRate v "reaction rate";
-
-            parameter Units.StoichiometricCoef n_S1 = 1
-              "stoichiometry coefficent of substrate # 1";
-            parameter Units.AffinityConst KmS1 = 0
-              "affinity constants of the substrate node # 1";
-
-            parameter Units.StoichiometricCoef n_P1 = 1
-              "stoichiometry coefficent of product # 1";
-
-          // Terms for intermidiate computations;
+            parameter Units.StoichiometricCoef n_S1 = 1 "stoichiometry coefficent of substrate # 1";
+            parameter Units.AffinityConst KmS1 = 0 "affinity constants of the substrate node # 1";
+            parameter Units.StoichiometricCoef n_P1 = 1 "stoichiometry coefficent of product # 1";
+            // Terms for intermidiate computations;
           protected
-             Real S1;
-             Real S2;
-             Real t1;
-
+            Real S1;
+            Real S2;
+            Real t1;
           equation
             rc_S1.r = n_S1 * v;
             rc_P1.r = -n_P1 * v;
-
             t1 = rc_S1.c / KmS1;
-
             S1 = Vfwdmax * t1;
-            S2 = (t1+1);
-
+            S2 = t1 + 1;
           end BasicReaction1S1P;
 
-          partial model BasicReaction2S1P
-            "Basic declaration of a reaction with 2 substrates"
+          partial model BasicReaction2S1P "Basic declaration of a reaction with 2 substrates"
             extends Interfaces.static.Reaction2S;
             extends BasicReaction1S1P;
-
-            parameter Units.StoichiometricCoef n_S2 = 1
-              "stoichiometry coefficent of substrate # 2";
-            parameter Units.AffinityConst KmS2 = 0
-              "affinity constants of the substrate node # 2";
-
+            parameter Units.StoichiometricCoef n_S2 = 1 "stoichiometry coefficent of substrate # 2";
+            parameter Units.AffinityConst KmS2 = 0 "affinity constants of the substrate node # 2";
             // Intermidiate computations
-
           protected
             Real t2;
             Real SS1;
             Real SS2;
-
           equation
             rc_S2.r = n_S2 * v;
             t2 = rc_S2.c / KmS2;
-
             SS1 = S1 * t2;
-            SS2 = S2 * (t2+1);
-
+            SS2 = S2 * (t2 + 1);
           end BasicReaction2S1P;
 
-          partial model BasicReaction1S2P
-            "Basic declaration of a reaction with 2 substrates"
+          partial model BasicReaction1S2P "Basic declaration of a reaction with 2 substrates"
             extends Interfaces.static.Reaction2P;
             extends BasicReaction1S1P;
-
-            parameter Units.StoichiometricCoef n_P2 = 1
-              "stoichiometry coefficent of product # 2";
-
+            parameter Units.StoichiometricCoef n_P2 = 1 "stoichiometry coefficent of product # 2";
           equation
             rc_P2.r = -n_P2 * v;
-
           end BasicReaction1S2P;
 
-          partial model BasicReaction2S2P
-            "Basic declaration of a reaction with 2 substrates"
+          partial model BasicReaction2S2P "Basic declaration of a reaction with 2 substrates"
             extends BasicReaction2S1P;
             extends Interfaces.static.Reaction2P;
-
-          parameter Units.StoichiometricCoef n_P2 = 1
-              "stoichiometry coefficent of product # 2";
-
+            parameter Units.StoichiometricCoef n_P2 = 1 "stoichiometry coefficent of product # 2";
           equation
             rc_P2.r = -n_P2 * v;
-
           end BasicReaction2S2P;
 
-          partial model BasicRevReaction1S1P
-            "Reversible Reaction from one substrate to one product"
+          partial model BasicRevReaction1S1P "Reversible Reaction from one substrate to one product"
             extends BasicReaction1S1P;
             extends Interfaces.Reversible.TwoWay;
-
-            parameter Units.AffinityConst KmP1 = 0
-              "affinity constants of the product node # 1";
-
+            parameter Units.AffinityConst KmP1 = 0 "affinity constants of the product node # 1";
           protected
-             Real P1;
-             Real P2;
-             Real u1;
-
+            Real P1;
+            Real P2;
+            Real u1;
           equation
             u1 = rc_P1.c / KmP1;
             P1 = Vbwdmax * u1;
-            P2 = (t1+1);
-
+            P2 = t1 + 1;
           end BasicRevReaction1S1P;
 
           partial model BasicRevReaction2S1P "S1 + S2 <=> P"
             extends BasicRevReaction1S1P;
             extends Interfaces.static.Reaction2S;
-
-            parameter Units.StoichiometricCoef n_S2 = 1
-              "stoichiometry coefficent of substrate # 2";
-            parameter Units.AffinityConst KmS2 = 0
-              "affinity constants of the substrate node # 2";
-
+            parameter Units.StoichiometricCoef n_S2 = 1 "stoichiometry coefficent of substrate # 2";
+            parameter Units.AffinityConst KmS2 = 0 "affinity constants of the substrate node # 2";
             // Intermidiate computations
-
           protected
             Real t2;
             Real SS1;
             Real SS2;
-
           equation
             rc_S2.r = n_S2 * v;
             t2 = rc_S2.c / KmS2;
-
             SS1 = S1 * t2;
-            SS2 = S2 * (t2+1);
-
+            SS2 = S2 * (t2 + 1);
           end BasicRevReaction2S1P;
 
           partial model BasicRevReaction1S2P "S => P1 + P2"
             extends BasicRevReaction1S1P;
             extends Interfaces.static.Reaction2P;
-
-            parameter Units.StoichiometricCoef n_P2 = 1
-              "stoichiometry coefficent of product # 2";
-            parameter Units.AffinityConst KmP2 = 0
-              "Affinity constants of the product node # 2";
-
+            parameter Units.StoichiometricCoef n_P2 = 1 "stoichiometry coefficent of product # 2";
+            parameter Units.AffinityConst KmP2 = 0 "Affinity constants of the product node # 2";
           protected
             Real u2;
             Real PP1;
             Real PP2;
-
           equation
             rc_P2.r = -n_P2 * v;
-
             u2 = rc_P2.c / KmP2;
-
             PP1 = P1 * u2;
-            PP2 = P2 * (u2+1);
-
+            PP2 = P2 * (u2 + 1);
           end BasicRevReaction1S2P;
 
-          partial model BasicReaction1A
-            "Basic Declaration of a reaction with one Activator"
+          partial model BasicReaction1A "Basic Declaration of a reaction with one Activator"
             extends Interfaces.static.Reaction1A;
-
-            parameter Units.AffinityConst KA1 = 0
-              "affinity constant of the activator";
-
+            parameter Units.AffinityConst KA1 = 0 "affinity constant of the activator";
           protected
             Real A1 "activation term";
-
           equation
             A1 = KA1 / (KA1 + mc_A1.c);
-
           end BasicReaction1A;
 
-          partial model BasicReaction1I
-            "Basic Declaration of a reaction with one Activator"
+          partial model BasicReaction1I "Basic Declaration of a reaction with one Activator"
             extends Interfaces.static.Reaction1I;
-
-            parameter Units.AffinityConst KI1 = 0
-              "affinity constant of the activator";
-
+            parameter Units.AffinityConst KI1 = 0 "affinity constant of the activator";
           protected
             Real I1 "inhibition term";
-
           equation
             I1 = KI1 / (KI1 + mc_I1.c);
-
           end BasicReaction1I;
-          annotation (Documentation(info="<html>
-<p>This subpackage contains components for reactions with fixed specified number of substrates, products and effectors.</p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+          annotation(
+            Documentation(info = "<html><head></head><body><p>This subpackage contains components for reactions with fixed specified number of substrates, products and effectors.</p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
         end basics;
 
         class IrrKinetic1S1P "S1 + S2 => P"
           extends basics.BasicReaction1S1P;
-
         equation
           v = S1 / S2;
-
         end IrrKinetic1S1P;
 
         class IrrKinetic2S1P "S1 + S2 => P"
           extends basics.BasicReaction2S1P;
-
         equation
           v = SS1 / SS2;
-
         end IrrKinetic2S1P;
 
         class IrrKinetic1S2P "S => P1 + P2"
           extends basics.BasicReaction1S2P;
-
         equation
           v = S1 / S2;
-
         end IrrKinetic1S2P;
 
         model IrrKinetic2S2P "S1 + S2 => P1 + P2"
           extends basics.BasicReaction2S2P;
-
         equation
           v = SS1 / SS2;
-
         end IrrKinetic2S2P;
 
         class RevKinetic1S1P "S <=> P"
           extends basics.BasicRevReaction1S1P;
-
         equation
-          v = (S1 - P1) / (S2 + P2 -1);
-
+          v = (S1 - P1) / (S2 + P2 - 1);
         end RevKinetic1S1P;
 
         class RevKinetic2S1P "S1 + S2 => P"
           extends basics.BasicRevReaction2S1P;
-
         equation
           v = (SS1 - P1) / (SS2 + P2 - 1);
-
         end RevKinetic2S1P;
 
         class RevKinetic1S2P "S <=> P1 + P2"
           extends basics.BasicRevReaction1S2P;
-
         equation
           v = (S1 - PP1) / (S2 + PP2 - 1);
-
         end RevKinetic1S2P;
 
         model IrrKinetic1S1P1I "S =-I=> P"
           extends basics.BasicReaction1S1P;
           extends basics.BasicReaction1I;
-
         equation
           v = I1 * S1 / S2;
-
         end IrrKinetic1S1P1I;
 
         model IrrKinetic2S1P1I "S1 + S2 =-I=> P"
           extends basics.BasicReaction2S1P;
           extends basics.BasicReaction1I;
-
         equation
           v = I1 * SS1 / SS2;
-
         end IrrKinetic2S1P1I;
 
         model IrrKinetic1S2P1I "\"S1 + S2 =-I=> P\""
           extends basics.BasicReaction1S2P;
           extends basics.BasicReaction1I;
-
         equation
           v = I1 * S1 / S2;
-
         end IrrKinetic1S2P1I;
 
         model RevKinetic1S1P1I "S <=-I=> P"
           extends basics.BasicRevReaction1S1P;
           extends basics.BasicReaction1I;
-
         equation
-          v = I1 * (S1 - P1) / (S2 + P2 -1);
-
+          v = I1 * (S1 - P1) / (S2 + P2 - 1);
         end RevKinetic1S1P1I;
-        annotation (Documentation(info="<html>
-<p>This subpackage contains components for reactions with fixed specified number of substrates, products and effectors.</p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+        annotation(
+          Documentation(info = "<html><head></head><body><p>This subpackage contains components for reactions with fixed specified number of substrates, products and effectors.</p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
       end static;
-
-      annotation (Documentation(info="<html>
-<p>This subpackage contains implementations for convenience kinetics. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+      annotation(
+        Documentation(info = "<html><head></head><body><p>This subpackage contains implementations for convenience kinetics. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
     end convenience;
 
     package linlog "Implementation of linlog kinetics"
-      annotation (Documentation(info="<html>
-<p>This subpackage should contains implementation for linlog kinetics.  This is left to the user. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+      annotation(
+        Documentation(info = "<html><head></head><body><p>This subpackage should contains implementation for linlog kinetics.  This is left to the user. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
     end linlog;
-    annotation (Documentation(info="<html>
-<p>This subpackage contains implementations for reactions using generalized simplified kinetic formats. Currently only convenience kinetics are implemented. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+    annotation(
+      Documentation(info = "<html><head></head><body><p>This subpackage contains implementations for reactions using generalized simplified kinetic formats. Currently only convenience kinetics are implemented. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
   end Reactions;
 
   package Examples
-
-    model Spirallusdyn
-      "An abstraction of the TCA cycle with dynamic arbitrary number of connections"
+    extends Modelica.Icons.ExamplesPackage;
+    model Spirallusdyn "An abstraction of the TCA cycle with dynamic arbitrary number of connections" 
+      extends Modelica.Icons.Example;
       import ADGenKinetics.NodeElements.dynamic.*;
       import ADGenKinetics.Reactions.convenience.dynamic.*;
-
-      Node Aex(c_0=1);
-      ADGenKinetics.Reactions.convenience.dynamic.InhIrrKinetic vupt(
-        NS=1,
-        NP=1,
-        NI=1,
-        Vfwdmax=1.0,
-        KmS={0.1},
-        KI={3.0});
+      Node Aex(c_0 = 1);
+      ADGenKinetics.Reactions.convenience.dynamic.InhIrrKinetic vupt(NS = 1, NP = 1, NI = 1, Vfwdmax = 1.0, KmS = {0.1}, KI = {3.0});
       ModifierNode A;
-
-      ADGenKinetics.Reactions.convenience.dynamic.RevKinetic v1(
-        NS=1,
-        NP=1,
-        Vfwdmax=3.0,
-        Vbwdmax=1.0,
-        KmS={0.1},
-        KmP={3.0});
+      ADGenKinetics.Reactions.convenience.dynamic.RevKinetic v1(NS = 1, NP = 1, Vfwdmax = 3.0, Vbwdmax = 1.0, KmS = {0.1}, KmP = {3.0});
       Node B;
-
-      ADGenKinetics.Reactions.convenience.dynamic.RevKinetic v5(
-        NS=1,
-        NP=1,
-        Vfwdmax=2.0,
-        Vbwdmax=0.5,
-        KmS={1.0},
-        KmP={1.0});
+      ADGenKinetics.Reactions.convenience.dynamic.RevKinetic v5(NS = 1, NP = 1, Vfwdmax = 2.0, Vbwdmax = 0.5, KmS = {1.0}, KmP = {1.0});
       Node E;
-
-      ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic v2(
-        NS=2,
-        NP=1,
-        Vfwdmax=2.5,
-        KmS={0.25,2.0});                                    // B,E -v2-> C
+      ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic v2(NS = 2, NP = 1, Vfwdmax = 2.5, KmS = {0.25, 2.0});
+      // B,E -v2-> C
       ModifierNode C;
-
-      ADGenKinetics.Reactions.convenience.dynamic.InhIrrKinetic v3(
-        NS=1,
-        NP=2,
-        NI=1,
-        Vfwdmax=2.0,
-        KmS={2.0},
-        KI={0.05});
+      ADGenKinetics.Reactions.convenience.dynamic.InhIrrKinetic v3(NS = 1, NP = 2, NI = 1, Vfwdmax = 2.0, KmS = {2.0}, KI = {0.05});
       ModifierNode D;
       Node F;
-
-      ADGenKinetics.Reactions.convenience.dynamic.InhIrrKinetic v4(
-        NS=1,
-        NP=2,
-        NI=1,
-        Vfwdmax=3.0,
-        KmS={0.1},
-        KI={1.0});
-
-      ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic v6(
-        NS=1,
-        NP=1,
-        Vfwdmax=2.0,
-        KmS={3.0});
+      ADGenKinetics.Reactions.convenience.dynamic.InhIrrKinetic v4(NS = 1, NP = 2, NI = 1, Vfwdmax = 3.0, KmS = {0.1}, KI = {1.0});
+      ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic v6(NS = 1, NP = 1, Vfwdmax = 2.0, KmS = {3.0});
       Node Eex;
-
-      ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic v7(
-        NS=1,
-        NP=1,
-        Vfwdmax=2.0,
-        KmS={3.0});
+      ADGenKinetics.Reactions.convenience.dynamic.IrrKinetic v7(NS = 1, NP = 1, Vfwdmax = 2.0, KmS = {3.0});
       Node Fex;
-
     equation
-      // vupt
-      connect(Aex.rc,vupt.rc_S[1]);
-      connect(vupt.rc_P[1],A.rc);
-      connect(vupt.mc_I[1],A.mc);
-
-      // v1
-      connect(A.rc,v1.rc_S[1]);
-      connect(v1.rc_P[1],B.rc);
-
-      // v5
-      connect(B.rc,v5.rc_S[1]);
-      connect(v5.rc_P[1],E.rc);
-
-      // v2
-      connect(B.rc,v2.rc_S[1]);
-      connect(E.rc,v2.rc_S[2]);
-      connect(v2.rc_P[1],C.rc);
-
-      // v3
-      connect(C.rc,v3.rc_S[1]);
-      connect(v3.rc_P[1],D.rc);
-      connect(v3.rc_P[2],F.rc);
-      connect(D.mc,v3.mc_I[1]);
-
-      // v4
-      connect(D.rc,v4.rc_S[1]);
-      connect(v4.rc_P[1],F.rc);
-      connect(v4.rc_P[2],E.rc);
-      connect(v4.mc_I[1],C.mc);
-
-      // v6
-      connect(E.rc,v6.rc_S[1]);
-      connect(v6.rc_P[1],Eex.rc);
-
-       // v7
-      connect(F.rc,v7.rc_S[1]);
-      connect(v7.rc_P[1],Fex.rc);
-
+// vupt
+      connect(Aex.rc, vupt.rc_S[1]);
+      connect(vupt.rc_P[1], A.rc);
+      connect(vupt.mc_I[1], A.mc);
+// v1
+      connect(A.rc, v1.rc_S[1]);
+      connect(v1.rc_P[1], B.rc);
+// v5
+      connect(B.rc, v5.rc_S[1]);
+      connect(v5.rc_P[1], E.rc);
+// v2
+      connect(B.rc, v2.rc_S[1]);
+      connect(E.rc, v2.rc_S[2]);
+      connect(v2.rc_P[1], C.rc);
+// v3
+      connect(C.rc, v3.rc_S[1]);
+      connect(v3.rc_P[1], D.rc);
+      connect(v3.rc_P[2], F.rc);
+      connect(D.mc, v3.mc_I[1]);
+// v4
+      connect(D.rc, v4.rc_S[1]);
+      connect(v4.rc_P[1], F.rc);
+      connect(v4.rc_P[2], E.rc);
+      connect(v4.mc_I[1], C.mc);
+// v6
+      connect(E.rc, v6.rc_S[1]);
+      connect(v6.rc_P[1], Eex.rc);
+// v7
+      connect(F.rc, v7.rc_S[1]);
+      connect(v7.rc_P[1], Fex.rc);
     end Spirallusdyn;
 
-    model Spirallustatic
-      "An abstraction of the TCA cycle with static connections"
-      NodeElements.static.Node Aex(c_0=1.0)
-        annotation (Placement(transformation(extent={{-22,212},{-2,232}})));
-      NodeElements.static.ModifierNode A
-        annotation (Placement(transformation(extent={{-22,124},{-2,144}})));
-      ADGenKinetics.Reactions.convenience.static.IrrKinetic1S1P1I vup(
-        Vfwdmax=1.0,
-        KmS1=0.1,
-        KI1=3.0)
-        annotation (Placement(transformation(extent={{-22,168},{-2,188}})));
-      ADGenKinetics.Reactions.convenience.static.RevKinetic1S1P v1(
-        Vfwdmax=3.0,
-        KmS1=0.1,
-        Vbwdmax=1.0,
-        KmP1=3.0)
-        annotation (Placement(transformation(extent={{-22,78},{-2,98}})));
-      NodeElements.static.Node B
-        annotation (Placement(transformation(extent={{-22,40},{-2,60}})));
-      ADGenKinetics.Reactions.convenience.static.RevKinetic1S1P v5(
-        Vfwdmax=2.0,
-        KmS1=1.0,
-        Vbwdmax=0.5,
-        KmP1=1.0)
-        annotation (Placement(transformation(extent={{-22,-2},{-2,18}})));
-      NodeElements.static.Node E
-        annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-      ADGenKinetics.Reactions.convenience.static.IrrKinetic2S1P v2(
-        Vfwdmax=2.5,
-        KmS1=2.0,
-        KmS2=0.25)
-        annotation (Placement(transformation(extent={{34,-58},{54,-38}})));
-      NodeElements.static.Node C
-        annotation (Placement(transformation(extent={{62,-96},{82,-76}})));
-      ADGenKinetics.Reactions.convenience.static.IrrKinetic1S2P1I v3(
-        Vfwdmax=2.0,
-        KmS1=2.0,
-        KI1=0.05)
-        annotation (Placement(transformation(extent={{62,-140},{82,-120}})));
-      NodeElements.static.Node D
-        annotation (Placement(transformation(extent={{8,-140},{28,-120}})));
-      NodeElements.static.Node F
-        annotation (Placement(transformation(extent={{8,-196},{28,-176}})));
-      ADGenKinetics.Reactions.convenience.static.IrrKinetic1S2P1I v4(
-        Vfwdmax=3.0,
-        KmS1=0.1,
-        KI1=1.0)
-        annotation (Placement(transformation(extent={{-44,-164},{-24,-144}})));
-      ADGenKinetics.Reactions.convenience.static.IrrKinetic1S1P v6(Vfwdmax=2.0,
-          KmS1=3.0)
-        annotation (Placement(transformation(extent={{-64,-54},{-44,-34}})));
-      NodeElements.static.Node Eex
-        annotation (Placement(transformation(extent={{-108,-86},{-88,-66}})));
-      NodeElements.static.Node Fex
-        annotation (Placement(transformation(extent={{146,-202},{166,-182}})));
-      ADGenKinetics.Reactions.convenience.static.IrrKinetic1S1P v7(Vfwdmax=2.0,
-          KmS1=3.0)
-        annotation (Placement(transformation(extent={{78,-222},{98,-202}})));
-    equation
-      connect(Aex.rc6, vup.rc_S1) annotation (Line(
-          points={{-15.8,212},{-15.8,199},{-16,199},{-16,187.2}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(vup.rc_P1, A.rc1) annotation (Line(
-          points={{-15.8,168.8},{-15.8,143.8}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(A.rc6, v1.rc_S1) annotation (Line(
-          points={{-15.8,124},{-15.8,111},{-16,111},{-16,97.2}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v1.rc_P1, B.rc1) annotation (Line(
-          points={{-15.8,78.8},{-15.8,59.8}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(B.rc6, v5.rc_S1) annotation (Line(
-          points={{-15.8,40},{-16,40},{-16,17.2}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v5.rc_P1, E.rc1) annotation (Line(
-          points={{-15.8,-1.2},{-15.8,-10.6},{-13.8,-10.6},{-13.8,-20.2}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(E.rc3, v2.rc_S1) annotation (Line(
-          points={{0,-26.2},{20,-26.2},{20,-34},{40,-34},{40,-38.8}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(B.rc3, v2.rc_S2) annotation (Line(
-          points={{-2,53.8},{24,53.8},{24,46},{48,46},{48,-38.8}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v2.rc_P1, C.rc1) annotation (Line(
-          points={{40.2,-57.2},{40.2,-66},{68.2,-66},{68.2,-76.2}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(C.rc6, v3.rc_S1) annotation (Line(
-          points={{68.2,-96},{68,-96},{68,-120.8}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v3.rc_P1, D.rc4) annotation (Line(
-          points={{68.2,-139.2},{68.2,-154},{50,-154},{50,-134},{28,-134}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v3.rc_P2, F.rc4) annotation (Line(
-          points={{76.2,-139.2},{76.2,-190},{28,-190}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v3.mc_I1, D.mc2) annotation (Line(
-          points={{81.6,-130},{96,-130},{96,-114},{28.2,-114},{28.2,-120.2}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(D.rc8, v4.rc_S1) annotation (Line(
-          points={{8.2,-126.2},{-38,-126.2},{-38,-144.8}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v4.rc_P2, F.rc8) annotation (Line(
-          points={{-29.8,-163.2},{-29.8,-182.2},{8.2,-182.2}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v4.mc_I1, C.mc4) annotation (Line(
-          points={{-24.4,-154},{-14,-154},{-14,-96},{62,-96}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v4.rc_P1, E.rc6) annotation (Line(
-          points={{-37.8,-163.2},{-37.8,-184},{-72,-184},{-72,-64},{-13.8,-64},
-              {-13.8,-40}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(E.rc8, v6.rc_S1) annotation (Line(
-          points={{-19.8,-26.2},{-60,-34},{-58,-34.8}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v6.rc_P1, Eex.rc4) annotation (Line(
-          points={{-57.8,-53.2},{-57.8,-80},{-88,-80}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(F.rc5, v7.rc_S1) annotation (Line(
-          points={{22,-196},{22,-212},{56,-212},{56,-194},{84,-194},{84,-202.8}},
-          color={0,0,255},
-          smooth=Smooth.None));
 
-      connect(v7.rc_P1, Fex.rc6) annotation (Line(
-          points={{84.2,-221.2},{84.2,-232},{152.2,-232},{152.2,-202}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(A.mc2, vup.mc_I1) annotation (Line(
-          points={{-1.8,143.8},{22,143.8},{22,178},{-2.4,178}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-150,-250},{200,250}},
-            grid={2,2},
-            initialScale=0.05), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-150,-250},{200,250}},
-            grid={2,2},
-            initialScale=0.05)));
+
+    model Spirallustatic "An abstraction of the TCA cycle with static connections"
+      extends Modelica.Icons.Example; 
+      NodeElements.static.Node Aex(c_0 = 1.0) annotation(
+        Placement(transformation(extent = {{-22, 212}, {-2, 232}})));
+      NodeElements.static.ModifierNode A annotation(
+        Placement(transformation(extent = {{-22, 124}, {-2, 144}})));
+      ADGenKinetics.Reactions.convenience.static.IrrKinetic1S1P1I vup(Vfwdmax = 1.0, KmS1 = 0.1, KI1 = 3.0) annotation(
+        Placement(transformation(extent = {{-22, 168}, {-2, 188}})));
+      ADGenKinetics.Reactions.convenience.static.RevKinetic1S1P v1(Vfwdmax = 3.0, KmS1 = 0.1, Vbwdmax = 1.0, KmP1 = 3.0) annotation(
+        Placement(transformation(extent = {{-22, 78}, {-2, 98}})));
+      NodeElements.static.Node B annotation(
+        Placement(transformation(extent = {{-22, 40}, {-2, 60}})));
+      ADGenKinetics.Reactions.convenience.static.RevKinetic1S1P v5(Vfwdmax = 2.0, KmS1 = 1.0, Vbwdmax = 0.5, KmP1 = 1.0) annotation(
+        Placement(transformation(extent = {{-22, -2}, {-2, 18}})));
+      NodeElements.static.Node E annotation(
+        Placement(transformation(extent = {{-20, -40}, {0, -20}})));
+      ADGenKinetics.Reactions.convenience.static.IrrKinetic2S1P v2(Vfwdmax = 2.5, KmS1 = 2.0, KmS2 = 0.25) annotation(
+        Placement(transformation(extent = {{34, -58}, {54, -38}})));
+      NodeElements.static.Node C annotation(
+        Placement(transformation(extent = {{62, -96}, {82, -76}})));
+      ADGenKinetics.Reactions.convenience.static.IrrKinetic1S2P1I v3(Vfwdmax = 2.0, KmS1 = 2.0, KI1 = 0.05) annotation(
+        Placement(transformation(extent = {{62, -140}, {82, -120}})));
+      NodeElements.static.Node D annotation(
+        Placement(transformation(extent = {{8, -140}, {28, -120}})));
+      NodeElements.static.Node F annotation(
+        Placement(transformation(extent = {{8, -196}, {28, -176}})));
+      ADGenKinetics.Reactions.convenience.static.IrrKinetic1S2P1I v4(Vfwdmax = 3.0, KmS1 = 0.1, KI1 = 1.0) annotation(
+        Placement(transformation(extent = {{-44, -164}, {-24, -144}})));
+      ADGenKinetics.Reactions.convenience.static.IrrKinetic1S1P v6(Vfwdmax = 2.0, KmS1 = 3.0) annotation(
+        Placement(transformation(extent = {{-64, -54}, {-44, -34}})));
+      NodeElements.static.Node Eex annotation(
+        Placement(transformation(extent = {{-108, -86}, {-88, -66}})));
+      NodeElements.static.Node Fex annotation(
+        Placement(transformation(extent = {{146, -202}, {166, -182}})));
+      ADGenKinetics.Reactions.convenience.static.IrrKinetic1S1P v7(Vfwdmax = 2.0, KmS1 = 3.0) annotation(
+        Placement(transformation(extent = {{78, -222}, {98, -202}})));
+    equation
+      connect(Aex.rc6, vup.rc_S1) annotation(
+        Line(points = {{-15.8, 212}, {-15.8, 199}, {-16, 199}, {-16, 187.2}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(vup.rc_P1, A.rc1) annotation(
+        Line(points = {{-15.8, 168.8}, {-15.8, 143.8}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(A.rc6, v1.rc_S1) annotation(
+        Line(points = {{-15.8, 124}, {-15.8, 111}, {-16, 111}, {-16, 97.2}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v1.rc_P1, B.rc1) annotation(
+        Line(points = {{-15.8, 78.8}, {-15.8, 59.8}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(B.rc6, v5.rc_S1) annotation(
+        Line(points = {{-15.8, 40}, {-16, 40}, {-16, 17.2}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v5.rc_P1, E.rc1) annotation(
+        Line(points = {{-15.8, -1.2}, {-15.8, -10.6}, {-13.8, -10.6}, {-13.8, -20.2}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(E.rc3, v2.rc_S1) annotation(
+        Line(points = {{0, -26.2}, {20, -26.2}, {20, -34}, {40, -34}, {40, -38.8}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(B.rc3, v2.rc_S2) annotation(
+        Line(points = {{-2, 53.8}, {24, 53.8}, {24, 46}, {48, 46}, {48, -38.8}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v2.rc_P1, C.rc1) annotation(
+        Line(points = {{40.2, -57.2}, {40.2, -66}, {68.2, -66}, {68.2, -76.2}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(C.rc6, v3.rc_S1) annotation(
+        Line(points = {{68.2, -96}, {68, -96}, {68, -120.8}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v3.rc_P1, D.rc4) annotation(
+        Line(points = {{68.2, -139.2}, {68.2, -154}, {50, -154}, {50, -134}, {28, -134}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v3.rc_P2, F.rc4) annotation(
+        Line(points = {{76.2, -139.2}, {76.2, -190}, {28, -190}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v3.mc_I1, D.mc2) annotation(
+        Line(points = {{81.6, -130}, {96, -130}, {96, -114}, {28.2, -114}, {28.2, -120.2}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(D.rc8, v4.rc_S1) annotation(
+        Line(points = {{8.2, -126.2}, {-38, -126.2}, {-38, -144.8}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v4.rc_P2, F.rc8) annotation(
+        Line(points = {{-29.8, -163.2}, {-29.8, -182.2}, {8.2, -182.2}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v4.mc_I1, C.mc4) annotation(
+        Line(points = {{-24.4, -154}, {-14, -154}, {-14, -96}, {62, -96}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v4.rc_P1, E.rc6) annotation(
+        Line(points = {{-37.8, -163.2}, {-37.8, -184}, {-72, -184}, {-72, -64}, {-13.8, -64}, {-13.8, -40}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(E.rc8, v6.rc_S1) annotation(
+        Line(points = {{-19.8, -26.2}, {-60, -34}, {-58, -34.8}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v6.rc_P1, Eex.rc4) annotation(
+        Line(points = {{-57.8, -53.2}, {-57.8, -80}, {-88, -80}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(F.rc5, v7.rc_S1) annotation(
+        Line(points = {{22, -196}, {22, -212}, {56, -212}, {56, -194}, {84, -194}, {84, -202.8}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(v7.rc_P1, Fex.rc6) annotation(
+        Line(points = {{84.2, -221.2}, {84.2, -232}, {152.2, -232}, {152.2, -202}}, color = {0, 0, 255}, smooth = Smooth.None));
+      connect(A.mc2, vup.mc_I1) annotation(
+        Line(points = {{-1.8, 143.8}, {22, 143.8}, {22, 178}, {-2.4, 178}}, color = {0, 0, 255}, smooth = Smooth.None));
+      annotation(
+        Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-150, -250}, {200, 250}}, grid = {2, 2}, initialScale = 0.05), graphics),
+        Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-150, -250}, {200, 250}}, grid = {2, 2}, initialScale = 0.05)));
     end Spirallustatic;
-    annotation (Documentation(info="<html>
-<p>This subpackage contains examples of typical metablic pathway models.</p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+
+    annotation(
+      Documentation(info = "<html><head></head><body><p>This subpackage contains examples of typical metablic pathway models.</p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
   end Examples;
+
+
 
   package Derivatives
     package Interfaces "Typical interfaces"
-      connector ChemicalPort
-        "reaction connector from a node to a reaction , declared from the node side"
+      connector ChemicalPort "reaction connector from a node to a reaction , declared from the node side"
         extends ADGenKinetics.Interfaces.ChemicalPort;
-
         outer parameter Integer NG "dimension of the gradients";
-
         //Units.Concentration c "Concentration";
         Real g_c[NG] "gradients of c";
         //flow Units.VolumetricReactionRate r "reaction rate";
         flow Real g_r[NG] "gradients of r";
-
-        annotation (Icon(graphics={Bitmap(extent={{-75,75},{75,-75}}, fileName=
-                    "icons/reactionconnection.gif")}),
-            Diagram(graphics));
+        annotation(
+          Icon(graphics = {Bitmap(extent = {{-75, 75}, {75, -75}}, fileName = "icons/reactionconnection.gif")}),
+          Diagram(graphics));
       end ChemicalPort;
 
-      connector ModifierChemicalPort
-        "A connector that connects a node to a reaction. The node is supposed to effects (activate or inhibit) the reaction"
+      connector ModifierChemicalPort "A connector that connects a node to a reaction. The node is supposed to effects (activate or inhibit) the reaction"
         extends ADGenKinetics.Interfaces.ModifierChemicalPort;
-
         outer parameter Integer NG "dimension of the gradients";
-
         //Units.Concentration c "Concentration";
         Real g_c[NG] "graidents of c";
-        annotation (Icon(graphics={Bitmap(extent={{-70,72},{90,-90}}, fileName=
-                    "icons/modifierconnection.gif")}));
+        annotation(
+          Icon(graphics = {Bitmap(extent = {{-70, 72}, {90, -90}}, fileName = "icons/modifierconnection.gif")}));
       end ModifierChemicalPort;
 
-      connector ChemicalPort_S
-        "Connector from a reactant substrate node to a reaction, declared from the reaction side"
+      connector ChemicalPort_S "Connector from a reactant substrate node to a reaction, declared from the reaction side"
         extends ADGenKinetics.Derivatives.Interfaces.ChemicalPort;
-
-        annotation (Icon(graphics={Bitmap(extent={{-80,80},{82,-82}}, fileName=
-                    "icons/reactionconnection_S.gif")}),
-            Diagram(graphics));
+        annotation(
+          Icon(graphics = {Bitmap(extent = {{-80, 80}, {82, -82}}, fileName = "icons/reactionconnection_S.gif")}),
+          Diagram(graphics));
       end ChemicalPort_S;
 
-      connector ChemicalPort_P
-        "Connector from a reactant substrate node to a reaction, declared from the reaction side"
+      connector ChemicalPort_P "Connector from a reactant substrate node to a reaction, declared from the reaction side"
         extends ADGenKinetics.Derivatives.Interfaces.ChemicalPort;
-
-        annotation (Icon(graphics={Bitmap(extent={{-88,106},{94,-104}}, fileName=
-                    "icons/reactionconnection_P2.gif")}));
+        annotation(
+          Icon(graphics = {Bitmap(extent = {{-88, 106}, {94, -104}}, fileName = "icons/reactionconnection_P2.gif")}));
       end ChemicalPort_P;
 
-      connector ModifierChemicalPort_I
-        "A connection from a reaction to an inhibition node"
+      connector ModifierChemicalPort_I "A connection from a reaction to an inhibition node"
         extends ADGenKinetics.Derivatives.Interfaces.ModifierChemicalPort;
-
-        annotation (Icon(
-            coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}}),
-            graphics={Bitmap(extent={{-80,80},{84,-80}}, fileName=
-                    "icons/modifierconnection_I2.gif")}));
+        annotation(
+          Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}), graphics = {Bitmap(extent = {{-80, 80}, {84, -80}}, fileName = "icons/modifierconnection_I2.gif")}));
       end ModifierChemicalPort_I;
 
-      connector ModifierChemicalPort_A
-        "A connection from a reaction to an inhibition node"
+      connector ModifierChemicalPort_A "A connection from a reaction to an inhibition node"
         extends ADGenKinetics.Derivatives.Interfaces.ModifierChemicalPort;
-
-        annotation (Icon(                     graphics={Bitmap(extent={{-96,100},
-                    {124,-120}}, fileName=
-                    "icons/modifierconnection_A2.gif")}));
+        annotation(
+          Icon(graphics = {Bitmap(extent = {{-96, 100}, {124, -120}}, fileName = "icons/modifierconnection_A2.gif")}));
       end ModifierChemicalPort_A;
 
       package Reversible "Interfaces describing reversibility of a reaction"
-        partial model ReactionReversibility
-          "Base Type for describing Reversability of a reaction"
+        partial model ReactionReversibility "Base Type for describing Reversability of a reaction"
           extends ADGenKinetics.Interfaces.Reversible.ReactionReversibility;
-
-           outer parameter Integer NG "# of gradients";
-
+          outer parameter Integer NG "# of gradients";
           // parameter Units.ReactionCoef Vfwdmax=1;   // forwared constant rate
-          parameter Real g_Vfwdmax[NG]=zeros(NG) "gradients of Vfwdmax";
-
+          parameter Real g_Vfwdmax[NG] = zeros(NG) "gradients of Vfwdmax";
         end ReactionReversibility;
 
         class OneWay "Irreversible Reaction"
           extends ReactionReversibility;
-
-          annotation (Icon(graphics={Bitmap(extent={{-80,80},{84,-80}}, fileName=
-                      "icons/OneWay.gif")}));
+          annotation(
+            Icon(graphics = {Bitmap(extent = {{-80, 80}, {84, -80}}, fileName = "icons/OneWay.gif")}));
         end OneWay;
 
         class TwoWay "Reversible Reaction"
           extends ReactionReversibility;
-
-          parameter Units.ReactionCoef Vbwdmax=1
-            "maximal reversible reaction rate";
-          parameter Real g_Vbwdmax[NG]=zeros(NG) "gradients of Vbdwmax";
-
-          annotation (Icon(graphics={Bitmap(extent={{-80,80},{78,-82}}, fileName=
-                      "icons/TwoWay.gif")}));
+          parameter Units.ReactionCoef Vbwdmax = 1 "maximal reversible reaction rate";
+          parameter Real g_Vbwdmax[NG] = zeros(NG) "gradients of Vbdwmax";
+          annotation(
+            Icon(graphics = {Bitmap(extent = {{-80, 80}, {78, -82}}, fileName = "icons/TwoWay.gif")}));
         end TwoWay;
-        annotation (Documentation(info="<html>
+        annotation(
+          Documentation(info = "<html>
 <p>This subpackage contains basic interfaces describing the reversibility of a reaction</p>
 <p><br/>Licensed under the Modelica License 2</p>
 <p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
@@ -1985,24 +1625,19 @@ printing and shipping costs may be recovered.</p>
 </html>"));
       end Reversible;
 
-      package dynamic
-        "Interfaces with parameterized number of connections for textual implementation and automatic model generation"
+      package dynamic "Interfaces with parameterized number of connections for textual implementation and automatic model generation"
         package Dimension "Reaction Dimension and Molecularity"
           class ReactionDimension "Dimension and structure of a reaction"
-            extends
-              ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension;
-
+            extends ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension;
             //parameter Integer NS = 1 "Number of substrates";
             //parameter Units.StoichiometricCoef n_S[NS]=ones(NS)
-             // "Stoichiometry of all subtrates";
-
+            // "Stoichiometry of all subtrates";
             //parameter Integer NP = 1 "Number of products";
             //parameter Units.StoichiometricCoef n_P[NP]=ones(NP)
             //  "Stoichiometry of all products";
-
           end ReactionDimension;
-
-          annotation (Documentation(info="<html>
+          annotation(
+            Documentation(info = "<html>
 <p>This subpackage contains basic interface for specifying the dimension of the reaction, see <a href=\"GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension\">GenKinetics.Interfaces.dynamic.Dimension.ReactionDimension</a> . Out of this interface, specialized reaction types can be created as a syntactic sugar, e.g. <a href=\"GenKinetics.Interfaces.dynamic.Dimension.UniUni\">GenKinetics.Interfaces.dynamic.Dimension.UniUni</a> . </p>
 <p><br/>Licensed under the Modelica License 2</p>
 <p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
@@ -2010,69 +1645,55 @@ printing and shipping costs may be recovered.</p>
 </html>"));
         end Dimension;
 
-        partial model NodeConnections
-          "Metabolite connections to reactions wuth one connector only"
-
-          ADGenKinetics.Derivatives.Interfaces.ChemicalPort rc
-            "connection to any reaction "                     annotation (
-              Placement(transformation(extent={{-50,-50},{50,50}}),
-                iconTransformation(extent={{-114,-40},{122,154}})));
-          ADGenKinetics.Derivatives.Interfaces.ModifierChemicalPort mc
-            "Connection to a modifier"                     annotation (Placement(
-                transformation(extent={{-50,-50},{50,-50}}), iconTransformation(
-                  extent={{-64,-122},{72,2}})));
-          annotation (Icon(graphics));
+        partial model NodeConnections "Metabolite connections to reactions wuth one connector only"
+          ADGenKinetics.Derivatives.Interfaces.ChemicalPort rc "connection to any reaction " annotation(
+            Placement(transformation(extent = {{-50, -50}, {50, 50}}), iconTransformation(extent = {{-114, -40}, {122, 154}})));
+          ADGenKinetics.Derivatives.Interfaces.ModifierChemicalPort mc "Connection to a modifier" annotation(
+            Placement(transformation(extent = {{-50, -50}, {50, -50}}), iconTransformation(extent = {{-64, -122}, {72, 2}})));
+          annotation(
+            Icon(graphics));
         end NodeConnections;
-        annotation (Documentation(info="<html>
+        annotation(
+          Documentation(info = "<html>
 <p>This subpackage contains basic interfaces for nodes and reactions. The nodes and the reactions are declared with a &quot;dynamic&quot; parameterized number of connectors. </p>
 <p><br/>Licensed under the Modelica License 2</p>
 <p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
       end dynamic;
-
-      annotation (Documentation(info="<html>
-<p>This subpackage contains all interfaces, abstract models, connectors etc. utilized by the components of the library. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+      annotation(
+        Documentation(info = "<html><head></head><body><p>This subpackage contains all interfaces, abstract models, connectors etc. utilized by the components of the library. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
     end Interfaces;
 
     package NodeElements "Metabolites"
-
       package dynamic "Nodes with parameterized interfaces and connections"
         partial model BasicNode "Basic declarations of any Metabolite"
           extends ADGenKinetics.Derivatives.Interfaces.dynamic.NodeConnections;
           extends ADGenKinetics.NodeElements.dynamic.BasicNode;
-
           outer parameter Integer NG "# of gradients";
-
           //parameter Units.Concentration c_0=0;
-          parameter Real g_c_0[NG]=zeros(NG) "gradients of c_0";
-
+          parameter Real g_c_0[NG] = zeros(NG) "gradients of c_0";
           //Units.Concentration c(start=c_0);
-          Real g_c[NG](start=g_c_0) "gradients of c";
-
+          Real g_c[NG](start = g_c_0) "gradients of c";
           //Units.VolumetricReactionRate r_net;
-          Real g_r_net[NG](start=zeros(NG)) "gradients of r_net";
-
+          Real g_r_net[NG](start = zeros(NG)) "gradients of r_net";
         equation
-         // r_net = rc.r;
-         g_r_net[:] = rc.g_r[:];
-         // rc.c  = c;
-         rc.g_c[:] = g_c[:];
-         // mc.c = c;
-         mc.g_c[:] = g_c[:];
-
+// r_net = rc.r;
+          g_r_net[:] = rc.g_r[:];
+// rc.c  = c;
+          rc.g_c[:] = g_c[:];
+// mc.c = c;
+          mc.g_c[:] = g_c[:];
         end BasicNode;
 
         class Node "Metabolite with dynamic rate"
           extends ADGenKinetics.Derivatives.NodeElements.dynamic.BasicNode;
           //extends GenKinetics.NodeElements.dynamic.Node;
-
           //outer parameter Integer NG "# of gradients";
-
         equation
           der(c) = r_net;
           der(g_c[:]) = g_r_net[:];
@@ -2080,298 +1701,203 @@ printing and shipping costs may be recovered.</p>
 
         class FixedConcentrationNode "Metabolite with fixed concentration"
           extends ADGenKinetics.Derivatives.NodeElements.dynamic.BasicNode;
-
-          parameter Units.Concentration c_fixed=1.0 "fixed concentration";
+          parameter Units.Concentration c_fixed = 1.0 "fixed concentration";
           parameter Real g_c_fixed[NG] = zeros(NG) "gradients of c_fixed";
-
         equation
           c = c_fixed;
           g_c[:] = g_c_fixed[:];
         end FixedConcentrationNode;
-        annotation (Documentation(info="<html>
+        annotation(
+          Documentation(info = "<html>
 <p>This subpackage contains implmentation for nodes, chemical substances, which can be connected to arbitrary number of reactions. Typically the component <a href=\"GenKinetics.Derivatives.NodeElements.dynamic.Node\">GenKinetics.Derivatives.NodeElements.dynamic.Node</a> is the one which will be used at most. The component <a href=\"GenKinetics.Derivatives.NodeElements.dynamic.ModifierNode\">GenKinetics.Derivatives.NodeElements.dynamic.ModifierNode</a> is exactly the same and does not really provide additional functionalities (it is here only for backword compatibility reasons with older versions of this implementation). This component will mostly get removed in later versions. </p>
 <p><br/>Licensed under the Modelica License 2</p>
 <p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
       end dynamic;
-
-      annotation (Documentation(info="<html>
-<p>This subpackage contains components for chemical substances. Additional substances are also provided in other implementations of the Biochem library.</p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+      annotation(
+        Documentation(info = "<html><head></head><body><p>This subpackage contains components for chemical substances. Additional substances are also provided in other implementations of the Biochem library.</p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
     end NodeElements;
 
     package Reactions "Reaction kinetics"
-
       package convenience "Implementation of convenience kinetics"
-
-        package dynamic
-          "Reactions with parameterized number of connections suitable for model generation and textual implementation"
-
-          package intermidiate
-            "Reactions with parameterized number of connections suitable for model generation and textual implementation"
-            partial model ReactionActivation
-              "Interface for activating a reaction"
-
-              parameter Integer NA = 1
-                " number of Metabolites activating the reaction";
-              ADGenKinetics.Interfaces.ModifierChemicalPort_A mc_A[NA]
-                "connectors to the activating node";
-              parameter Units.AffinityConst KA[NA] = ones(NA)
-                "activation constants";
-
+        package dynamic "Reactions with parameterized number of connections suitable for model generation and textual implementation"
+          package intermidiate "Reactions with parameterized number of connections suitable for model generation and textual implementation"
+            partial model ReactionActivation "Interface for activating a reaction"
+              parameter Integer NA = 1 " number of Metabolites activating the reaction";
+              ADGenKinetics.Interfaces.ModifierChemicalPort_A mc_A[NA] "connectors to the activating node";
+              parameter Units.AffinityConst KA[NA] = ones(NA) "activation constants";
               Real A "activation term";
-
             equation
-              A = product({ KA[i] / (KA[i] + mc_A[i].c) for i in 1:NA});
-
-              //A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].mc.c) for i in 1:NA});
-              //A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].c) for i in 1:NA});
-
+              A = product({KA[i] / (KA[i] + mc_A[i].c) for i in 1:NA});
+//A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].mc.c) for i in 1:NA});
+//A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].c) for i in 1:NA});
             end ReactionActivation;
 
-            partial model ReactionInhibition
-              "Inhibition influencing a reaction"
-
+            partial model ReactionInhibition "Inhibition influencing a reaction"
               //outer parameter Integer NG "# of gradients";
-
-              parameter Integer NI = 1
-                " number of Metabolites inhibiting the reaction";
+              parameter Integer NI = 1 " number of Metabolites inhibiting the reaction";
               ADGenKinetics.Interfaces.ModifierChemicalPort_I mc_I[NI];
-
-              parameter Units.AffinityConst KI[NI] = ones(NI)
-                "Affinity constant of the Inhibitors";
+              parameter Units.AffinityConst KI[NI] = ones(NI) "Affinity constant of the Inhibitors";
               //constant Real[NG] g_KI[NI];
-
               Real I "Inhibition term in the corresponding kinetics";
               //Real g_I[NG];
-
             protected
-              Real  ad_T2_1[NI] "intermidiate";
-              Real  ad_T2_11[NI] "intermidiate";
-              Real  ad_D2_112[NI] "intermidiate";
-
+              Real ad_T2_1[NI] "intermidiate";
+              Real ad_T2_11[NI] "intermidiate";
+              Real ad_D2_112[NI] "intermidiate";
             equation
-              //I = product({ KI[i] / (KI[i] + mc_I[i].c) for i in 1:NI});
-
+//I = product({ KI[i] / (KI[i] + mc_I[i].c) for i in 1:NI});
               for i in 1:NI loop
-                1/ ad_D2_112[i] =  (KI[i] + mc_I[i].c);
+                1 / ad_D2_112[i] = KI[i] + mc_I[i].c;
                 ad_T2_11[i] = KI[i] * ad_D2_112[i];
-                ad_T2_1[i] = if
-                               (i > 1) then ad_T2_1[i-1] * ad_T2_11[i] else ad_T2_11[i];
+                ad_T2_1[i] = if i > 1 then ad_T2_1[i - 1] * ad_T2_11[i] else ad_T2_11[i];
               end for;
               I = ad_T2_1[NI];
-
             end ReactionInhibition;
 
             partial model BasicReaction "basic declaration of a reaction "
-              extends
-                ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension;
-
+              extends ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension;
               // Reaction Rate
               Units.VolumetricReactionRate v;
-
               // Connections to Substrates and Products
-              ADGenKinetics.Interfaces.ChemicalPort_S rc_S[NS]
-                "connection to substrates";
-              ADGenKinetics.Interfaces.ChemicalPort_P rc_P[NP]
-                "connection to product";
-
+              ADGenKinetics.Interfaces.ChemicalPort_S rc_S[NS] "connection to substrates";
+              ADGenKinetics.Interfaces.ChemicalPort_P rc_P[NP] "connection to product";
             equation
               rc_S[:].r = n_S[:] * v;
               rc_P[:].r = -n_P[:] * v;
-
-              //rc_S[:].r = rc_S[:].n_S * v;
-              //rc_P[:].r = -rc_P[:].n_P * v;
-
+//rc_S[:].r = rc_S[:].n_S * v;
+//rc_P[:].r = -rc_P[:].n_P * v;
             end BasicReaction;
 
             partial model BasicIrrReaction "basic declaration of a reaction "
               extends BasicReaction;
               extends ADGenKinetics.Interfaces.Reversible.OneWay;
-
               Real S1;
               Real S2;
-
-              parameter Units.AffinityConst KmS[NS] = ones(NS)
-                "Affinity constants of the substrate nodes";
-
-              parameter Real OOKmS[NS] = {1.0/KmS[i] for i in 1:NS};
-
+              parameter Units.AffinityConst KmS[NS] = ones(NS) "Affinity constants of the substrate nodes";
+              parameter Real OOKmS[NS] = {1.0 / KmS[i] for i in 1:NS};
               //Real[NS] ad_T3_1;
             protected
               Real[NS] ad_T3_11 "intermidiate";
               Real[NS] ad_T3_111 "intermidiate";
               Real[NS] ad_T4_11 "intermidiate";
               //Real[NS] ad_T4_111;
-
             equation
-              //S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
-
+//S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
               for i in 1:NS loop
                 ad_T3_111[i] = rc_S[i].c * OOKmS[i];
-                ad_T3_11[i]  = if
-                                 (i > 1) then ad_T3_111[i] * ad_T3_11[i-1] else ad_T3_111[i];
-                ad_T4_11[i]  = if
-                                 (i > 1) then (ad_T3_111[i]+1) * ad_T4_11[i-1] else ad_T3_111[i]+1;
+                ad_T3_11[i] = if i > 1 then ad_T3_111[i] * ad_T3_11[i - 1] else ad_T3_111[i];
+                ad_T4_11[i] = if i > 1 then (ad_T3_111[i] + 1) * ad_T4_11[i - 1] else ad_T3_111[i] + 1;
               end for;
               S1 = Vfwdmax * ad_T3_11[NS];
-
-              //S2 = product({rc_S[i].c/KmS[i] + 1 for i in 1:NS});
+//S2 = product({rc_S[i].c/KmS[i] + 1 for i in 1:NS});
               S2 = ad_T4_11[NS];
-
             end BasicIrrReaction;
 
             partial model BasicRevReaction "basic declaration of a reaction "
               extends BasicIrrReaction;
               //extends BasicReaction;
               extends ADGenKinetics.Interfaces.Reversible.TwoWay;
-
               Real P1;
               Real P2;
-
-              parameter Units.AffinityConst KmP[NP] = ones(NP)
-                "Affinity constants of the product node";
-
+              parameter Units.AffinityConst KmP[NP] = ones(NP) "Affinity constants of the product node";
             protected
-              parameter Real OOKmP[NP] = {1.0/KmP[i] for i in 1:NP};
-
+              parameter Real OOKmP[NP] = {1.0 / KmP[i] for i in 1:NP};
               Real[NP] ad_T5_11 "intermidiate";
               Real[NP] ad_T5_111 "intermidiate";
-
               Real[NP] ad_T6_11 "intermidiate";
-
             equation
-              //P1 = Vbwdmax * product({rc_P[i].c/KmP[i] for i in 1:NP});
-
+//P1 = Vbwdmax * product({rc_P[i].c/KmP[i] for i in 1:NP});
               for i in 1:NP loop
                 ad_T5_111[i] = rc_P[i].c * OOKmP[i];
-                ad_T5_11[i]  = if (i > 1) then ad_T5_111[i] * ad_T5_11[i-1] else ad_T5_111[i];
-                ad_T6_11[i]  = if (i > 1) then (ad_T5_111[i]+1) * ad_T6_11[i-1] else ad_T5_111[i]+1;
+                ad_T5_11[i] = if i > 1 then ad_T5_111[i] * ad_T5_11[i - 1] else ad_T5_111[i];
+                ad_T6_11[i] = if i > 1 then (ad_T5_111[i] + 1) * ad_T6_11[i - 1] else ad_T5_111[i] + 1;
               end for;
               P1 = Vbwdmax * ad_T5_11[NP];
-
-              //P2 = product({rc_P[i].c/KmP[i] + 1 for i in 1:NP});
+//P2 = product({rc_P[i].c/KmP[i] + 1 for i in 1:NP});
               P2 = ad_T6_11[NP];
-
             end BasicRevReaction;
 
             class IrrKinetic "S1 + S2 + .. => P1 + P2 + ... "
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicIrrReaction;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicIrrReaction;
             protected
               Real ad_T7_12 "intermidiate";
-
             equation
-              1/ad_T7_12 = S2;
+              1 / ad_T7_12 = S2;
               v = S1 * ad_T7_12;
-
             end IrrKinetic;
 
             class InhIrrKinetic "S1 + S2 + .. ==I1,I2,..=> P1 + P2 + ... "
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicIrrReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionInhibition;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicIrrReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionInhibition;
             protected
               Real ad_T8_122 "intermidiate";
               Real ad_T8_12 "intermidiate";
-
             equation
-              1/ad_T8_122 = S2;
+              1 / ad_T8_122 = S2;
               ad_T8_12 = S1 * ad_T8_122;
               v = I * ad_T8_12;
-
             end InhIrrKinetic;
 
             class ActIrrKinetic "S1 + S2 + .. + ==A1,A2,...=> P1 + P2 + ... "
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicIrrReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionActivation;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicIrrReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionActivation;
             equation
               v = A * S1 / S2;
-
             end ActIrrKinetic;
 
             class ActInhIrrKinetic
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicIrrReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionActivation;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionInhibition;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicIrrReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionActivation;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionInhibition;
             equation
               v = A * I * S1 / S2;
-
             end ActInhIrrKinetic;
 
             class RevKinetic "S1 + S2 + ... <===> P1 + P2 + ... "
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicRevReaction;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicRevReaction;
             protected
               Real ad_D11_12 "intermidiate";
-
             equation
-              1/ad_D11_12 = S2 + P2 - 1;
+              1 / ad_D11_12 = S2 + P2 - 1;
               v = (S1 - P1) * ad_D11_12;
-              //v = (S1 - P1) / (S2 + P2 - 1);
-
+//v = (S1 - P1) / (S2 + P2 - 1);
             end RevKinetic;
 
             class InhRevKinetic
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicRevReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionInhibition;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicRevReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionInhibition;
             protected
               Real ad_T12_1 "intermidiate";
-
               Real ad_T12_12 "intermidiate";
-
               Real ad_D12_122 "intermidiate";
-
             equation
-              1/ad_D12_122 = S2 + P2 - 1;
-              ad_T12_12  = (S1-P1) * ad_D12_122;
+              1 / ad_D12_122 = S2 + P2 - 1;
+              ad_T12_12 = (S1 - P1) * ad_D12_122;
               v = I * ad_T12_12;
-
             end InhRevKinetic;
 
             class ActRevKinetic
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicRevReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionActivation;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicRevReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionActivation;
             equation
               v = A * (S1 - P1) / (S2 + P2 - 1);
-
             end ActRevKinetic;
 
             class ActInhRevKinetic
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicRevReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionActivation;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionInhibition;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.BasicRevReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionActivation;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.ReactionInhibition;
             equation
               v = A * I * (S1 - P1) / (S2 + P2 - 1);
-
             end ActInhRevKinetic;
-
-            annotation (Documentation(info="<html>
+            annotation(
+              Documentation(info = "<html>
 <p>This subpackage is exactly like the parent subpackage <a href=\"GenKinetics.Derivatives.Reaction.convenience.dynamic\">GenKinetics.Derivatives.Reaction.convenience.dynamic</a> . The components are simplified, processed in away to make algorithmic differentiation techniques easily applicables. It is useful for testing purposes, to ensure that the deriviated intermidiate formats are correct. </p>
 <p><br/>Equations for parameter senstivities are computed by applying algorithmic differentiation techniques on the simplified version of the original part <a href=\"GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate \">GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate </a></p>
 <p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
@@ -2381,285 +1907,197 @@ printing and shipping costs may be recovered.</p>
 
           partial model ReactionInhibition "Inhibition influencing a reaction"
             //extends intermidiate.ReactionInhibition;
-
             outer parameter Integer NG "# of gradients";
-
-            parameter Integer NI = 1
-              " number of Metabolites inhibiting the reaction";
+            parameter Integer NI = 1 " number of Metabolites inhibiting the reaction";
             ADGenKinetics.Derivatives.Interfaces.ModifierChemicalPort_I mc_I[NI];
-
-            parameter Units.AffinityConst KI[NI] = ones(NI)
-              "Affinity constant of the Inhibitors";
-            parameter Real[NI,NG] g_KI = zeros(NI,NG) "gradients of KI[*]";
-
+            parameter Units.AffinityConst KI[NI] = ones(NI) "Affinity constant of the Inhibitors";
+            parameter Real[NI, NG] g_KI = zeros(NI, NG) "gradients of KI[*]";
             Real I "Inhibition term in the corresponding kinetics";
-            Real g_I[NG](start=zeros(NG)) "gradients of I";
-
+            Real g_I[NG](start = zeros(NG)) "gradients of I";
           protected
-            Real  ad_T2_1[NI] "intermidiate";
-            Real[NI,NG]  ad_g_T2_1(start=zeros(NI,NG)) "gradients of ad_T2_1";
-
-            Real  ad_T2_11[NI] "intermidiate";
+            Real ad_T2_1[NI] "intermidiate";
+            Real[NI, NG] ad_g_T2_1(start = zeros(NI, NG)) "gradients of ad_T2_1";
+            Real ad_T2_11[NI] "intermidiate";
             //Real[NI,NG]  ad_g_T2_11(start=zeros(NI,NG));
-
-            Real  ad_D2_112[NI] "intermidiate";
+            Real ad_D2_112[NI] "intermidiate";
             //Real[NI,NG]  ad_g_D2_112(start=zeros(NI,NG));
-
           equation
-            //I = product({ KI[i] / (KI[i] + mc_I[i].c) for i in 1:NI});
-
+//I = product({ KI[i] / (KI[i] + mc_I[i].c) for i in 1:NI});
             for i in 1:NI loop
-
-              ad_D2_112[i] =  1/(KI[i] + mc_I[i].c);
-            //  ad_g_D2_112[i,:]  =  -(g_KI[i,:] + mc_I[i].g_c[:]) * ad_D2_112[i] * ad_D2_112[i];
-
+              ad_D2_112[i] = 1 / (KI[i] + mc_I[i].c);
+//  ad_g_D2_112[i,:]  =  -(g_KI[i,:] + mc_I[i].g_c[:]) * ad_D2_112[i] * ad_D2_112[i];
               ad_T2_11[i] = KI[i] * ad_D2_112[i];
-             // ad_g_T2_11[i,:] = g_KI[i,:] * ad_D2_112[i] + KI[i] * (-(g_KI[i,:] + mc_I[i].g_c[:]) * ad_D2_112[i] * ad_D2_112[i]);
-
-              ad_T2_1[i] = if (i > 1) then ad_T2_1[i-1] * ad_T2_11[i] else ad_T2_11[i];
-              ad_g_T2_1[i,:] = if
-                                 (i > 1) then ad_g_T2_1[i-1,:] * ad_T2_11[i] + ad_T2_1[i-1] * (g_KI[i,:] * ad_D2_112[i] + KI[i] * (-(g_KI[i,:] + mc_I[i].g_c[:]) * ad_D2_112[i] * ad_D2_112[i])) else (g_KI[i,:] * ad_D2_112[i] + KI[i] * (-(g_KI[i,:] + mc_I[i].g_c[:]) * ad_D2_112[i] * ad_D2_112[i]));
+// ad_g_T2_11[i,:] = g_KI[i,:] * ad_D2_112[i] + KI[i] * (-(g_KI[i,:] + mc_I[i].g_c[:]) * ad_D2_112[i] * ad_D2_112[i]);
+              ad_T2_1[i] = if i > 1 then ad_T2_1[i - 1] * ad_T2_11[i] else ad_T2_11[i];
+              ad_g_T2_1[i, :] = if i > 1 then ad_g_T2_1[i - 1, :] * ad_T2_11[i] + ad_T2_1[i - 1] * (g_KI[i, :] * ad_D2_112[i] + KI[i] * (-(g_KI[i, :] + mc_I[i].g_c[:]) * ad_D2_112[i] * ad_D2_112[i])) else g_KI[i, :] * ad_D2_112[i] + KI[i] * (-(g_KI[i, :] + mc_I[i].g_c[:]) * ad_D2_112[i] * ad_D2_112[i]);
             end for;
             I = ad_T2_1[NI];
-            g_I[:] = ad_g_T2_1[NI,:];
-
+            g_I[:] = ad_g_T2_1[NI, :];
           end ReactionInhibition;
 
           partial model BasicReaction "basic declaration of a reaction "
             //extends intermidiate.BasicReaction;
-            extends
-              ADGenKinetics.Derivatives.Interfaces.dynamic.Dimension.ReactionDimension;
-
+            extends ADGenKinetics.Derivatives.Interfaces.dynamic.Dimension.ReactionDimension;
             outer parameter Integer NG "# of gradients";
-
             // Reaction Rate
             Units.VolumetricReactionRate v "reaction rate";
-            Real[NG] g_v(start=zeros(NG)) "gradients of v";
-
+            Real[NG] g_v(start = zeros(NG)) "gradients of v";
             // Connections to substrates and products
-            ADGenKinetics.Derivatives.Interfaces.ChemicalPort_S rc_S[NS]
-              "connection to substrates";
-            ADGenKinetics.Derivatives.Interfaces.ChemicalPort_P rc_P[NP]
-              "connection to product";
-
+            ADGenKinetics.Derivatives.Interfaces.ChemicalPort_S rc_S[NS] "connection to substrates";
+            ADGenKinetics.Derivatives.Interfaces.ChemicalPort_P rc_P[NP] "connection to product";
           equation
             rc_S[:].r = n_S[:] * v;
             rc_P[:].r = -n_P[:] * v;
-
             for i in 1:NS loop
-                rc_S[i].g_r[:] = n_S[i] * g_v[:];
+              rc_S[i].g_r[:] = n_S[i] * g_v[:];
             end for;
-
             for i in 1:NP loop
               for j in 1:NG loop
                 rc_P[i].g_r[j] = -n_P[i] * g_v[j];
               end for;
             end for;
-
           end BasicReaction;
 
           partial model BasicIrrReaction "basic declaration of a reaction "
             extends BasicReaction;
             extends ADGenKinetics.Derivatives.Interfaces.Reversible.OneWay;
-
             //extends intermidiate.BasicIrrReaction;
             //outer parameter Integer NG "# of gradients";
-
             Real S1 "substrate term";
-            Real[NG] g_S1(start=zeros(NG)) "gradients of S1";
-
+            Real[NG] g_S1(start = zeros(NG)) "gradients of S1";
             Real S2 "substrate term";
-            Real[NG] g_S2(start=zeros(NG)) "gradients of S2";
-
-            parameter Units.AffinityConst KmS[NS] = ones(NS)
-              "affinity constants of the substrate nodes";
-            parameter Real[NS,NG] g_KmS = zeros(NS,NG) "gradients";
-
-          //protected
-            parameter Real OOKmS[NS] = {1.0/KmS[i] for i in 1:NS}
-              "affinity constants of the substrate node";
-            parameter Real[NS,NG] g_OOKmS =  { -g_KmS[i,:] * OOKmS[i] * OOKmS[i] for i in 1:NS}
-              "gradients";
-
+            Real[NG] g_S2(start = zeros(NG)) "gradients of S2";
+            parameter Units.AffinityConst KmS[NS] = ones(NS) "affinity constants of the substrate nodes";
+            parameter Real[NS, NG] g_KmS = zeros(NS, NG) "gradients";
+            //protected
+            parameter Real OOKmS[NS] = {1.0 / KmS[i] for i in 1:NS} "affinity constants of the substrate node";
+            parameter Real[NS, NG] g_OOKmS = {-g_KmS[i, :] * OOKmS[i] * OOKmS[i] for i in 1:NS} "gradients";
             Real[NS] ad_T3_11 "intermidiates";
-            Real[NS,NG] ad_g_T3_11(start=zeros(NS,NG)) "gradients";
-
+            Real[NS, NG] ad_g_T3_11(start = zeros(NS, NG)) "gradients";
             Real[NS] ad_T3_111 "intermidiates";
             //Real[NS,NG] ad_g_T3_111(start=zeros(NS,NG));
-
             Real[NS] ad_T4_11 "intermidiates";
-            Real[NS,NG] ad_g_T4_11(start=zeros(NS,NG)) "gradients";
-
+            Real[NS, NG] ad_g_T4_11(start = zeros(NS, NG)) "gradients";
           equation
-            //S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
-
+//S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
             for i in 1:NS loop
               ad_T3_111[i] = rc_S[i].c * OOKmS[i];
-             // ad_g_T3_111[i,:] = rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i,:];
-
-              ad_T3_11[i]  = if (i > 1) then ad_T3_111[i] * ad_T3_11[i-1] else ad_T3_111[i];
-              // ad_g_T3_11[i,:]  = if (i > 1) then ad_g_T3_111[i] * ad_T3_11[i-1] + ad_T3_111[i] * ad_g_T3_11[i-1,:] else ad_g_T3_111[i];
-              ad_g_T3_11[i,:]  = if (i > 1) then (rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i,:]) * ad_T3_11[i-1] + ad_T3_111[i] * ad_g_T3_11[i-1,:] else (rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i,:]);
-
-              ad_T4_11[i]  = if (i > 1) then (ad_T3_111[i]+1) * ad_T4_11[i-1] else ad_T3_111[i]+1;
-              //ad_g_T4_11[i,:]  = if (i > 1) then ad_g_T3_111[i] * ad_T4_11[i-1] + (ad_T3_111[i]+1) * ad_g_T4_11[i-1,:] else ad_g_T3_111[i];
-              ad_g_T4_11[i,:]  = if (i > 1) then (rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i,:]) * ad_T4_11[i-1] + (ad_T3_111[i]+1) * ad_g_T4_11[i-1,:] else (rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i,:]);
+// ad_g_T3_111[i,:] = rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i,:];
+              ad_T3_11[i] = if i > 1 then ad_T3_111[i] * ad_T3_11[i - 1] else ad_T3_111[i];
+// ad_g_T3_11[i,:]  = if (i > 1) then ad_g_T3_111[i] * ad_T3_11[i-1] + ad_T3_111[i] * ad_g_T3_11[i-1,:] else ad_g_T3_111[i];
+              ad_g_T3_11[i, :] = if i > 1 then (rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i, :]) * ad_T3_11[i - 1] + ad_T3_111[i] * ad_g_T3_11[i - 1, :] else rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i, :];
+              ad_T4_11[i] = if i > 1 then (ad_T3_111[i] + 1) * ad_T4_11[i - 1] else ad_T3_111[i] + 1;
+//ad_g_T4_11[i,:]  = if (i > 1) then ad_g_T3_111[i] * ad_T4_11[i-1] + (ad_T3_111[i]+1) * ad_g_T4_11[i-1,:] else ad_g_T3_111[i];
+              ad_g_T4_11[i, :] = if i > 1 then (rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i, :]) * ad_T4_11[i - 1] + (ad_T3_111[i] + 1) * ad_g_T4_11[i - 1, :] else rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i, :];
             end for;
-
             S1 = Vfwdmax * ad_T3_11[NS];
-            g_S1[:] = g_Vfwdmax[:] * ad_T3_11[NS] + Vfwdmax * ad_g_T3_11[NS,:];
-
-            //S2 = product({rc_S[i].c/KmS[i] + 1 for i in 1:NS});
+            g_S1[:] = g_Vfwdmax[:] * ad_T3_11[NS] + Vfwdmax * ad_g_T3_11[NS, :];
+//S2 = product({rc_S[i].c/KmS[i] + 1 for i in 1:NS});
             S2 = ad_T4_11[NS];
-            g_S2[:] = ad_g_T4_11[NS,:];
-
+            g_S2[:] = ad_g_T4_11[NS, :];
           end BasicIrrReaction;
 
-          partial model BasicRevReaction
-            "basic declaration of a reversible reaction "
+          partial model BasicRevReaction "basic declaration of a reversible reaction "
             extends BasicIrrReaction;
             extends ADGenKinetics.Derivatives.Interfaces.Reversible.TwoWay;
-
             //extends intermidiate.BasicRevReaction;
-
             Real P1 "product term";
-            Real[NG] g_P1(start=zeros(NG)) "gradients of P1";
-
+            Real[NG] g_P1(start = zeros(NG)) "gradients of P1";
             Real P2 "product term";
-            Real[NG] g_P2(start=zeros(NG)) "gradients of P2";
-
-            parameter Units.AffinityConst KmP[NP] = ones(NP)
-              "affinity constants of the substrate nodes";
-            parameter Real[NP,NG] g_KmP = zeros(NP,NG) "gradients of KmP[*]";
-
+            Real[NG] g_P2(start = zeros(NG)) "gradients of P2";
+            parameter Units.AffinityConst KmP[NP] = ones(NP) "affinity constants of the substrate nodes";
+            parameter Real[NP, NG] g_KmP = zeros(NP, NG) "gradients of KmP[*]";
           protected
-            parameter Real OOKmP[NP] = {1.0/KmP[i] for i in 1:NP};
-            parameter Real[NP,NG] g_OOKmP =  { -g_KmP[i,:] * OOKmP[i] * OOKmP[i] for i in 1:NP};
-
+            parameter Real OOKmP[NP] = {1.0 / KmP[i] for i in 1:NP};
+            parameter Real[NP, NG] g_OOKmP = {-g_KmP[i, :] * OOKmP[i] * OOKmP[i] for i in 1:NP};
             Real[NP] ad_T5_11 "intermidiate";
-            Real[NP,NG] ad_g_T5_11(start=zeros(NP,NG)) "gradients";
-
+            Real[NP, NG] ad_g_T5_11(start = zeros(NP, NG)) "gradients";
             Real[NP] ad_T5_111 "intermidiate";
-           // Real[NP,NG] ad_g_T5_111(start=zeros(NP,NG));
-
+            // Real[NP,NG] ad_g_T5_111(start=zeros(NP,NG));
             Real[NP] ad_T6_11 "intermidiate";
-            Real[NP,NG] ad_g_T6_11(start=zeros(NP,NG)) "gradients";
-
+            Real[NP, NG] ad_g_T6_11(start = zeros(NP, NG)) "gradients";
           equation
-            //S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
-
+//S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
             for i in 1:NP loop
-
               ad_T5_111[i] = rc_P[i].c * OOKmP[i];
-             // ad_g_T5_111[i,:] = rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i,:];
-
-              ad_T5_11[i]  = if (i > 1) then ad_T5_111[i] * ad_T5_11[i-1] else ad_T5_111[i];
-              ad_g_T5_11[i,:]  = if (i > 1) then (rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i,:]) * ad_T5_11[i-1] + ad_T5_111[i] * ad_g_T5_11[i-1,:] else (rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i,:]);
-
-              ad_T6_11[i]  = if (i > 1) then (ad_T5_111[i]+1) * ad_T6_11[i-1] else ad_T5_111[i]+1;
-              ad_g_T6_11[i,:]  = if (i > 1) then (rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i,:]) * ad_T6_11[i-1] + (ad_T5_111[i]+1) * ad_g_T6_11[i-1,:] else (rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i,:]);
+// ad_g_T5_111[i,:] = rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i,:];
+              ad_T5_11[i] = if i > 1 then ad_T5_111[i] * ad_T5_11[i - 1] else ad_T5_111[i];
+              ad_g_T5_11[i, :] = if i > 1 then (rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i, :]) * ad_T5_11[i - 1] + ad_T5_111[i] * ad_g_T5_11[i - 1, :] else rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i, :];
+              ad_T6_11[i] = if i > 1 then (ad_T5_111[i] + 1) * ad_T6_11[i - 1] else ad_T5_111[i] + 1;
+              ad_g_T6_11[i, :] = if i > 1 then (rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i, :]) * ad_T6_11[i - 1] + (ad_T5_111[i] + 1) * ad_g_T6_11[i - 1, :] else rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i, :];
             end for;
-
             P1 = Vbwdmax * ad_T5_11[NP];
-            g_P1[:] = g_Vbwdmax[:] * ad_T5_11[NP] + Vbwdmax * ad_g_T5_11[NP,:];
-
+            g_P1[:] = g_Vbwdmax[:] * ad_T5_11[NP] + Vbwdmax * ad_g_T5_11[NP, :];
             P2 = ad_T6_11[NP];
-            g_P2[:] = ad_g_T6_11[NP,:];
-
+            g_P2[:] = ad_g_T6_11[NP, :];
           end BasicRevReaction;
 
           class IrrKinetic "S1 + S2 + .. => P1 + P2 + ... "
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic.BasicIrrReaction;
-
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.BasicIrrReaction;
             Real ad_T7_12 "intermidiate";
-           // Real[NG] ad_g_T7_12(start=zeros(NG));
-
+            // Real[NG] ad_g_T7_12(start=zeros(NG));
           equation
-            ad_T7_12 = 1/S2;
-            // ad_g_T7_12[:] = - g_S2[:] * ad_T7_12 * ad_T7_12;
-
+            ad_T7_12 = 1 / S2;
+// ad_g_T7_12[:] = - g_S2[:] * ad_T7_12 * ad_T7_12;
             v = S1 * ad_T7_12;
-            //g_v[:] = g_S1[:] * ad_T7_12 + S1 * ad_g_T7_12[:];
-            g_v[:] = g_S1[:] * ad_T7_12 + S1 * (- g_S2[:] * ad_T7_12 * ad_T7_12);
-
+//g_v[:] = g_S1[:] * ad_T7_12 + S1 * ad_g_T7_12[:];
+            g_v[:] = g_S1[:] * ad_T7_12 + S1 * (-g_S2[:] * ad_T7_12 * ad_T7_12);
           end IrrKinetic;
 
           class InhIrrKinetic "S1 + S2 + .. ==I1,I2,..=> P1 + P2 + ... "
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic.BasicIrrReaction;
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic.ReactionInhibition;
-
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.BasicIrrReaction;
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.ReactionInhibition;
             Real ad_T8_122 "intermidiate";
-           // Real[NG] ad_g_T8_122(start=zeros(NG));
-
+            // Real[NG] ad_g_T8_122(start=zeros(NG));
             Real ad_T8_12 "intermidiate";
             //Real[NG] ad_g_T8_12(start=zeros(NG));
-
           equation
-            ad_T8_122 = 1/S2;
-           // ad_g_T8_122[:] = -g_S2[:]; // * ad_T8_122 * ad_T8_122;
-
+            ad_T8_122 = 1 / S2;
+// ad_g_T8_122[:] = -g_S2[:]; // * ad_T8_122 * ad_T8_122;
             ad_T8_12 = S1 * ad_T8_122;
-            // ad_g_T8_12[:] =  g_S1[:] * ad_T8_122 + S1 * ad_g_T8_122[:];
-            // ad_g_T8_12[:] =  g_S1[:] * ad_T8_122 + S1 * (-g_S2[:]);
-
+// ad_g_T8_12[:] =  g_S1[:] * ad_T8_122 + S1 * ad_g_T8_122[:];
+// ad_g_T8_12[:] =  g_S1[:] * ad_T8_122 + S1 * (-g_S2[:]);
             v = I * ad_T8_12;
-            //g_v[:] = g_I[:] * ad_T8_12 + I * ad_g_T8_12[:];
+//g_v[:] = g_I[:] * ad_T8_12 + I * ad_g_T8_12[:];
             g_v[:] = g_I[:] * ad_T8_12 + I * (g_S1[:] * ad_T8_122 + S1 * (-g_S2[:]));
-
           end InhIrrKinetic;
 
           class RevKinetic "S1 + S2 + ... <===> P1 + P2 + ... "
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic.BasicRevReaction;
-
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.BasicRevReaction;
           protected
             Real ad_D11_12 "intermidiate";
-           // Real[NG] ad_g_D11_12(start=zeros(NG));
-
+            // Real[NG] ad_g_D11_12(start=zeros(NG));
           equation
             ad_D11_12 = 1 / (S2 + P2 - 1);
-            // ad_g_D11_12[:] = - (g_S2[:] + g_P2[:]) * ad_D11_12 * ad_D11_12;
-
-            //v = (S1 - P1) / (S2 + P2 - 1);
+// ad_g_D11_12[:] = - (g_S2[:] + g_P2[:]) * ad_D11_12 * ad_D11_12;
+//v = (S1 - P1) / (S2 + P2 - 1);
             v = (S1 - P1) * ad_D11_12;
-            // g_v[:] = (g_S1[:] - g_P1[:]) * ad_D11_12 + (S1-P1) * ad_g_D11_12[:];
-            g_v[:] = (g_S1[:] - g_P1[:]) * ad_D11_12 + (S1-P1) * (- (g_S2[:] + g_P2[:]) * ad_D11_12 * ad_D11_12);
-
+// g_v[:] = (g_S1[:] - g_P1[:]) * ad_D11_12 + (S1-P1) * ad_g_D11_12[:];
+            g_v[:] = (g_S1[:] - g_P1[:]) * ad_D11_12 + (S1 - P1) * (-(g_S2[:] + g_P2[:]) * ad_D11_12 * ad_D11_12);
           end RevKinetic;
 
           class InhRevKinetic
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic.BasicRevReaction;
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic.ReactionInhibition;
-
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.BasicRevReaction;
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic.ReactionInhibition;
             //Real ad_T12_1;
             //Real[NG] ad_g_T12_1;
-
           protected
             Real ad_T12_12 "intermidiate";
-           // Real[NG] ad_g_T12_12(start=zeros(NG));
-
+            // Real[NG] ad_g_T12_12(start=zeros(NG));
             Real ad_D12_122 "intermidiate";
             //Real[NG] ad_g_D12_122(start=zeros(NG));
-
           equation
             ad_D12_122 = 1 / (S2 + P2 - 1);
-            // ad_g_D12_122[:] = -(g_S2[:] + g_P2[:]) * ad_D12_122 * ad_D12_122;
-
-            ad_T12_12  = (S1-P1) * ad_D12_122;
-            // ad_g_T12_12[:] = (g_S1[:] - g_P1[:]) * ad_D12_122 + (S1-P1) * ad_g_D12_122[:];
-            //ad_g_T12_12[:] = (g_S1[:] - g_P1[:]) * ad_D12_122 + (S1-P1) * (-(g_S2[:] + g_P2[:]) * ad_D12_122 * ad_D12_122);
-
+// ad_g_D12_122[:] = -(g_S2[:] + g_P2[:]) * ad_D12_122 * ad_D12_122;
+            ad_T12_12 = (S1 - P1) * ad_D12_122;
+// ad_g_T12_12[:] = (g_S1[:] - g_P1[:]) * ad_D12_122 + (S1-P1) * ad_g_D12_122[:];
+//ad_g_T12_12[:] = (g_S1[:] - g_P1[:]) * ad_D12_122 + (S1-P1) * (-(g_S2[:] + g_P2[:]) * ad_D12_122 * ad_D12_122);
             v = I * ad_T12_12;
-            // g_v[:] = g_I[:] * ad_T12_12 + I * ad_g_T12_12[:];
-            g_v[:] = g_I[:] * ad_T12_12 + I * ((g_S1[:] - g_P1[:]) * ad_D12_122 + (S1-P1) * (-(g_S2[:] + g_P2[:]) * ad_D12_122 * ad_D12_122));
-
+// g_v[:] = g_I[:] * ad_T12_12 + I * ad_g_T12_12[:];
+            g_v[:] = g_I[:] * ad_T12_12 + I * ((g_S1[:] - g_P1[:]) * ad_D12_122 + (S1 - P1) * (-(g_S2[:] + g_P2[:]) * ad_D12_122 * ad_D12_122));
           end InhRevKinetic;
-          annotation (Documentation(info="<html>
+          annotation(
+            Documentation(info = "<html>
 <p>This subpackage contains components for reactions with arbitrary number of substrates, products and effectors. It is suitable for textual implementation and automatic model generation. Equations for parameter senstivities are computed by applying algorithmic differentiation techniques on the simplified version of the original part <a href=\"GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate \">GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate </a></p>
 <p><br/>Licensed under the Modelica License 2</p>
 <p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
@@ -2669,270 +2107,179 @@ printing and shipping costs may be recovered.</p>
 </html>"));
         end dynamic;
 
-        package dynamic_adtemp
-          "Reactions with parameterized number of connections suitable for model generation and textual implementation"
-
-          package intermidiate
-            "Reactions with parameterized number of connections suitable for model generation and textual implementation"
-            partial model ReactionActivation
-              "Interface for activating a reaction"
-
-              parameter Integer NA = 1
-                " number of Metabolites activating the reaction";
-              ADGenKinetics.Interfaces.ModifierChemicalPort_A mc_A[NA]
-                "Connectors to the activating node";
-              parameter Units.AffinityConst KA[NA] = ones(NA)
-                "Activation constants";
-
+        package dynamic_adtemp "Reactions with parameterized number of connections suitable for model generation and textual implementation"
+          package intermidiate "Reactions with parameterized number of connections suitable for model generation and textual implementation"
+            partial model ReactionActivation "Interface for activating a reaction"
+              parameter Integer NA = 1 " number of Metabolites activating the reaction";
+              ADGenKinetics.Interfaces.ModifierChemicalPort_A mc_A[NA] "Connectors to the activating node";
+              parameter Units.AffinityConst KA[NA] = ones(NA) "Activation constants";
               Real A "Activation term";
-
             equation
-              A = product({ KA[i] / (KA[i] + mc_A[i].c) for i in 1:NA});
-
-              //A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].mc.c) for i in 1:NA});
-              //A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].c) for i in 1:NA});
-
+              A = product({KA[i] / (KA[i] + mc_A[i].c) for i in 1:NA});
+//A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].mc.c) for i in 1:NA});
+//A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].c) for i in 1:NA});
             end ReactionActivation;
 
-            partial model ReactionInhibition
-              "Inhibition influencing a reaction"
-
+            partial model ReactionInhibition "Inhibition influencing a reaction"
               //outer parameter Integer NG "# of gradients";
-
-              parameter Integer NI = 1
-                " number of Metabolites inhibiting the reaction";
+              parameter Integer NI = 1 " number of Metabolites inhibiting the reaction";
               ADGenKinetics.Interfaces.ModifierChemicalPort_I mc_I[NI];
-
-              parameter Units.AffinityConst KI[NI] = ones(NI)
-                "Affinity constant of the Inhibitors";
+              parameter Units.AffinityConst KI[NI] = ones(NI) "Affinity constant of the Inhibitors";
               //constant Real[NG] g_KI[NI];
-
               Real I "Inhibition term in the corresponding kinetics";
               //Real g_I[NG];
-
             protected
-              Real  ad_T2_1[NI];
-              Real  ad_T2_11[NI];
-              Real  ad_D2_112[NI];
-
+              Real ad_T2_1[NI];
+              Real ad_T2_11[NI];
+              Real ad_D2_112[NI];
             equation
-              //I = product({ KI[i] / (KI[i] + mc_I[i].c) for i in 1:NI});
-
+//I = product({ KI[i] / (KI[i] + mc_I[i].c) for i in 1:NI});
               for i in 1:NI loop
-                1/ ad_D2_112[i] =  (KI[i] + mc_I[i].c);
+                1 / ad_D2_112[i] = KI[i] + mc_I[i].c;
                 ad_T2_11[i] = KI[i] * ad_D2_112[i];
-                ad_T2_1[i] = if
-                               (i > 1) then ad_T2_1[i-1] * ad_T2_11[i] else ad_T2_11[i];
+                ad_T2_1[i] = if i > 1 then ad_T2_1[i - 1] * ad_T2_11[i] else ad_T2_11[i];
               end for;
               I = ad_T2_1[NI];
-
             end ReactionInhibition;
 
             partial model BasicReaction "basic declaration of a reaction "
-              extends
-                ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension;
-
+              extends ADGenKinetics.Interfaces.dynamic.Dimension.ReactionDimension;
               // Reaction Rate
               Units.VolumetricReactionRate v;
-
               // Connections to Substrates and Products
-              ADGenKinetics.Interfaces.ChemicalPort_S rc_S[NS]
-                "connection to substrates";
-              ADGenKinetics.Interfaces.ChemicalPort_P rc_P[NP]
-                "connection to product";
-
+              ADGenKinetics.Interfaces.ChemicalPort_S rc_S[NS] "connection to substrates";
+              ADGenKinetics.Interfaces.ChemicalPort_P rc_P[NP] "connection to product";
             equation
               rc_S[:].r = n_S[:] * v;
               rc_P[:].r = -n_P[:] * v;
-
-              //rc_S[:].r = rc_S[:].n_S * v;
-              //rc_P[:].r = -rc_P[:].n_P * v;
-
+//rc_S[:].r = rc_S[:].n_S * v;
+//rc_P[:].r = -rc_P[:].n_P * v;
             end BasicReaction;
 
             partial model BasicIrrReaction "basic declaration of a reaction "
               extends BasicReaction;
               extends ADGenKinetics.Interfaces.Reversible.OneWay;
-
               Real S1;
               Real S2;
-
-              parameter Units.AffinityConst KmS[NS] = ones(NS)
-                "Affinity constants of the substrate nodes";
-
-              parameter Real OOKmS[NS] = {1.0/KmS[i] for i in 1:NS};
-
+              parameter Units.AffinityConst KmS[NS] = ones(NS) "Affinity constants of the substrate nodes";
+              parameter Real OOKmS[NS] = {1.0 / KmS[i] for i in 1:NS};
               //Real[NS] ad_T3_1;
             protected
               Real[NS] ad_T3_11;
               Real[NS] ad_T3_111;
               Real[NS] ad_T4_11;
               //Real[NS] ad_T4_111;
-
             equation
-              //S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
-
+//S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
               for i in 1:NS loop
                 ad_T3_111[i] = rc_S[i].c * OOKmS[i];
-                ad_T3_11[i]  = if
-                                 (i > 1) then ad_T3_111[i] * ad_T3_11[i-1] else ad_T3_111[i];
-                ad_T4_11[i]  = if
-                                 (i > 1) then (ad_T3_111[i]+1) * ad_T4_11[i-1] else ad_T3_111[i]+1;
+                ad_T3_11[i] = if i > 1 then ad_T3_111[i] * ad_T3_11[i - 1] else ad_T3_111[i];
+                ad_T4_11[i] = if i > 1 then (ad_T3_111[i] + 1) * ad_T4_11[i - 1] else ad_T3_111[i] + 1;
               end for;
               S1 = Vfwdmax * ad_T3_11[NS];
-
-              //S2 = product({rc_S[i].c/KmS[i] + 1 for i in 1:NS});
+//S2 = product({rc_S[i].c/KmS[i] + 1 for i in 1:NS});
               S2 = ad_T4_11[NS];
-
             end BasicIrrReaction;
 
             partial model BasicRevReaction "basic declaration of a reaction "
               extends BasicIrrReaction;
               //extends BasicReaction;
               extends ADGenKinetics.Interfaces.Reversible.TwoWay;
-
               Real P1;
               Real P2;
-
-              parameter Units.AffinityConst KmP[NP] = ones(NP)
-                "Affinity constants of the product node";
-
+              parameter Units.AffinityConst KmP[NP] = ones(NP) "Affinity constants of the product node";
             protected
-              parameter Real OOKmP[NP] = {1.0/KmP[i] for i in 1:NP};
-
+              parameter Real OOKmP[NP] = {1.0 / KmP[i] for i in 1:NP};
               Real[NP] ad_T5_11;
               Real[NP] ad_T5_111;
-
               Real[NP] ad_T6_11;
-
             equation
-              //P1 = Vbwdmax * product({rc_P[i].c/KmP[i] for i in 1:NP});
-
+//P1 = Vbwdmax * product({rc_P[i].c/KmP[i] for i in 1:NP});
               for i in 1:NP loop
                 ad_T5_111[i] = rc_P[i].c * OOKmP[i];
-                ad_T5_11[i]  = if (i > 1) then ad_T5_111[i] * ad_T5_11[i-1] else ad_T5_111[i];
-                ad_T6_11[i]  = if (i > 1) then (ad_T5_111[i]+1) * ad_T6_11[i-1] else ad_T5_111[i]+1;
+                ad_T5_11[i] = if i > 1 then ad_T5_111[i] * ad_T5_11[i - 1] else ad_T5_111[i];
+                ad_T6_11[i] = if i > 1 then (ad_T5_111[i] + 1) * ad_T6_11[i - 1] else ad_T5_111[i] + 1;
               end for;
               P1 = Vbwdmax * ad_T5_11[NP];
-
-              //P2 = product({rc_P[i].c/KmP[i] + 1 for i in 1:NP});
+//P2 = product({rc_P[i].c/KmP[i] + 1 for i in 1:NP});
               P2 = ad_T6_11[NP];
-
             end BasicRevReaction;
 
             class IrrKinetic "S1 + S2 + .. => P1 + P2 + ... "
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicIrrReaction;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicIrrReaction;
             protected
               Real ad_T7_12;
-
             equation
-              1/ad_T7_12 = S2;
+              1 / ad_T7_12 = S2;
               v = S1 * ad_T7_12;
-
             end IrrKinetic;
 
             class InhIrrKinetic "S1 + S2 + .. ==I1,I2,..=> P1 + P2 + ... "
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicIrrReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionInhibition;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicIrrReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionInhibition;
             protected
               Real ad_T8_122;
               Real ad_T8_12;
-
             equation
-              1/ad_T8_122 = S2;
+              1 / ad_T8_122 = S2;
               ad_T8_12 = S1 * ad_T8_122;
               v = I * ad_T8_12;
-
             end InhIrrKinetic;
 
             class ActIrrKinetic "S1 + S2 + .. + ==A1,A2,...=> P1 + P2 + ... "
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicIrrReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionActivation;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicIrrReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionActivation;
             equation
               v = A * S1 / S2;
-
             end ActIrrKinetic;
 
             class ActInhIrrKinetic
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicIrrReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionActivation;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionInhibition;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicIrrReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionActivation;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionInhibition;
             equation
               v = A * I * S1 / S2;
-
             end ActInhIrrKinetic;
 
             class RevKinetic "S1 + S2 + ... <===> P1 + P2 + ... "
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicRevReaction;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicRevReaction;
             protected
               Real ad_D11_12;
-
             equation
-              1/ad_D11_12 = S2 + P2 - 1;
+              1 / ad_D11_12 = S2 + P2 - 1;
               v = (S1 - P1) * ad_D11_12;
-              //v = (S1 - P1) / (S2 + P2 - 1);
-
+//v = (S1 - P1) / (S2 + P2 - 1);
             end RevKinetic;
 
             class InhRevKinetic
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicRevReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionInhibition;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicRevReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionInhibition;
             protected
               Real ad_T12_1;
-
               Real ad_T12_12;
-
               Real ad_D12_122;
-
             equation
-              1/ad_D12_122 = S2 + P2 - 1;
-              ad_T12_12  = (S1-P1) * ad_D12_122;
+              1 / ad_D12_122 = S2 + P2 - 1;
+              ad_T12_12 = (S1 - P1) * ad_D12_122;
               v = I * ad_T12_12;
-
             end InhRevKinetic;
 
             class ActRevKinetic
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicRevReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionActivation;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicRevReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionActivation;
             equation
               v = A * (S1 - P1) / (S2 + P2 - 1);
-
             end ActRevKinetic;
 
             class ActInhRevKinetic
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicRevReaction;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionActivation;
-              extends
-                ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionInhibition;
-
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.BasicRevReaction;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionActivation;
+              extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.intermidiate.ReactionInhibition;
             equation
               v = A * I * (S1 - P1) / (S2 + P2 - 1);
-
             end ActInhRevKinetic;
-
-            annotation (Documentation(info="<html>
+            annotation(
+              Documentation(info = "<html>
 <p>This subpackage is exactly like the parent subpackage <a href=\"GenKinetics.Derivatives.Reaction.convenience.dynamic\">GenKinetics.Derivatives.Reaction.convenience.dynamic</a> . The components are simplified, processed in away to make algorithmic differentiation techniques easily applicables. It is useful for testing purposes, to ensure that the deriviated intermidiate formats are correct. </p>
 <p><br/>Equations for parameter senstivities are computed by applying algorithmic differentiation techniques on the simplified version of the original part <a href=\"GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate \">GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate </a></p>
 <p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
@@ -2942,375 +2289,273 @@ printing and shipping costs may be recovered.</p>
 
           partial model ReactionInhibition "Inhibition influencing a reaction"
             //extends intermidiate.ReactionInhibition;
-
             outer parameter Integer NG "# of gradients";
-
-            parameter Integer NI = 1
-              " number of Metabolites inhibiting the reaction";
+            parameter Integer NI = 1 " number of Metabolites inhibiting the reaction";
             ADGenKinetics.Derivatives.Interfaces.ModifierChemicalPort_I mc_I[NI];
-
-            parameter Units.AffinityConst KI[NI] = ones(NI)
-              "Affinity constant of the Inhibitors";
-            parameter Real[NI,NG] g_KI = zeros(NI,NG);
-
+            parameter Units.AffinityConst KI[NI] = ones(NI) "Affinity constant of the Inhibitors";
+            parameter Real[NI, NG] g_KI = zeros(NI, NG);
             Real I "Inhibition term in the corresponding kinetics";
-            Real g_I[NG](start=zeros(NG));
-
+            Real g_I[NG](start = zeros(NG));
           protected
-            Real  ad_T2_1[NI];
-            Real[NI,NG]  ad_g_T2_1(start=zeros(NI,NG));
-
-            Real  ad_T2_11[NI];
-            Real[NI,NG]  ad_g_T2_11(start=zeros(NI,NG));
-
-            Real  ad_D2_112[NI];
-            Real[NI,NG]  ad_g_D2_112(start=zeros(NI,NG));
-
+            Real ad_T2_1[NI];
+            Real[NI, NG] ad_g_T2_1(start = zeros(NI, NG));
+            Real ad_T2_11[NI];
+            Real[NI, NG] ad_g_T2_11(start = zeros(NI, NG));
+            Real ad_D2_112[NI];
+            Real[NI, NG] ad_g_D2_112(start = zeros(NI, NG));
           equation
-            //I = product({ KI[i] / (KI[i] + mc_I[i].c) for i in 1:NI});
-
+//I = product({ KI[i] / (KI[i] + mc_I[i].c) for i in 1:NI});
             for i in 1:NI loop
-
-              ad_D2_112[i] =  1/(KI[i] + mc_I[i].c);
-              ad_g_D2_112[i,:]  =  -(g_KI[i,:] + mc_I[i].g_c[:]) * ad_D2_112[i] * ad_D2_112[i];
-
+              ad_D2_112[i] = 1 / (KI[i] + mc_I[i].c);
+              ad_g_D2_112[i, :] = -(g_KI[i, :] + mc_I[i].g_c[:]) * ad_D2_112[i] * ad_D2_112[i];
               ad_T2_11[i] = KI[i] * ad_D2_112[i];
-              ad_g_T2_11[i,:] = g_KI[i,:] * ad_D2_112[i] + KI[i] * ad_g_D2_112[i,:];
-
-              ad_T2_1[i] = if (i > 1) then ad_T2_1[i-1] * ad_T2_11[i] else ad_T2_11[i];
-              ad_g_T2_1[i,:] = if
-                                 (i > 1) then ad_g_T2_1[i-1,:] * ad_T2_11[i] + ad_T2_1[i-1] * ad_g_T2_11[i,:] else ad_g_T2_11[i,:];
+              ad_g_T2_11[i, :] = g_KI[i, :] * ad_D2_112[i] + KI[i] * ad_g_D2_112[i, :];
+              ad_T2_1[i] = if i > 1 then ad_T2_1[i - 1] * ad_T2_11[i] else ad_T2_11[i];
+              ad_g_T2_1[i, :] = if i > 1 then ad_g_T2_1[i - 1, :] * ad_T2_11[i] + ad_T2_1[i - 1] * ad_g_T2_11[i, :] else ad_g_T2_11[i, :];
             end for;
             I = ad_T2_1[NI];
-            g_I[:] = ad_g_T2_1[NI,:];
-
+            g_I[:] = ad_g_T2_1[NI, :];
           end ReactionInhibition;
 
           partial model BasicReaction "basic declaration of a reaction "
             //extends intermidiate.BasicReaction;
-            extends
-              ADGenKinetics.Derivatives.Interfaces.dynamic.Dimension.ReactionDimension;
-
+            extends ADGenKinetics.Derivatives.Interfaces.dynamic.Dimension.ReactionDimension;
             outer parameter Integer NG "# of gradients";
-
             // Reaction Rate
             Units.VolumetricReactionRate v;
-            Real[NG] g_v(start=zeros(NG));
-
+            Real[NG] g_v(start = zeros(NG));
             // Connections to Substrates and Products
-            ADGenKinetics.Derivatives.Interfaces.ChemicalPort_S rc_S[NS]
-              "connection to substrates";
-            ADGenKinetics.Derivatives.Interfaces.ChemicalPort_P rc_P[NP]
-              "connection to product";
-
+            ADGenKinetics.Derivatives.Interfaces.ChemicalPort_S rc_S[NS] "connection to substrates";
+            ADGenKinetics.Derivatives.Interfaces.ChemicalPort_P rc_P[NP] "connection to product";
           equation
             rc_S[:].r = n_S[:] * v;
             rc_P[:].r = -n_P[:] * v;
-
             for i in 1:NS loop
-              //for j in 1:NG loop
-                rc_S[i].g_r[:] = n_S[i] * g_v[:];
-              //end for;
+//for j in 1:NG loop
+              rc_S[i].g_r[:] = n_S[i] * g_v[:];
+//end for;
             end for;
-
             for i in 1:NP loop
               for j in 1:NG loop
                 rc_P[i].g_r[j] = -n_P[i] * g_v[j];
               end for;
             end for;
-
           end BasicReaction;
 
           partial model BasicIrrReaction "basic declaration of a reaction "
             extends BasicReaction;
             extends ADGenKinetics.Derivatives.Interfaces.Reversible.OneWay;
-
             //extends intermidiate.BasicIrrReaction;
             //outer parameter Integer NG "# of gradients";
-
             Real S1;
-            Real[NG] g_S1(start=zeros(NG));
-
+            Real[NG] g_S1(start = zeros(NG));
             Real S2;
-            Real[NG] g_S2(start=zeros(NG));
-
-            parameter Units.AffinityConst KmS[NS] = ones(NS)
-              "Affinity constants of the substrate nodes";
-            parameter Real[NS,NG] g_KmS = zeros(NS,NG);
-
-          //protected
-            parameter Real OOKmS[NS] = {1.0/KmS[i] for i in 1:NS};
-            parameter Real[NS,NG] g_OOKmS =  { -g_KmS[i,:] * OOKmS[i] * OOKmS[i] for i in 1:NS};
-
+            Real[NG] g_S2(start = zeros(NG));
+            parameter Units.AffinityConst KmS[NS] = ones(NS) "Affinity constants of the substrate nodes";
+            parameter Real[NS, NG] g_KmS = zeros(NS, NG);
+            //protected
+            parameter Real OOKmS[NS] = {1.0 / KmS[i] for i in 1:NS};
+            parameter Real[NS, NG] g_OOKmS = {-g_KmS[i, :] * OOKmS[i] * OOKmS[i] for i in 1:NS};
             Real[NS] ad_T3_11;
-            Real[NS,NG] ad_g_T3_11(start=zeros(NS,NG));
-
+            Real[NS, NG] ad_g_T3_11(start = zeros(NS, NG));
             Real[NS] ad_T3_111;
-            Real[NS,NG] ad_g_T3_111(start=zeros(NS,NG));
-
+            Real[NS, NG] ad_g_T3_111(start = zeros(NS, NG));
             Real[NS] ad_T4_11;
-            Real[NS,NG] ad_g_T4_11(start=zeros(NS,NG));
-
+            Real[NS, NG] ad_g_T4_11(start = zeros(NS, NG));
           equation
-            //S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
-
+//S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
             for i in 1:NS loop
               ad_T3_111[i] = rc_S[i].c * OOKmS[i];
-              ad_g_T3_111[i,:] = rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i,:];
-
-              ad_T3_11[i]  = if (i > 1) then ad_T3_111[i] * ad_T3_11[i-1] else ad_T3_111[i];
-              ad_g_T3_11[i,:]  = if (i > 1) then ad_g_T3_111[i,:] * ad_T3_11[i-1] + ad_T3_111[i] * ad_g_T3_11[i-1,:] else ad_g_T3_111[i,:];
-
-              ad_T4_11[i]  = if (i > 1) then (ad_T3_111[i]+1) * ad_T4_11[i-1] else ad_T3_111[i]+1;
-              ad_g_T4_11[i,:]  = if (i > 1) then ad_g_T3_111[i,:] * ad_T4_11[i-1] + (ad_T3_111[i]+1) * ad_g_T4_11[i-1,:] else ad_g_T3_111[i,:];
+              ad_g_T3_111[i, :] = rc_S[i].g_c[:] * OOKmS[i] + rc_S[i].c * g_OOKmS[i, :];
+              ad_T3_11[i] = if i > 1 then ad_T3_111[i] * ad_T3_11[i - 1] else ad_T3_111[i];
+              ad_g_T3_11[i, :] = if i > 1 then ad_g_T3_111[i, :] * ad_T3_11[i - 1] + ad_T3_111[i] * ad_g_T3_11[i - 1, :] else ad_g_T3_111[i, :];
+              ad_T4_11[i] = if i > 1 then (ad_T3_111[i] + 1) * ad_T4_11[i - 1] else ad_T3_111[i] + 1;
+              ad_g_T4_11[i, :] = if i > 1 then ad_g_T3_111[i, :] * ad_T4_11[i - 1] + (ad_T3_111[i] + 1) * ad_g_T4_11[i - 1, :] else ad_g_T3_111[i, :];
             end for;
-
             S1 = Vfwdmax * ad_T3_11[NS];
-            g_S1[:] = g_Vfwdmax[:] * ad_T3_11[NS] + Vfwdmax * ad_g_T3_11[NS,:];
-
-            //S2 = product({rc_S[i].c/KmS[i] + 1 for i in 1:NS});
+            g_S1[:] = g_Vfwdmax[:] * ad_T3_11[NS] + Vfwdmax * ad_g_T3_11[NS, :];
+//S2 = product({rc_S[i].c/KmS[i] + 1 for i in 1:NS});
             S2 = ad_T4_11[NS];
-            g_S2[:] = ad_g_T4_11[NS,:];
-
+            g_S2[:] = ad_g_T4_11[NS, :];
           end BasicIrrReaction;
 
-          partial model BasicRevReaction
-            "basic declaration of a reversible reaction "
+          partial model BasicRevReaction "basic declaration of a reversible reaction "
             extends BasicIrrReaction;
             extends ADGenKinetics.Derivatives.Interfaces.Reversible.TwoWay;
-
             //extends intermidiate.BasicRevReaction;
-
             Real P1;
-            Real[NG] g_P1(start=zeros(NG));
-
+            Real[NG] g_P1(start = zeros(NG));
             Real P2;
-            Real[NG] g_P2(start=zeros(NG));
-
-            parameter Units.AffinityConst KmP[NP] = ones(NP)
-              "Affinity constants of the substrate nodes";
-            parameter Real[NP,NG] g_KmP = zeros(NP,NG);
-
+            Real[NG] g_P2(start = zeros(NG));
+            parameter Units.AffinityConst KmP[NP] = ones(NP) "Affinity constants of the substrate nodes";
+            parameter Real[NP, NG] g_KmP = zeros(NP, NG);
           protected
-            parameter Real OOKmP[NP] = {1.0/KmP[i] for i in 1:NP};
-            parameter Real[NP,NG] g_OOKmP =  { -g_KmP[i,:] * OOKmP[i] * OOKmP[i] for i in 1:NP};
-
+            parameter Real OOKmP[NP] = {1.0 / KmP[i] for i in 1:NP};
+            parameter Real[NP, NG] g_OOKmP = {-g_KmP[i, :] * OOKmP[i] * OOKmP[i] for i in 1:NP};
             Real[NP] ad_T5_11;
-            Real[NP,NG] ad_g_T5_11(start=zeros(NP,NG));
-
+            Real[NP, NG] ad_g_T5_11(start = zeros(NP, NG));
             Real[NP] ad_T5_111;
-            Real[NP,NG] ad_g_T5_111(start=zeros(NP,NG));
-
+            Real[NP, NG] ad_g_T5_111(start = zeros(NP, NG));
             Real[NP] ad_T6_11;
-            Real[NP,NG] ad_g_T6_11(start=zeros(NP,NG));
-
+            Real[NP, NG] ad_g_T6_11(start = zeros(NP, NG));
           equation
-            //S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
-
+//S1 = Vfwdmax * product({rc_S[i].c/KmS[i] for i in 1:NS});
             for i in 1:NP loop
-
               ad_T5_111[i] = rc_P[i].c * OOKmP[i];
-              ad_g_T5_111[i,:] = rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i,:];
-
-              ad_T5_11[i]  = if (i > 1) then ad_T5_111[i] * ad_T5_11[i-1] else ad_T5_111[i];
-              ad_g_T5_11[i,:]  = if (i > 1) then ad_g_T5_111[i,:] * ad_T5_11[i-1] + ad_T5_111[i] * ad_g_T5_11[i-1,:] else ad_g_T5_111[i,:];
-
-              ad_T6_11[i]  = if (i > 1) then (ad_T5_111[i]+1) * ad_T6_11[i-1] else ad_T5_111[i]+1;
-              ad_g_T6_11[i,:]  = if (i > 1) then ad_g_T5_111[i,:] * ad_T6_11[i-1] + (ad_T5_111[i]+1) * ad_g_T6_11[i-1,:] else ad_g_T5_111[i,:];
+              ad_g_T5_111[i, :] = rc_P[i].g_c[:] * OOKmP[i] + rc_P[i].c * g_OOKmP[i, :];
+              ad_T5_11[i] = if i > 1 then ad_T5_111[i] * ad_T5_11[i - 1] else ad_T5_111[i];
+              ad_g_T5_11[i, :] = if i > 1 then ad_g_T5_111[i, :] * ad_T5_11[i - 1] + ad_T5_111[i] * ad_g_T5_11[i - 1, :] else ad_g_T5_111[i, :];
+              ad_T6_11[i] = if i > 1 then (ad_T5_111[i] + 1) * ad_T6_11[i - 1] else ad_T5_111[i] + 1;
+              ad_g_T6_11[i, :] = if i > 1 then ad_g_T5_111[i, :] * ad_T6_11[i - 1] + (ad_T5_111[i] + 1) * ad_g_T6_11[i - 1, :] else ad_g_T5_111[i, :];
             end for;
-
             P1 = Vbwdmax * ad_T5_11[NP];
-            g_P1[:] = g_Vbwdmax[:] * ad_T5_11[NP] + Vbwdmax * ad_g_T5_11[NP,:];
-
+            g_P1[:] = g_Vbwdmax[:] * ad_T5_11[NP] + Vbwdmax * ad_g_T5_11[NP, :];
             P2 = ad_T6_11[NP];
-            g_P2[:] = ad_g_T6_11[NP,:];
-
+            g_P2[:] = ad_g_T6_11[NP, :];
           end BasicRevReaction;
 
           class IrrKinetic "S1 + S2 + .. => P1 + P2 + ... "
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.BasicIrrReaction;
-
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.BasicIrrReaction;
             Real ad_T7_12;
-            Real[NG] ad_g_T7_12(start=zeros(NG));
-
+            Real[NG] ad_g_T7_12(start = zeros(NG));
           equation
-            ad_T7_12 = 1/S2;
-            ad_g_T7_12[:] = - g_S2[:] * ad_T7_12 * ad_T7_12;
-
+            ad_T7_12 = 1 / S2;
+            ad_g_T7_12[:] = -g_S2[:] * ad_T7_12 * ad_T7_12;
             v = S1 * ad_T7_12;
             g_v[:] = g_S1[:] * ad_T7_12 + S1 * ad_g_T7_12[:];
-
           end IrrKinetic;
 
           class InhIrrKinetic "S1 + S2 + .. ==I1,I2,..=> P1 + P2 + ... "
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.BasicIrrReaction;
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.ReactionInhibition;
-
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.BasicIrrReaction;
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.ReactionInhibition;
             Real ad_T8_122;
-            Real[NG] ad_g_T8_122(start=zeros(NG));
-
+            Real[NG] ad_g_T8_122(start = zeros(NG));
             Real ad_T8_12;
-            Real[NG] ad_g_T8_12(start=zeros(NG));
-
+            Real[NG] ad_g_T8_12(start = zeros(NG));
           equation
-            ad_T8_122 = 1/S2;
-            ad_g_T8_122[:] = -g_S2[:]; // * ad_T8_122 * ad_T8_122;
-
+            ad_T8_122 = 1 / S2;
+            ad_g_T8_122[:] = -g_S2[:];
+// * ad_T8_122 * ad_T8_122;
             ad_T8_12 = S1 * ad_T8_122;
-            ad_g_T8_12[:] =  g_S1[:] * ad_T8_122 + S1 * ad_g_T8_122[:];
-
+            ad_g_T8_12[:] = g_S1[:] * ad_T8_122 + S1 * ad_g_T8_122[:];
             v = I * ad_T8_12;
-            g_v[:] = g_I[:] * ad_T8_12 + I * ad_g_T8_12[:];  // * ad_T8_12 + I * ad_g_T8_12[:];
-
+            g_v[:] = g_I[:] * ad_T8_12 + I * ad_g_T8_12[:];
+// * ad_T8_12 + I * ad_g_T8_12[:];
           end InhIrrKinetic;
 
           class RevKinetic "S1 + S2 + ... <===> P1 + P2 + ... "
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.BasicRevReaction;
-
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.BasicRevReaction;
           protected
             Real ad_D11_12;
-            Real[NG] ad_g_D11_12(start=zeros(NG));
-
+            Real[NG] ad_g_D11_12(start = zeros(NG));
           equation
             ad_D11_12 = 1 / (S2 + P2 - 1);
-            ad_g_D11_12[:] = - (g_S2[:] + g_P2[:]) * ad_D11_12 * ad_D11_12;
-
+            ad_g_D11_12[:] = -(g_S2[:] + g_P2[:]) * ad_D11_12 * ad_D11_12;
             v = (S1 - P1) * ad_D11_12;
-            g_v[:] = (g_S1[:] - g_P1[:]) * ad_D11_12 + (S1-P1) * ad_g_D11_12[:];
-
-            //v = (S1 - P1) / (S2 + P2 - 1);
-
+            g_v[:] = (g_S1[:] - g_P1[:]) * ad_D11_12 + (S1 - P1) * ad_g_D11_12[:];
+//v = (S1 - P1) / (S2 + P2 - 1);
           end RevKinetic;
 
           class InhRevKinetic
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.BasicRevReaction;
-            extends
-              ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.ReactionInhibition;
-
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.BasicRevReaction;
+            extends ADGenKinetics.Derivatives.Reactions.convenience.dynamic_adtemp.ReactionInhibition;
             //Real ad_T12_1;
             //Real[NG] ad_g_T12_1;
-
           protected
             Real ad_T12_12;
-            Real[NG] ad_g_T12_12(start=zeros(NG));
-
+            Real[NG] ad_g_T12_12(start = zeros(NG));
             Real ad_D12_122;
-            Real[NG] ad_g_D12_122(start=zeros(NG));
-
+            Real[NG] ad_g_D12_122(start = zeros(NG));
           equation
             ad_D12_122 = 1 / (S2 + P2 - 1);
             ad_g_D12_122[:] = -(g_S2[:] + g_P2[:]) * ad_D12_122 * ad_D12_122;
-
-            ad_T12_12  = (S1-P1) * ad_D12_122;
-            ad_g_T12_12[:] = (g_S1[:] - g_P1[:]) * ad_D12_122 + (S1-P1) * ad_g_D12_122[:];
-
+            ad_T12_12 = (S1 - P1) * ad_D12_122;
+            ad_g_T12_12[:] = (g_S1[:] - g_P1[:]) * ad_D12_122 + (S1 - P1) * ad_g_D12_122[:];
             v = I * ad_T12_12;
             g_v[:] = g_I[:] * ad_T12_12 + I * ad_g_T12_12[:];
-
           end InhRevKinetic;
-          annotation (Documentation(info="<html>
+          annotation(
+            Documentation(info = "<html>
 <p>This subpackage contains components for reactions with arbitrary number of substrates, products and effectors. It is suitable for textual implementation and automatic model generation. Equations for parameter senstivities are computed by applying algorithmic differentiation techniques on the simplified version of the original part <a href=\"GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate \">GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate </a>. The main difference between this subpackage and the subpackage GenKinetics.Derivatives.Reactions.convenience.dynamic is that the derivatives of intermidiate variables, carrying out intermidiate computations, are not subject to elemenation.</p>
 <p><br/>Licensed under the Modelica License 2</p>
 <p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
         end dynamic_adtemp;
-        annotation (Documentation(info="<html>
+        annotation(
+          Documentation(info = "<html>
 <p>This subpackage contains implementations for convenience kinetics. </p>
 <p><br/>Licensed under the Modelica License 2</p>
 <p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"));
       end convenience;
-
-      annotation (Documentation(info="<html>
-<p>This subpackage contains implementations for reactions using generalized simplified kinetic formats. Currently only convenience kinetics are implemented. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+      annotation(
+        Documentation(info = "<html><head></head><body><p>This subpackage contains implementations for reactions using generalized simplified kinetic formats. Currently only convenience kinetics are implemented. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
     end Reactions;
 
     package Examples
-
       model spirallusdyn
         //import GenKinetics.NodeElements.dynamic.*;
         import ADGenKinetics.Derivatives.NodeElements.dynamic.*;
         //import GenKinetics.Reactions.convenience.dynamic.*;
         //import GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.*;
         import ADGenKinetics.Derivatives.Reactions.convenience.dynamic.*;
-
         inner parameter Integer NG = 3;
-        Node Aex(c_0=1);
+        Node Aex(c_0 = 1);
         //InhIrrKinetic   vupt(NS=1,NP=1,NI=1,Vfwdmax=1.0,KmS={0.1},KI={3.0});
-        InhRevKinetic   vupt(NS=1,NP=1,Vfwdmax=1.0,KmS={0.1},g_Vfwdmax={1,0,0},g_KmS={{0,1,0}},KI={3.0},g_KI={{0,0,1}});
+        InhRevKinetic vupt(NS = 1, NP = 1, Vfwdmax = 1.0, KmS = {0.1}, g_Vfwdmax = {1, 0, 0}, g_KmS = {{0, 1, 0}}, KI = {3.0}, g_KI = {{0, 0, 1}});
         Node A;
-
-        RevKinetic      v1(NS=1,NP=1,Vfwdmax=3.0,Vbwdmax=1.0,KmS={0.1},KmP={3.0});
+        RevKinetic v1(NS = 1, NP = 1, Vfwdmax = 3.0, Vbwdmax = 1.0, KmS = {0.1}, KmP = {3.0});
         Node B;
-
-        RevKinetic      v5(NS=1,NP=1,Vfwdmax=2.0,Vbwdmax=0.5,KmS={1.0},KmP={1.0});
+        RevKinetic v5(NS = 1, NP = 1, Vfwdmax = 2.0, Vbwdmax = 0.5, KmS = {1.0}, KmP = {1.0});
         Node E;
-
-        IrrKinetic     v2(NS=2,NP=1,Vfwdmax=2.5,KmS={0.25,2.0}); // B,E -v2-> C
+        IrrKinetic v2(NS = 2, NP = 1, Vfwdmax = 2.5, KmS = {0.25, 2.0});
+        // B,E -v2-> C
         Node C;
-
-        InhIrrKinetic   v3(NS=1,NP=2,NI=1,Vfwdmax=2.0,KmS={2.0},KI={0.05});
+        InhIrrKinetic v3(NS = 1, NP = 2, NI = 1, Vfwdmax = 2.0, KmS = {2.0}, KI = {0.05});
         Node D;
         Node F;
-
-        InhIrrKinetic   v4(NS=1,NP=2,NI=1,Vfwdmax=3.0,KmS={0.1},KI={1.0});
-
-        IrrKinetic      v6(NS=1,NP=1,Vfwdmax=2.0,KmS={3.0});
+        InhIrrKinetic v4(NS = 1, NP = 2, NI = 1, Vfwdmax = 3.0, KmS = {0.1}, KI = {1.0});
+        IrrKinetic v6(NS = 1, NP = 1, Vfwdmax = 2.0, KmS = {3.0});
         Node Eex;
-
-        IrrKinetic      v7(NS=1,NP=1,Vfwdmax=2.0,KmS={3.0});
+        IrrKinetic v7(NS = 1, NP = 1, Vfwdmax = 2.0, KmS = {3.0});
         Node Fex;
-
       equation
-        // vupt
-        connect(Aex.rc,vupt.rc_S[1]);
-        connect(vupt.rc_P[1],A.rc);
-        connect(vupt.mc_I[1],A.mc);
-
-        // v1
-        connect(A.rc,v1.rc_S[1]);
-        connect(v1.rc_P[1],B.rc);
-
-        // v5
-        connect(B.rc,v5.rc_S[1]);
-        connect(v5.rc_P[1],E.rc);
-
-        // v2
-        connect(B.rc,v2.rc_S[1]);
-        connect(E.rc,v2.rc_S[2]);
-        connect(v2.rc_P[1],C.rc);
-
-        // v3
-        connect(C.rc,v3.rc_S[1]);
-        connect(v3.rc_P[1],D.rc);
-        connect(v3.rc_P[2],F.rc);
-        connect(D.mc,v3.mc_I[1]);
-
-        // v4
-        connect(D.rc,v4.rc_S[1]);
-        connect(v4.rc_P[1],F.rc);
-        connect(v4.rc_P[2],E.rc);
-        connect(v4.mc_I[1],C.mc);
-
-        // v6
-        connect(E.rc,v6.rc_S[1]);
-        connect(v6.rc_P[1],Eex.rc);
-
-         // v7
-        connect(F.rc,v7.rc_S[1]);
-        connect(v7.rc_P[1],Fex.rc);
-
+// vupt
+        connect(Aex.rc, vupt.rc_S[1]);
+        connect(vupt.rc_P[1], A.rc);
+        connect(vupt.mc_I[1], A.mc);
+// v1
+        connect(A.rc, v1.rc_S[1]);
+        connect(v1.rc_P[1], B.rc);
+// v5
+        connect(B.rc, v5.rc_S[1]);
+        connect(v5.rc_P[1], E.rc);
+// v2
+        connect(B.rc, v2.rc_S[1]);
+        connect(E.rc, v2.rc_S[2]);
+        connect(v2.rc_P[1], C.rc);
+// v3
+        connect(C.rc, v3.rc_S[1]);
+        connect(v3.rc_P[1], D.rc);
+        connect(v3.rc_P[2], F.rc);
+        connect(D.mc, v3.mc_I[1]);
+// v4
+        connect(D.rc, v4.rc_S[1]);
+        connect(v4.rc_P[1], F.rc);
+        connect(v4.rc_P[2], E.rc);
+        connect(v4.mc_I[1], C.mc);
+// v6
+        connect(E.rc, v6.rc_S[1]);
+        connect(v6.rc_P[1], Eex.rc);
+// v7
+        connect(F.rc, v7.rc_S[1]);
+        connect(v7.rc_P[1], Fex.rc);
       end spirallusdyn;
 
       model spirallusdyn5
@@ -3320,73 +2565,57 @@ printing and shipping costs may be recovered.</p>
         //import GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.*;
         import ADGenKinetics.Derivatives.Reactions.convenience.dynamic.*;
         import ADGenKinetics.Derivatives.Functions.*;
-
         inner parameter Integer NG = 5;
-        Node Aex(c_0=1);
+        Node Aex(c_0 = 1);
         //InhIrrKinetic   vupt(NS=1,NP=1,NI=1,Vfwdmax=1.0,KmS={0.1},KI={3.0});
-        InhRevKinetic   vupt(NS=1,NP=1,Vfwdmax=1.0,KmS={0.1},g_Vfwdmax=unitVector(1,5),g_KmS={unitVector(2,5)},KI={3.0},g_KI={unitVector(3,5)});
+        InhRevKinetic vupt(NS = 1, NP = 1, Vfwdmax = 1.0, KmS = {0.1}, g_Vfwdmax = unitVector(1, 5), g_KmS = {unitVector(2, 5)}, KI = {3.0}, g_KI = {unitVector(3, 5)});
         Node A;
-
-        RevKinetic      v1(NS=1,NP=1,Vfwdmax=3.0,Vbwdmax=1.0,KmS={0.1},KmP={3.0});
+        RevKinetic v1(NS = 1, NP = 1, Vfwdmax = 3.0, Vbwdmax = 1.0, KmS = {0.1}, KmP = {3.0});
         Node B;
-
-        RevKinetic      v5(NS=1,NP=1,Vfwdmax=2.0,Vbwdmax=0.5,KmS={1.0},KmP={1.0});
+        RevKinetic v5(NS = 1, NP = 1, Vfwdmax = 2.0, Vbwdmax = 0.5, KmS = {1.0}, KmP = {1.0});
         Node E;
-
-        IrrKinetic     v2(NS=2,NP=1,Vfwdmax=2.5,KmS={0.25,2.0},g_KmS={{0,0,0,1,0},{0,0,0,0,1}}); // B,E -v2-> C
+        IrrKinetic v2(NS = 2, NP = 1, Vfwdmax = 2.5, KmS = {0.25, 2.0}, g_KmS = {{0, 0, 0, 1, 0}, {0, 0, 0, 0, 1}});
+        // B,E -v2-> C
         Node C;
-
-        InhIrrKinetic   v3(NS=1,NP=2,NI=1,Vfwdmax=2.0,KmS={2.0},KI={0.05});
+        InhIrrKinetic v3(NS = 1, NP = 2, NI = 1, Vfwdmax = 2.0, KmS = {2.0}, KI = {0.05});
         Node D;
         Node F;
-
-        InhIrrKinetic   v4(NS=1,NP=2,NI=1,Vfwdmax=3.0,KmS={0.1},KI={1.0});
-
-        IrrKinetic      v6(NS=1,NP=1,Vfwdmax=2.0,KmS={3.0});
+        InhIrrKinetic v4(NS = 1, NP = 2, NI = 1, Vfwdmax = 3.0, KmS = {0.1}, KI = {1.0});
+        IrrKinetic v6(NS = 1, NP = 1, Vfwdmax = 2.0, KmS = {3.0});
         Node Eex;
-
-        IrrKinetic      v7(NS=1,NP=1,Vfwdmax=2.0,KmS={3.0});
+        IrrKinetic v7(NS = 1, NP = 1, Vfwdmax = 2.0, KmS = {3.0});
         Node Fex;
-
       equation
-        // vupt
-        connect(Aex.rc,vupt.rc_S[1]);
-        connect(vupt.rc_P[1],A.rc);
-        connect(vupt.mc_I[1],A.mc);
-
-        // v1
-        connect(A.rc,v1.rc_S[1]);
-        connect(v1.rc_P[1],B.rc);
-
-        // v5
-        connect(B.rc,v5.rc_S[1]);
-        connect(v5.rc_P[1],E.rc);
-
-        // v2
-        connect(B.rc,v2.rc_S[1]);
-        connect(E.rc,v2.rc_S[2]);
-        connect(v2.rc_P[1],C.rc);
-
-        // v3
-        connect(C.rc,v3.rc_S[1]);
-        connect(v3.rc_P[1],D.rc);
-        connect(v3.rc_P[2],F.rc);
-        connect(D.mc,v3.mc_I[1]);
-
-        // v4
-        connect(D.rc,v4.rc_S[1]);
-        connect(v4.rc_P[1],F.rc);
-        connect(v4.rc_P[2],E.rc);
-        connect(v4.mc_I[1],C.mc);
-
-        // v6
-        connect(E.rc,v6.rc_S[1]);
-        connect(v6.rc_P[1],Eex.rc);
-
-         // v7
-        connect(F.rc,v7.rc_S[1]);
-        connect(v7.rc_P[1],Fex.rc);
-
+// vupt
+        connect(Aex.rc, vupt.rc_S[1]);
+        connect(vupt.rc_P[1], A.rc);
+        connect(vupt.mc_I[1], A.mc);
+// v1
+        connect(A.rc, v1.rc_S[1]);
+        connect(v1.rc_P[1], B.rc);
+// v5
+        connect(B.rc, v5.rc_S[1]);
+        connect(v5.rc_P[1], E.rc);
+// v2
+        connect(B.rc, v2.rc_S[1]);
+        connect(E.rc, v2.rc_S[2]);
+        connect(v2.rc_P[1], C.rc);
+// v3
+        connect(C.rc, v3.rc_S[1]);
+        connect(v3.rc_P[1], D.rc);
+        connect(v3.rc_P[2], F.rc);
+        connect(D.mc, v3.mc_I[1]);
+// v4
+        connect(D.rc, v4.rc_S[1]);
+        connect(v4.rc_P[1], F.rc);
+        connect(v4.rc_P[2], E.rc);
+        connect(v4.mc_I[1], C.mc);
+// v6
+        connect(E.rc, v6.rc_S[1]);
+        connect(v6.rc_P[1], Eex.rc);
+// v7
+        connect(F.rc, v7.rc_S[1]);
+        connect(v7.rc_P[1], Fex.rc);
       end spirallusdyn5;
 
       model spirallusdynAll "Parameter sensitivities of all parameters"
@@ -3396,103 +2625,64 @@ printing and shipping costs may be recovered.</p>
         //import GenKinetics.Derivatives.Reactions.convenience.dynamic.intermidiate.*;
         import ADGenKinetics.Derivatives.Reactions.convenience.dynamic.*;
         import ADGenKinetics.Derivatives.Functions.*;
-
         inner parameter Integer NG = 24;
-        Node Aex(c_0=1);
+        Node Aex(c_0 = 1);
         //InhIrrKinetic   vupt(NS=1,NP=1,NI=1,Vfwdmax=1.0,KmS={0.1},KI={3.0});
-        InhRevKinetic   vupt(NS=1,NP=1,
-                             Vfwdmax=1.0,  g_Vfwdmax=unitVector(1,NG),
-                             KmS={0.1},    g_KmS={unitVector(2,NG)},
-                             KI={3.0},     g_KI={unitVector(3,NG)});
+        InhRevKinetic vupt(NS = 1, NP = 1, Vfwdmax = 1.0, g_Vfwdmax = unitVector(1, NG), KmS = {0.1}, g_KmS = {unitVector(2, NG)}, KI = {3.0}, g_KI = {unitVector(3, NG)});
         Node A;
-
-        RevKinetic      v1(NS=1,NP=1,
-                           Vfwdmax=3.0,    g_Vfwdmax=unitVector(4,NG),
-                           Vbwdmax=1.0,    g_Vbwdmax=unitVector(5,NG),
-                           KmS={0.1},      g_KmS={unitVector(6,NG)},
-                           KmP={3.0},      g_KmP={unitVector(7,NG)});
+        RevKinetic v1(NS = 1, NP = 1, Vfwdmax = 3.0, g_Vfwdmax = unitVector(4, NG), Vbwdmax = 1.0, g_Vbwdmax = unitVector(5, NG), KmS = {0.1}, g_KmS = {unitVector(6, NG)}, KmP = {3.0}, g_KmP = {unitVector(7, NG)});
         Node B;
-
-        RevKinetic      v5(NS=1,NP=1,
-                           Vfwdmax=2.0,    g_Vfwdmax=unitVector(8,NG),
-                           Vbwdmax=0.5,     g_Vbwdmax=unitVector(9,NG),
-                           KmS={1.0},      g_KmS={unitVector(10,NG)},
-                           KmP={1.0},      g_KmP={unitVector(11,NG)});
+        RevKinetic v5(NS = 1, NP = 1, Vfwdmax = 2.0, g_Vfwdmax = unitVector(8, NG), Vbwdmax = 0.5, g_Vbwdmax = unitVector(9, NG), KmS = {1.0}, g_KmS = {unitVector(10, NG)}, KmP = {1.0}, g_KmP = {unitVector(11, NG)});
         Node E;
-
-        IrrKinetic      v2(NS=2,NP=1,
-                          Vfwdmax=2.5,     g_Vfwdmax=unitVector(12,NG),
-                          KmS={0.25,2.0},  g_KmS={unitVector(13,NG),unitVector(14,NG)}); // B,E -v2-> C
+        IrrKinetic v2(NS = 2, NP = 1, Vfwdmax = 2.5, g_Vfwdmax = unitVector(12, NG), KmS = {0.25, 2.0}, g_KmS = {unitVector(13, NG), unitVector(14, NG)});
+        // B,E -v2-> C
         Node C;
-
-        InhIrrKinetic   v3(NS=1,NP=2,NI=1,
-                           Vfwdmax=2.0,    g_Vfwdmax=unitVector(15,NG),
-                           KmS={2.0},      g_KmS={unitVector(16,NG)},
-                           KI={0.05},      g_KI={unitVector(17,NG)});
+        InhIrrKinetic v3(NS = 1, NP = 2, NI = 1, Vfwdmax = 2.0, g_Vfwdmax = unitVector(15, NG), KmS = {2.0}, g_KmS = {unitVector(16, NG)}, KI = {0.05}, g_KI = {unitVector(17, NG)});
         Node D;
         Node F;
-
-        InhIrrKinetic   v4(NS=1,NP=2,NI=1,
-                           Vfwdmax=3.0,    g_Vfwdmax=unitVector(18,NG),
-                           KmS={0.1},      g_KmS={unitVector(19,NG)},
-                           KI={1.0},       g_KI={unitVector(20,NG)});
-
-        IrrKinetic      v6(NS=1,NP=1,
-                           Vfwdmax=2.0,    g_Vfwdmax=unitVector(21,NG),
-                           KmS={3.0},      g_KmS={unitVector(22,NG)});
+        InhIrrKinetic v4(NS = 1, NP = 2, NI = 1, Vfwdmax = 3.0, g_Vfwdmax = unitVector(18, NG), KmS = {0.1}, g_KmS = {unitVector(19, NG)}, KI = {1.0}, g_KI = {unitVector(20, NG)});
+        IrrKinetic v6(NS = 1, NP = 1, Vfwdmax = 2.0, g_Vfwdmax = unitVector(21, NG), KmS = {3.0}, g_KmS = {unitVector(22, NG)});
         Node Eex;
-
-        IrrKinetic      v7(NS=1,NP=1,
-                           Vfwdmax=2.0,    g_Vfwdmax=unitVector(23,NG),
-                           KmS={3.0},      g_KmS={unitVector(24,NG)});
+        IrrKinetic v7(NS = 1, NP = 1, Vfwdmax = 2.0, g_Vfwdmax = unitVector(23, NG), KmS = {3.0}, g_KmS = {unitVector(24, NG)});
         Node Fex;
-
       equation
-        // vupt
-        connect(Aex.rc,vupt.rc_S[1]);
-        connect(vupt.rc_P[1],A.rc);
-        connect(vupt.mc_I[1],A.mc);
-
-        // v1
-        connect(A.rc,v1.rc_S[1]);
-        connect(v1.rc_P[1],B.rc);
-
-        // v5
-        connect(B.rc,v5.rc_S[1]);
-        connect(v5.rc_P[1],E.rc);
-
-        // v2
-        connect(B.rc,v2.rc_S[1]);
-        connect(E.rc,v2.rc_S[2]);
-        connect(v2.rc_P[1],C.rc);
-
-        // v3
-        connect(C.rc,v3.rc_S[1]);
-        connect(v3.rc_P[1],D.rc);
-        connect(v3.rc_P[2],F.rc);
-        connect(D.mc,v3.mc_I[1]);
-
-        // v4
-        connect(D.rc,v4.rc_S[1]);
-        connect(v4.rc_P[1],F.rc);
-        connect(v4.rc_P[2],E.rc);
-        connect(v4.mc_I[1],C.mc);
-
-        // v6
-        connect(E.rc,v6.rc_S[1]);
-        connect(v6.rc_P[1],Eex.rc);
-
-         // v7
-        connect(F.rc,v7.rc_S[1]);
-        connect(v7.rc_P[1],Fex.rc);
-
+// vupt
+        connect(Aex.rc, vupt.rc_S[1]);
+        connect(vupt.rc_P[1], A.rc);
+        connect(vupt.mc_I[1], A.mc);
+// v1
+        connect(A.rc, v1.rc_S[1]);
+        connect(v1.rc_P[1], B.rc);
+// v5
+        connect(B.rc, v5.rc_S[1]);
+        connect(v5.rc_P[1], E.rc);
+// v2
+        connect(B.rc, v2.rc_S[1]);
+        connect(E.rc, v2.rc_S[2]);
+        connect(v2.rc_P[1], C.rc);
+// v3
+        connect(C.rc, v3.rc_S[1]);
+        connect(v3.rc_P[1], D.rc);
+        connect(v3.rc_P[2], F.rc);
+        connect(D.mc, v3.mc_I[1]);
+// v4
+        connect(D.rc, v4.rc_S[1]);
+        connect(v4.rc_P[1], F.rc);
+        connect(v4.rc_P[2], E.rc);
+        connect(v4.mc_I[1], C.mc);
+// v6
+        connect(E.rc, v6.rc_S[1]);
+        connect(v6.rc_P[1], Eex.rc);
+// v7
+        connect(F.rc, v7.rc_S[1]);
+        connect(v7.rc_P[1], Fex.rc);
       end spirallusdynAll;
-      annotation (Documentation(info="<html>
-<p>This subpackage contains examples of typical metablic pathway models.</p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+      annotation(
+        Documentation(info = "<html><head></head><body><p>This subpackage contains examples of typical metablic pathway models.</p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
     end Examples;
 
     package Functions "A collection of functions"
@@ -3500,29 +2690,29 @@ printing and shipping costs may be recovered.</p>
         input Integer ith "ith component is one";
         input Integer n "size of the vector";
         output Real[n] ei;
-
       algorithm
-       for i in 1:n loop
-         ei[i] := 0;
-       end for;
-
-       ei[ith] := 1.0;
-
+        for i in 1:n loop
+          ei[i] := 0;
+        end for;
+        ei[ith] := 1.0;
       end unitVector;
+      annotation(
+        Documentation(info = "<html><head></head><body><p>Licensed under the Modelica License 2</p><p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p><p><i>This Modelica package is&nbsp;<u>free</u>&nbsp;software and the use is completely at&nbsp;<u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see&nbsp;<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a>&nbsp;or visit<a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p></body></html>"));
     end Functions;
-    annotation (Documentation(info="<html>
-<p>This subpackage contains of a copy of the whole library. Components describe the original behavior together with parameter sensitivities. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+    annotation(
+      Documentation(info = "<html><head></head><body><p>This subpackage contains of a copy of the whole library. Components describe the original behavior together with parameter sensitivities. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>"));
+</body></html>"));
   end Derivatives;
-  annotation (uses(Modelica(version="3.2")), Documentation(info="<html>
-<p>This package contains an implementation of generalized simplified kinetic formats following the guidelines recommended by the <a href=\"https://modelica.org/publications/papers/2005-05-LarsdotterNilsson-Fritzson-BioMedSim2005-MetabolicModeling.pdf\">Biochem library</a>. Matabolic reaction networks can be easily assembled using a few number of reaction kinetics. Constructed models can also be used for computing parameter sensitivities with little modifications to the used interfaces and by initializing the input Jacobian, i.e. the parameters w.r.t. derivatives are sought. </p>
-<p><br/>Licensed under the Modelica License 2</p>
-<p><br/>Copyright &copy; &lt;2011&gt;-&lt;2012&gt;, &lt;Atiyah Elsheikh&gt;. </p>
+  annotation(
+    uses(Modelica(version = "3.2")),
+    Documentation(info = "<html><head></head><body><p>This package contains an implementation of generalized simplified kinetic formats following the guidelines recommended by the <a href=\"https://modelica.org/publications/papers/2005-05-LarsdotterNilsson-Fritzson-BioMedSim2005-MetabolicModeling.pdf\">Biochem library</a>. Matabolic reaction networks can be easily assembled using a few number of reaction kinetics. Constructed models can also be used for computing parameter sensitivities with little modifications to the used interfaces and by initializing the input Jacobian, i.e. the parameters w.r.t. derivatives are sought. </p>
+<p><br>Licensed under the Modelica License 2</p>
+<p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-</html>", revisions="<html>
+</body></html>", revisions = "<html>
 <p>r12: a package for parameter sensitivities inserted</p>
 <p>r16: reduced memory required for computing parameter sensitivities </p>
 </html>"));
