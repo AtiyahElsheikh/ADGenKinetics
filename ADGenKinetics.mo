@@ -667,6 +667,8 @@ printing and shipping costs may be recovered.</p>
       annotation(
         Documentation(info = "<html><head></head><body><p><span style=\"font-size: 12px;\">Licensed under the Modelica License 2</span></p><p><b style=\"color: rgb(170, 0, 0); font-size: x-large;\">Copyright © &lt;2011&gt;-&lt;2018&gt;, &lt;Atiyah Elsheikh&gt;.</b></p><p><i>This Modelica package is&nbsp;<u>free</u>&nbsp;software and the use is completely at&nbsp;<u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see&nbsp;<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a>&nbsp;or visit<a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p></body></html>"));
     end CopyRight;
+  annotation(
+      Documentation);
   end UsersGuide;
 
 package Units "Physical units"
@@ -887,7 +889,7 @@ end Units;
           extends ReactionStructure(redeclare final class Reversibility = Reversible.OneWay);
         end StrOneWay;
         annotation(
-          Documentation(info = "<html><head></head><body><p>This subpackage contains basic interface for specifying the structure of a reaction, i.e. its dimension and reversibility see <a href=\"GenKinetics.Interfaces.dynamic.Dimension.ReactionStructure\">GenKinetics.Interfaces.dynamic.Dimension.ReactionStructure</a> . Out of this interface, specialized reaction types can be created as a syntactic sugar, e.g. <a href=\"GenKinetics.Interfaces.dynamic.Dimension.StrOneWay\">GenKinetics.Interfaces.dynamic.Dimension.StrOneWay</a> . </p>
+          Documentation(info = "<html><head></head><body><p>This subpackage contains basic interface for specifying the structure of a reaction, i.e. its dimension and reversibility see <a href=\"ADGenKinetics.Interfaces.dynamic.Dimension.ReactionStructure\">ADGenKinetics.Interfaces.dynamic.Dimension.ReactionStructure</a> . Out of this interface, specialized reaction types can be created as a syntactic sugar, e.g. <a href=\"ADGenKinetics.Interfaces.dynamic.Dimension.StrOneWay\">GenKinetics.Interfaces.dynamic.Dimension.StrOneWay</a> . </p>
 <p><br>Licensed under the Modelica License 2</p>
 <p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
@@ -907,7 +909,7 @@ end Units;
 <p><br>Licensed under the Modelica License 2</p>
 <p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
-<p><b><font style=\"font-size: 19pt; \">Package Content</font></b></p><font style=\"font-size: 19pt; \">
+<p><br></p><font style=\"font-size: 19pt; \">
 </font></body></html>"));
     end dynamic;
     annotation(
@@ -958,7 +960,7 @@ end Units;
         c = c_fixed;
       end FixedConcentrationNode;
       annotation(
-        Documentation(info = "<html><head></head><body><p>This subpackage contains implmentation for nodes, chemical substances, which can be connected to arbitrary number of reactions. Typically the component <a href=\"GenKinetics.NodeElements.dynamic.Node\">GenKinetics.NodeElements.dynamic.Node</a> is the one which will be used at most. The component <a href=\"GenKinetics.NodeElements.dynamic.ModifierNode\">GenKinetics.NodeElements.dynamic.ModifierNode</a> is exactly the same and does not really provide additional functionalities (it is here only for backword compatibility reasons with older versions of this implementation). This component will mostly get removed in later versions. </p>
+        Documentation(info = "<html><head></head><body><p>This subpackage contains implmentation for nodes, chemical substances, which can be connected to arbitrary number of reactions. Typically the component <a href=\"ADGenKinetics.NodeElements.dynamic.Node\">ADGenKinetics.NodeElements.dynamic.Node</a> is the one which will be used at most. The component <a href=\"ADGenKinetics.NodeElements.dynamic.ModifierNode\">ADGenKinetics.NodeElements.dynamic.ModifierNode</a> is exactly the same and does not really provide additional functionalities (it is here only for backword compatibility reasons with older versions of this implementation). This component will mostly get removed in later versions. </p>
 <p><br>Licensed under the Modelica License 2</p>
 <p><br>Copyright ©&nbsp;<a href=\"ADGenKinetics.UserGuide.CopyRight\" style=\"font-size: 12px;\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
