@@ -1033,8 +1033,7 @@ end Units;
       package dynamic "Reactions with parameterized number of connections suitable for model generation and textual implementation"
         partial model BasicReaction "basic declaration of a reaction "
           extends Interfaces.dynamic.Dimension.ReactionDimension;
-          // Reaction Rate
-          Units.VolumetricReactionRate v;
+          Units.VolumetricReactionRate v "Reaction rate";
           // Connections to Substrates and Products
           ADGenKinetics.Interfaces.ChemicalPort_S rc_S[NS] "connection to substrates";
           ADGenKinetics.Interfaces.ChemicalPort_P rc_P[NP] "connection to product";
@@ -1044,6 +1043,7 @@ end Units;
 //rc_S[:].r = rc_S[:].n_S * v;
 //rc_P[:].r = -rc_P[:].n_P * v;
         end BasicReaction;
+
 
         partial model ReactionActivation "Interface for activating a reaction"
           parameter Integer NA = 1 "number of Metabolites activating the reaction";
