@@ -1051,10 +1051,11 @@ end Units;
           parameter Units.AffinityConst KA[NA] = ones(NA) "activation constants";
           Real A "activation term";
         equation
-          A = product({ (KA .+ mc_A.c) ./ KA for i in 1:NA});
+          A = product((KA .+ mc_A.c) ./ KA);
 //A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].mc.c) for i in 1:NA});
 //A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].c) for i in 1:NA});
         end ReactionActivation;
+
 
 
         partial model ReactionInhibition "Interface for inhibiting a reaction"
@@ -1063,10 +1064,11 @@ end Units;
           parameter Units.AffinityConst KI[NI] = ones(NI) "affinity constant of the Inhibitors";
           Real I "inhibition term in the corresponding kinetics";
         equation
-          I = product({KI ./ (KI .+ mc_I.c) for i in 1:NI});
+          I = product(KI ./ (KI .+ mc_I.c));
 //I = product({ mc_I[i].KI / (mc_I[i].KI + mc_I[i].mc.c) for i in 1:NI});
 //I = product({ mc_I[i].KI / (mc_I[i].KI + mc_I[i].c) for i in 1:NI});
         end ReactionInhibition;
+
 
 
         partial model BasicIrrReaction "basic declaration of an irreversible reaction "
@@ -1077,8 +1079,8 @@ end Units;
           Real S2;
           parameter Units.AffinityConst KmS[NS] = ones(NS) "affinity constants of the substrate nodes";
         equation
-          S1 = Vfwdmax * product({rc_S.c ./ KmS for i in 1:NS});
-          S2 = product({rc_S.c ./ KmS .+ 1 for i in 1:NS});
+          S1 = Vfwdmax * product(rc_S.c ./ KmS);
+          S2 = product(rc_S.c ./ KmS .+ 1);
 //S1 = Vfwdmax * product({rc_S[i].rc.c/rc_S[i].KmS for i in 1:NS});
 //S2 = Vfwdmax * product({rc_S[i].rc.c/rc_S[i].KmS + 1 for i in 1:NS});
 // if NS = 0 is possible, use this formulation
@@ -1086,6 +1088,7 @@ end Units;
 //S1 = Vfwdmax * product({rc_S[i].c/rc_S[i].KmS for i in 1:NS});
 //S2 = Vfwdmax * product({rc_S[i].c/rc_S[i].KmS + 1 for i in 1:NS});
         end BasicIrrReaction;
+
 
 
         partial model BasicRevReaction "basic declaration of a reversible reaction "
@@ -1096,13 +1099,14 @@ end Units;
           Real P2;
           parameter Units.AffinityConst KmP[NP] = ones(NP) "affinity constants of the product node";
         equation
-          P1 = Vbwdmax * product({rc_P.c / KmP for i in 1:NP});
-          P2 = product({rc_P.c ./ KmP .+ 1 for i in 1:NP});
+          P1 = Vbwdmax * product(rc_P.c / KmP);
+          P2 = product(rc_P.c ./ KmP .+ 1);
 //P1 = Vbwdmax * product({rc_P[i].rc.c/rc_P[i].KmP for i in 1:NP});
 //P2 = Vbwdmax * product({rc_P[i].rc.c/rc_P[i].KmP + 1 for i in 1:NP});
 //P1 = Vbwdmax * product({rc_P[i].c/rc_P[i].KmP for i in 1:NP});
 //P2 = Vbwdmax * product({rc_P[i].c/rc_P[i].KmP + 1 for i in 1:NP});
         end BasicRevReaction;
+
 
 
         class IrrKinetic "S1 + S2 + ... => P1 + P2 + ... "
