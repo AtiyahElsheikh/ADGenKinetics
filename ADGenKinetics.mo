@@ -667,25 +667,29 @@ printing and shipping costs may be recovered.</p>
       annotation(
         Documentation(info = "<html><head></head><body><p><span style=\"font-size: 12px;\">Licensed under the Modelica License 2</span></p><p><b style=\"color: rgb(170, 0, 0); font-size: x-large;\">Copyright © &lt;2011&gt;-&lt;2018&gt;, &lt;Atiyah Elsheikh&gt;.</b></p><p><i>This Modelica package is&nbsp;<u>free</u>&nbsp;software and the use is completely at&nbsp;<u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see&nbsp;<a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a>&nbsp;or visit<a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p></body></html>"));
     end CopyRight;
-  annotation(
+    annotation(
       Documentation);
   end UsersGuide;
 
-package Units "Physical units"
- type Concentration = Modelica.Icons.TypeReal (final unit = "mol/m3",min = 0);
- type MolarFlowRate = Modelica.Icons.TypeReal (final unit = "mol/s");
- type ReactionCoef = Modelica.Icons.TypeReal (final unit = "1/s");
- type StoichiometricCoef = Modelica.Icons.TypeReal (final unit = "1");
- type ReactionCoef1st = Units.ReactionCoef;
- type ReactionCoef2nd = Modelica.Icons.TypeReal (final unit = "m3/(mol.s)");
- type VolumetricReactionRate = Modelica.Icons.TypeReal (final unit = "mol/(m3.s)");
- type AffinityConst = Modelica.Icons.TypeReal (final unit = "mol/m3");
-  annotation (Documentation(info= "<html><head></head><body><p>This subpackage contains basic physical units describing main entitites of a biochemical reaction network model. </p>
+  package Units "Physical units"
+    type Concentration = Modelica.Icons.TypeReal(final quantity = "Concentration", final unit = "mol/l", min = 0);
+  type VolumetricReactionRate = Modelica.Icons.TypeReal(final quantity = "Volumetric reaction rate", final unit = "mol/(s.l)");
+  type MolarFlowRate = Modelica.Icons.TypeReal(final unit = "mol/s");
+  type ReactionCoef = Modelica.Icons.TypeReal(final unit = "1/s");
+  type StoichiometricCoef = Modelica.Icons.TypeReal(final unit = "1");
+  type ReactionCoef1st = Units.ReactionCoef;
+  type ReactionCoef2nd = Modelica.Icons.TypeReal(final unit = "l/(mol.s)");
+  type AffinityConst = Modelica.Icons.TypeReal(final unit = "mol/l");
+  type Elasticity = Modelica.Icons.TypeReal(final quantity = "Elasticity", final unit = "1");
+  type Volume = Modelica.SIunits.Conversions.NonSIunits.Volume_litre annotation(
+      Icon(coordinateSystem(extent = {{-100, 100}, {100, -100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})),
+      Diagram(coordinateSystem(extent = {{-100, 100}, {100, -100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10})));
+    annotation(
+      Documentation(info = "<html><head></head><body><p>This subpackage contains basic physical units describing main entitites of a biochemical reaction network model. </p>
 <p><br>Licensed under the Modelica License 2</p><p><br>Copyright © <a href=\"ADGenKinetics.UserGuide.CopyRight\">ADGenKinetics.UserGuide.CopyRight</a></p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </body></html>"));
-end Units;
-
+  end Units;
 
   package Interfaces "Typical interfaces"
     connector ChemicalPort "reaction connector from a node to a reaction, declared within the node side"
@@ -1044,7 +1048,6 @@ end Units;
 //rc_P[:].r = -rc_P[:].n_P * v;
         end BasicReaction;
 
-
         partial model ReactionActivation "Interface for activating a reaction"
           parameter Integer NA = 1 "number of Metabolites activating the reaction";
           ADGenKinetics.Interfaces.ModifierChemicalPort_A mc_A[NA] "connectors to the activating node";
@@ -1056,8 +1059,6 @@ end Units;
 //A = product({ mc_A[i].KA / (mc_A[i].KA + mc_A[i].c) for i in 1:NA});
         end ReactionActivation;
 
-
-
         partial model ReactionInhibition "Interface for inhibiting a reaction"
           parameter Integer NI = 1 "number of Metabolites inhibiting the reaction";
           ADGenKinetics.Interfaces.ModifierChemicalPort_I mc_I[NI] "connection to inhibitors";
@@ -1068,8 +1069,6 @@ end Units;
 //I = product({ mc_I[i].KI / (mc_I[i].KI + mc_I[i].mc.c) for i in 1:NI});
 //I = product({ mc_I[i].KI / (mc_I[i].KI + mc_I[i].c) for i in 1:NI});
         end ReactionInhibition;
-
-
 
         partial model BasicIrrReaction "basic declaration of an irreversible reaction "
           extends Reactions.convenience.dynamic.BasicReaction;
@@ -1089,8 +1088,6 @@ end Units;
 //S2 = Vfwdmax * product({rc_S[i].c/rc_S[i].KmS + 1 for i in 1:NS});
         end BasicIrrReaction;
 
-
-
         partial model BasicRevReaction "basic declaration of a reversible reaction "
           extends Reactions.convenience.dynamic.BasicIrrReaction;
           extends Interfaces.Reversible.TwoWay;
@@ -1106,8 +1103,6 @@ end Units;
 //P1 = Vbwdmax * product({rc_P[i].c/rc_P[i].KmP for i in 1:NP});
 //P2 = Vbwdmax * product({rc_P[i].c/rc_P[i].KmP + 1 for i in 1:NP});
         end BasicRevReaction;
-
-
 
         class IrrKinetic "S1 + S2 + ... => P1 + P2 + ... "
           extends ADGenKinetics.Reactions.convenience.dynamic.BasicIrrReaction;
@@ -1404,7 +1399,8 @@ end Units;
 
   package Examples
     extends Modelica.Icons.ExamplesPackage;
-    model Spirallusdyn "An abstraction of the TCA cycle with dynamic arbitrary number of connections" 
+
+    model Spirallusdyn "An abstraction of the TCA cycle with dynamic arbitrary number of connections"
       extends Modelica.Icons.Example;
       import ADGenKinetics.NodeElements.dynamic.*;
       import ADGenKinetics.Reactions.convenience.dynamic.*;
@@ -1459,10 +1455,8 @@ end Units;
       connect(v7.rc_P[1], Fex.rc);
     end Spirallusdyn;
 
-
-
     model Spirallustatic "An abstraction of the TCA cycle with static connections"
-      extends Modelica.Icons.Example; 
+      extends Modelica.Icons.Example;
       NodeElements.static.Node Aex(c_0 = 1.0) annotation(
         Placement(transformation(extent = {{-22, 212}, {-2, 232}})));
       NodeElements.static.ModifierNode A annotation(
@@ -1546,7 +1540,6 @@ end Units;
         Diagram(coordinateSystem(preserveAspectRatio = true, extent = {{-150, -250}, {200, 250}}, grid = {2, 2}, initialScale = 0.05), graphics),
         Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-150, -250}, {200, 250}}, grid = {2, 2}, initialScale = 0.05)));
     end Spirallustatic;
-
     annotation(
       Documentation(info = "<html><head></head><body><p>This subpackage contains examples of typical metablic pathway models.</p>
 <p><br>Licensed under the Modelica License 2</p>
@@ -1554,8 +1547,6 @@ end Units;
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </body></html>"));
   end Examples;
-
-
 
   package Derivatives
     package Interfaces "Typical interfaces"
